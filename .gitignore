@@ -1,0 +1,5 @@
+.stack-work/
+steno-dictionary-generator.cabal
+*~
+data/
+notes/
