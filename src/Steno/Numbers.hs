@@ -9,16 +9,16 @@ import qualified Keys.Right as R
 import Data.List (subsequences)
 
 
-n1 = Entry "1" $ [Stroke [L.S] [] [] [Hash]]
-n2 = Entry "2" $ [Stroke [L.T] [] [] [Hash]]
-n3 = Entry "3" $ [Stroke [L.P] [] [] [Hash]]
-n4 = Entry "4" $ [Stroke [L.H] [] [] [Hash]]
-n5 = Entry "5" $ [Stroke [] [A] [] [Hash]]
-n0 = Entry "0" $ [Stroke [] [O] [] [Hash]]
-n6 = Entry "6" $ [Stroke [] [] [R.Fvs] [Hash]]
-n7 = Entry "7" $ [Stroke [] [] [R.P] [Hash]]
-n8 = Entry "8" $ [Stroke [] [] [R.L] [Hash]]
-n9 = Entry "9" $ [Stroke [] [] [R.T] [Hash]]
+n1 = Entry "1" [stk L.S <> stk Hash]
+n2 = Entry "2" [stk L.T <> stk Hash]
+n3 = Entry "3" [stk L.P <> stk Hash]
+n4 = Entry "4" [stk L.H <> stk Hash]
+n5 = Entry "5" [stk A <> stk Hash]
+n0 = Entry "0" [stk O <> stk Hash]
+n6 = Entry "6" [stk R.Fvs <> stk Hash]
+n7 = Entry "7" [stk R.P <> stk Hash]
+n8 = Entry "8" [stk R.L <> stk Hash]
+n9 = Entry "9" [stk R.T <> stk Hash]
 
 numbers = [n1, n2, n3, n4, n5, n0, n6, n7, n8, n9]
 

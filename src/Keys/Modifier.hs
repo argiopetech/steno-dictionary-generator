@@ -1,8 +1,8 @@
 module Keys.Modifier where
 
-data Modifier = Star | Hash
-  deriving (Eq)
+data Modifier = Hash | Star
+  deriving (Eq, Ord)
 
 instance Show Modifier where
-  showsPrec _ Star = showString "*"
   showsPrec _ Hash = showString "#"
+  showsPrec _ Star = showString "*"

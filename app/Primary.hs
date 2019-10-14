@@ -2,151 +2,168 @@
 module Primary where
 
 import qualified Prelude as P
-import Prelude ((<>), mconcat, (.), map)
+import Prelude ((<>), mconcat, (.), ($))
 
 import Dictionary
 import Stroke
+import Suffixes
 import Keys 
 import qualified Keys.Left as L
 import qualified Keys.Right as R
 
+
+-- Left hand keys
+s = stk L.S
+t = stk L.T
+k = stk L.K
+p = stk L.P
+w = stk L.W
+h = stk L.H
+r = stk L.R
+
 -- left hand chorded sounds
-bl  = stks [L.P, L.W]
-chl = stks [L.K, L.H]
-dl  = stks [L.T, L.K]
-dhl = stks [L.T, L.H] -- As in "the"
-fl  = stks [L.T, L.P]
-gl  = stks [L.T, L.K, L.P, L.W]
-jhl = stks [L.S, L.K, L.W, L.R]-- As in "jee"
-ll  = stks [L.H, L.R]
-ml  = stks [L.P, L.H]
-nl  = stks [L.T, L.P, L.H]
-shl = stks [L.S, L.H]
-thl = dhl -- As in "thing", "theta"
-vl  = stks [L.S, L.R]
-yl  = stks [L.K, L.W, L.R]
-zl  = stks [L.S] -- Not happy with this one
+b  = stks [L.P, L.W]
+ch = stks [L.K, L.H]
+d  = stks [L.T, L.K]
+dh = stks [L.T, L.H] -- As in "the"
+f  = stks [L.T, L.P]
+g  = stks [L.T, L.K, L.P, L.W]
+jh = stks [L.S, L.K, L.W, L.R]-- As in "jee"
+l  = stks [L.H, L.R]
+m  = stks [L.P, L.H]
+n  = stks [L.T, L.P, L.H]
+sh = stks [L.S, L.H]
+th = dh -- As in "thing", "theta"
+v  = stks [L.S, L.R]
+wh = stks [L.W, L.H]
+y  = stks [L.K, L.W, L.R]
+z  = addModifier Star $ stk L.S
+
+-- Right hand keys
+fvs' = stk R.Fvs
+r' = stk R.R
+p' = stk R.P
+b' = stk R.B
+l' = stk R.L
+g' = stk R.G
+t' = stk R.T
+s' = stk R.S
+d' = stk R.D
+z' = stk R.Z
 
 -- Right hand chorded sounds
-chr = stks [R.Fvs, R.P]
-dhr = stks [R.T]
-kr  = stks [R.B, R.G]
-nr  = stks [R.P, R.B]
-ngr = nr <> stks [R.G]
-shr = stks [R.R, R.B]
+ch' = stks [R.Fvs, R.P]
+dh' = stks [R.T]
+k'  = stks [R.B, R.G]
+m'  = stks [R.P, R.L]
+n'  = stks [R.P, R.B]
+ng' = n' <> stk R.G
+sh' = stks [R.R, R.B]
 
 -- Vowel sounds, still need some work
-aa = stks [A, U]       -- short 'o': odd
-ae = stks [A]          -- short 'a': at
-ah = stks [U]          -- short 'u': hut, of
-ao = stks [A, U]       -- 'aw': ought
-aw = stks [O, U]       -- 'ow': cow
-ay = stks [A, O, E, U] -- long 'i': hide
-eh = stks [E]          -- Short 'e': Ed
-er = stks [E]          -- 'er' pair... Not sure I like this one
-ey = stks [A, E, U]    -- long 'a': ate
-ih = stks [E, U]       -- short 'i': it
-iy = stks [A, E]       -- long 'e': eat
-ow = stks [O, E]       -- long 'o': oat
-oy = stks [O, E, U]    -- 'oi': oil, toy
-uh = stks [A, O]       -- 'oo': hood, book
-uw = stks [U]          -- 'oo' for non-'oo' words: two
+a = stks [A]           -- short 'a': bat
+o = stks [A, U]        -- short 'o': bot
+aw = o                 -- 'aw': ought, use 'o' instead
+e = stks [E]           -- Short 'e': bed
+i = stks [E, U]        -- short 'i': bit
+u = stks [U]           -- short 'u': but
+
+aa = stks [A, E, U]    -- long 'a': ate
+ee = stks [A, E]       -- long 'e': eat
+ii = stks [A, O, E, U] -- long 'i': hide
+oe = stks [O, E]       -- long 'o': oat
+
+ow = stks [O, U]       -- 'ow': cow
+oi = stks [O, E, U]    -- 'oi': oil, toy
+oo = stks [A, O]       -- 'oo': hood, book
+ew = stks [O, U]       -- 'oo' for non-'oo' words: two
 
 
 -- Word sounds
-you  = stks [yl, uw]
-to   = stks [stk L.T, uw]
-for  = stks [fl, ao, stk R.R]
-of'  = stks [ah, stk R.Fvs]
-that = stks [dhl, ae, stk R.T]
-this = stks [dhl, ih, stk R.S]
-is   = stks [ih, stk R.Z]
-on   = stks [aa, nr]
-as   = stks [ae, stk R.Z]
-with = stks [stk L.W, ih, dhr]
-be   = stks [bl, iy]
-your = stks [yl, ao, stk R.R]
-have = stks [stk L.H, ae, stk R.Fvs]
-at   = stks [ae, stk R.T]
-if'  = stks [ih, stk R.Fvs]
-good = stks [gl, uh, stk R.D]
-all  = stks [ao, stk R.L]
-we   = stks [stk L.W, iy]
-thank = stks [thl, ae, ngr, kr]
-oil   = stks [oy, stk R.L]
-
-stew = stks [stks [L.S, L.T], uw]
-dnt  = stks [dl, nr, stk R.T]
-facl = stks [fl, ae, kr, stk R.L]
-ty   = stks [iy, stk R.T]
+after = stks [a, fvs', t', r']
+noon  = stks [n, oo, n']
+dnt   = stks [d, n', t']
+inter = stks [n, t', r']
+it    = stks [i, t']
+mail  = stks [m, aa, l']
+stew  = stks [s, t, ew]
+thank = stks [th, a, ng', k']
+ty'    = stks [t', ee]
+ry'    = stks [r', ee]
 
 
-primaryDictionary =
-  [Entry "the"  [dhl]
-  ,Entry "to"   [to]
-  ,Entry "I"    [ay]
-  ,Entry "for"  [for]
-  ,Entry "and"  [nr <> stk R.D]
-  ,Entry "a"    [ey]
-  ,Entry "in"   [nr]
-  ,Entry "of"   [of']
-  ,Entry "that" [that]
-  ,Entry "this" [this]
-  ,Entry "you"  [you]
-  ,Entry "is"   [is]
-  ,Entry "on"   [on]
-  ,Entry "as"   [as]
-  ,Entry "with" [with]
-  ,Entry "be"   [be]
-  ,Entry "your" [your]
-  ,Entry "have" [have]
-  ,Entry "at"   [at]
-  ,Entry "if"   [if']
-  ,Entry "good" [good]
-  ,Entry "all"  [all]
-  ,Entry "we"   [we]
-  ,Entry "thank" [thank]
-  ,Entry "thanks" [thank <> stk R.S]
-  ,Entry "stew" [stew]
-  ,Entry "dent" [dnt <> eh]
-  ,Entry "student"  [stew, dnt]
-  ,Entry "students" [stew, dnt <> stk R.S]
-  ,Entry "was"      [stk L.W, stk U, stk R.Z]
-  ,Entry "not"      []
-  ,Entry "it"       []
-  ,Entry "Elliot"   [eh <> stks [R.L, R.T]]
-  ,Entry "I'm"      []
-  ,Entry "or"       []
-  ,Entry "faculty"  [facl <> ty]
-  ,Entry "my"    []
-  ,Entry "from"  []
-  ,Entry "email" []
-  ,Entry "some"  []
-  ,Entry "can"   []
-  ,Entry "but"   []
-  ,Entry "best"  []
-  ,Entry "are"   []
-  ,Entry "afternoon" []
-  ,Entry "Aaron"     []
-  ,Entry "time"      []
-  ,Entry "they"      []
-  ,Entry "present" []
-  ,Entry "morning" []
-  ,Entry "by"    []
-  ,Entry "an"    []
-  ,Entry "will"  []
-  ,Entry "which" []
-  ,Entry "out" []
-  ,Entry "our" []
-  ,Entry "me"  []
-  ,Entry "do"  []
-  ,Entry "interviews" []
-  ,Entry "been" []
-  ,Entry "were" []
-  ,Entry "well" []
-  ,Entry "up" []
-  ,Entry "no" []
-  ,Entry "more" []
-  ,Entry "it's" []
-  ,Entry "its" []
+primaryDictionary = entries
+  [entry "/" [stk O <> stk E <> stk U]
+  ,entry "{^}{#Return}{^}{MODE:RESET}" [r <> r']
+  ,entry "{^}{#Return}{^}{-|}" [w <> r <> r' <> b']
+  ,entry "{^}{#Return}{#Return}{^}{-|}" [k <> w <> r <> r' <> b' <> g']
+  ,entry "the"     [dh']
+  ,entryS "Aaron"  [e <> r' <> n'] [contractS]
+  ,entryS "Elliot" [e <> l' <> t'] [contractS]
+  ,entryS "I"      [ii] [contractM]
+  ,entry "a"       [aa]
+  ,entry "after"   [after]
+  ,entryS "afternoon" [after, noon] [plural]
+  ,entry "all"   [aw <> l']
+  ,entry "an"    [a <> n']
+  ,entry "and"   [n' <> d']
+  ,entry "are"   [a <> r']
+  ,entry "as"    [a <> z']
+  ,entry "at"    [a <> t']
+  ,entry "be"    [b <> ee]
+  ,entry "been"  [b <> i <> n']
+  ,entry "best"  [b <> e <> fvs' <> t']
+  ,entry "but"   [b <> u <> t']
+  ,entry "by"    [b <> ii]
+  ,entry "can"   [k <> a <> n']
+  ,entryS "dent" [d <> e <> n' <> t'] [plural]
+  ,entry "do"    [d <> ew]
+  ,entryS "email" [ee, mail] [ing]
+  ,entryS "faculty" [f <> a <> k' <> l' <> ty'] [contractS]
+  ,entry "for"  [f <> o <> r']
+  ,entry "from" [f <> r <> o <> m']
+  ,entry "good" [g <> oo <> d']
+  ,entry "have" [h <> a <> fvs']
+  ,entry "if"   [i <> fvs']
+  ,entry "in"   [n']
+  ,entryS "interview" [inter, v <> ew] [plural]
+  ,entry "is"   [i <> z']
+  ,entryS "it"   [it] [plural, contractS]
+  ,entryS "mail" [mail] [ing]
+  ,entry "male" [rep [A, E] mail]
+  ,entry "me"   [m <> ee]
+  ,entry "more" [m <> oe <> r']
+  ,entryS "morning" [m <> oe <> r' <> ng'] [plural, contractS]
+  ,entry "my"  [m <> ii]
+  ,entry "no"  [n <> oe]
+  ,entry "noon" [noon]
+  ,entry "not" [n <> o <> t']
+  ,entry "of"  [u <> fvs']
+  ,entryS "oil" [oi <> l'] [ing, ed]
+  ,entry "on"  [o <> n']
+  ,entry "or"  [o <> r']
+  ,entry "ordinary" [o <> r' <> d', n <> e <> ry']
+  ,entry "our" [ow <> r']
+  ,entry "out" [ow <> t']
+  ,entryS "present" [p <> r <> e <> z' <> n' <> t'] [ing, ed]
+  ,entry "some"    [s <> u <> m']
+  ,entry "stew"    [stew]
+  ,entryS "student"  [stew, dnt] [plural, contractS, pluralPosessive]
+  ,entryS "thank"  [thank] [plural, ing, ed]
+  ,entry "that" [dh <> a <> t']
+  ,entry "they" [dh <> aa]
+  ,entry "this" [dh <> i <> s']
+  ,entry "time" [t <> ii <> m']
+  ,entry "to"   [t <> ew]
+  ,entry "up"   [u <> p']
+  ,entry "was"  [w <> u <> z']
+  ,entry "we"   [w <> ee]
+  ,entry "well" [w <> e <> l']
+  ,entry "were" [w <> u <> r']
+  ,entry "which" [wh <> i <> ch']
+  ,entry "will"  [w <> i <> l']
+  ,entry "with" [w <> i <> dh']
+  ,entryS "wonder" [w <> u <> n', d' <> r'] [plural, ed, ing]
+  ,entry "you"  [y <> ew]
+  ,entry "your" [y <> o <> r']
   ]

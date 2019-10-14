@@ -2,37 +2,42 @@
 module Stroke where
 
 import Keys
+
 import qualified Keys.Left as L
 import qualified Keys.Right as R
 
 import Data.List (sort, nub, partition)
+import Data.Set (Set)
+
+import qualified Data.Set as S
 
 
-data Stroke = Stroke [LeftKey] [Vowel] [RightKey] [Modifier]
+data Stroke = Stroke (Set LeftKey) (Set Vowel) (Set RightKey) (Set Modifier)
+  deriving (Eq, Ord)
 
 lefts :: [LeftKey] -> Stroke
-lefts ks = Stroke ks [] [] []
+lefts ks = Stroke (S.fromList ks) mempty mempty mempty
 
 rights :: [RightKey] -> Stroke
-rights ks = Stroke [] [] ks []
+rights ks = Stroke mempty mempty (S.fromList ks) mempty
 
 vowels :: [Vowel] -> Stroke
-vowels ks = Stroke [] ks [] []
+vowels ks = Stroke mempty (S.fromList ks) mempty mempty
 
 modifiers :: [Modifier] -> Stroke
-modifiers ks = Stroke [] [] [] ks
+modifiers ks = Stroke mempty mempty mempty (S.fromList ks)
 
 addLeft :: LeftKey -> Stroke -> Stroke
-addLeft k (Stroke ls vs rs ms) = Stroke (k:ls) vs rs ms
+addLeft k (Stroke ls vs rs ms) = Stroke (k `S.insert` ls) vs rs ms
 
 addVowel :: Vowel -> Stroke -> Stroke
-addVowel k (Stroke ls vs rs ms) = Stroke ls (k:vs) rs ms
+addVowel k (Stroke ls vs rs ms) = Stroke ls (k `S.insert` vs) rs ms
 
 addRight :: RightKey -> Stroke -> Stroke
-addRight k (Stroke ls vs rs ms) = Stroke ls vs (k:rs) ms
+addRight k (Stroke ls vs rs ms) = Stroke ls vs (k `S.insert` rs) ms
 
 addModifier :: Modifier -> Stroke -> Stroke
-addModifier k (Stroke ls vs rs ms) = Stroke ls vs rs (k:ms)
+addModifier k (Stroke ls vs rs ms) = Stroke ls vs rs (k `S.insert` ms)
 
 class Strokable k where
   stk  :: k -> Stroke
@@ -44,68 +49,65 @@ instance Strokable Stroke where
   stks = mconcat
 
 instance Strokable LeftKey where
-  stk k = Stroke [k] [] [] []
+  stk k = lefts [k]
 
 instance Strokable Vowel where
-  stk k = Stroke [] [k] [] []
+  stk k = vowels [k]
 
 instance Strokable RightKey where
-  stk k = Stroke [] [] [k] []
+  stk k = rights [k]
 
 instance Strokable Modifier where
-  stk k = Stroke [] [] [] [k]
+  stk k = modifiers [k]
 
 
 class Replace k where
   rep :: [k] -> Stroke -> Stroke
 
 instance Replace LeftKey where
-  rep ks (Stroke _ vs rs ms) = Stroke ks vs rs ms
+  rep ks (Stroke _ vs rs ms) = Stroke (S.fromList ks) vs rs ms
 
 instance Replace Vowel where
-  rep ks (Stroke ls _ rs ms) = Stroke ls ks rs ms
+  rep ks (Stroke ls _ rs ms) = Stroke ls (S.fromList ks) rs ms
   
 instance Replace RightKey where
-  rep ks (Stroke ls vs _ ms) = Stroke ls vs ks ms
+  rep ks (Stroke ls vs _ ms) = Stroke ls vs (S.fromList ks) ms
 
 instance Replace Modifier where
-  rep ks (Stroke ls vs rs _) = Stroke ls vs rs ks
+  rep ks (Stroke ls vs rs _) = Stroke ls vs rs (S.fromList ks)
 
 
 instance Semigroup Stroke where
   (<>) (Stroke l1 v1 r1 m1) (Stroke l2 v2 r2 m2) =
-    Stroke (l1 ++ l2) (v1 ++ v2) (r1 ++ r2) (m1 ++ m2)
+    Stroke (l1 <> l2) (v1 <> v2) (r1 <> r2) (m1 <> m2)
 
 
 instance Monoid Stroke where
-  mempty = Stroke [] [] [] []
+  mempty = Stroke mempty mempty mempty mempty
   
 
 instance Show Stroke where
   showsPrec _ = showString . showStroke
 
 showStroke (Stroke ls vs rs ms) =
-  let sls = sortNub ls
-      (lvs, hvs) = partition (< E) . sortNub $ vs
-      srs = sortNub rs
-      hasHash = elem Hash ms
-      hasStar = elem Star ms
-      anyNumeric = elem True $ map hasNum ls
-                            ++ map hasNum vs
-                            ++ map hasNum rs
+  let (lvs, hvs) = S.partition (< E) vs
+      hasHash = S.member Hash ms
+      hasStar = S.member Star ms
+      anyNumeric = S.member True $ S.map hasNum ls
+                                 <> S.map hasNum vs
+                                 <> S.map hasNum rs
       hash = if hasHash && not anyNumeric then show Hash else mempty
       star = if hasStar then show Star else mempty
-      hyphen = if not hasStar && null vs && not (null rs)
+      hyphen = if not hasStar && S.null vs && not (null rs)
                  then "-" else mempty
       showAll ss =
-        let css = map (if hasHash then toNums else show) ss
+        let css = map (if hasHash then toNums else show) $ S.toAscList ss
         in concat css
-  in hash ++ showAll sls
+  in hash ++ showAll ls
           ++ showAll lvs
           ++ star ++ hyphen
           ++ showAll hvs
-          ++ showAll srs
-  where sortNub = sort . nub
+          ++ showAll rs
 
 
 class HasNumericRepresentation n where
