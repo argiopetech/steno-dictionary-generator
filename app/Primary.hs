@@ -162,6 +162,7 @@ primaryDictionary =
   ,entryS "reason"  [r <> ee <> fvs' <> n']
                     [plural]
   ,entry  "real"    [r <> ee <> l']
+  ,entry  "right"   [r <> ii <> t']
   ,entry  "run"     [r <> u <> n']
 
   -- s section
