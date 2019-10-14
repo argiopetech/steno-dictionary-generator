@@ -133,6 +133,7 @@ primaryDictionary = entries
   ,entryS "interview" [inter, v <> ew] [plural]
   ,entry "is"   [i <> z']
   ,entryS "it"   [it] [plural, contractS]
+  ,entryS "kid"  [k <> i <> d'] [ing]
   ,entry "kitty" [k <> i <> ty']
   ,entryS "mail" [mail] [ing]
   ,entry "male" [rep [A, E] mail]
