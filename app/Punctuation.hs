@@ -21,7 +21,7 @@ coding =
   ]
 
 punctuation =
-  let equal = stk L.K <> L.W <> L.R <> L.R
+  let equal = stk L.K <> stk L.W <> stk L.R <> stk L.R
   in [Entry "{,}" [stk L.K <> stk L.W <> stk R.B <> stk R.G]
      ,Entry "{.}" [stk L.T <> stk L.P <> stk R.P <> stk R.L]
      ,Entry "{?}" [stk L.K <> stk L.W <> stk R.P <> stk R.L]
@@ -39,6 +39,6 @@ punctuation =
      ,Entry "{^-^}"  [stk L.H <> stk R.R]
      ,Entry "{^--^}" [stk L.H <> stk R.R <> stk R.B]
      ,Entry "=" [equal]
-     ,Entry "{^=^}" [equal <> R.S]
+     ,Entry "{^=^}" [equal <> stk R.S]
      ,Entry "==" [equal, equal]
      ]
