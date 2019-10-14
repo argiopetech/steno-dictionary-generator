@@ -10,7 +10,7 @@ import qualified Keys.Right as R
 hundredsModifier = addRight R.Z
 reverseModifier  = addVowel U . addVowel E
 fingerspellingModifier = addModifier Star
-capsModifier = addRight R.P
+capsModifier = addRight R.Fvs
 
 shiftModifier = capsModifier . fingerspellingModifier
 controlModifier = addRight R.R . fingerspellingModifier

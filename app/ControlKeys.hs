@@ -8,8 +8,10 @@ import Stroke
 import qualified Keys.Left as L
 import qualified Keys.Right as R
 
+leftArrow = stk R.Fvs
+
 arrows = 
-  [Entry "Left" [stk R.Fvs]
+  [Entry "Left" [leftArrow]
   ,Entry "Right" [stk R.T]
   ,Entry "Up" [stk R.L]
   ,Entry "Down" [stk R.P]]
