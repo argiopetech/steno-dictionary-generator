@@ -12,7 +12,7 @@ import qualified Keys.Right as R
 coding =
   [Entry "." [stk L.T <> stk L.K <> stk O <> stk R.T]
   ,Entry "{^.^}" [stk L.P <> stk R.P]
-  ,Entry "{^\\^}" [stk L.S <> stk L.H <> stk L.R <> stk A]
+  ,Entry "{^\\\\^}" [stk L.S <> stk L.H <> stk L.R <> stk A]
   ,Entry "/" [stk L.T <> stk L.K <> stk E <> stk U <> stk R.Fvs]
   ,Entry "{^/^}" [stk O <> stk E <> stk U]
   ,Entry "*" [stk L.T <> stk A <> stk O <> stk E <> stk U
@@ -26,8 +26,8 @@ punctuation =
      ,Entry "{.}" [stk L.T <> stk L.P <> stk R.P <> stk R.L]
      ,Entry "{?}" [stk L.K <> stk L.W <> stk R.P <> stk R.L]
      ,Entry "{!}" [stk L.T <> stk L.P <> stk R.B <> stk R.G]
-     ,Entry "{~|\"^}" [stk L.K <> stk L.W <> stk R.G <> stk R.S]
-     ,Entry "{^~|\"}" [stk L.K <> stk L.R <> stk R.G <> stk R.S]
+     ,Entry "{~|\\\"^}" [stk L.K <> stk L.W <> stk R.G <> stk R.S]
+     ,Entry "{^~|\\\"}" [stk L.K <> stk L.R <> stk R.G <> stk R.S]
      ,Entry "{~|\'^}" [stk L.S <> stk L.K <> stk R.G <> stk R.S]
      ,Entry "{^~|\'}" [stk L.S <> stk L.R <> stk R.G <> stk R.S]
      ,Entry "{~|(^}" [stk L.P <> stk L.R <> stk E <> stk R.P <> stk R.B]

@@ -27,7 +27,7 @@ library:
   source-dirs: src
 
 executables:
-  steno-dictionary-generator-exe:
+  steno-dictionary-generator:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
