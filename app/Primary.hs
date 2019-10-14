@@ -153,7 +153,7 @@ primaryDictionary = entries
   ,entry "that" [dh <> a <> t']
   ,entry "they" [dh <> aa]
   ,entry "this" [dh <> i <> s']
-  ,entry "time" [t <> ii <> m']
+  ,entryS "time" [t <> ii <> m'] [plural]
   ,entry "to"   [t <> ew]
   ,entry "up"   [u <> p']
   ,entry "was"  [w <> u <> z']
