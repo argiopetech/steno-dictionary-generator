@@ -154,6 +154,7 @@ primaryDictionary =
   -- p section
   ,entryS "present" [p <> r <> e <> z' <> n' <> t']
                     [ing, ed]
+  ,entry  "push"    [p <> oo <> sh']
 
   -- q section
 
