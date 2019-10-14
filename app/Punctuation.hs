@@ -4,41 +4,45 @@ import Dictionary
 import Keys
 import Steno.Alphabet
 import Stroke
+import Sounds
 
 import qualified Keys.Left as L
 import qualified Keys.Right as R
 
 
 coding =
-  [Entry "." [stk L.T <> stk L.K <> stk O <> stk R.T]
-  ,Entry "{^.^}" [stk L.P <> stk R.P]
-  ,Entry "{^\\\\^}" [stk L.S <> stk L.H <> stk L.R <> stk A]
-  ,Entry "/" [stk L.T <> stk L.K <> stk E <> stk U <> stk R.Fvs]
+  [Entry "." [d <> o <> t']
+  ,Entry "{^.^}" [p <> p']
+  ,Entry "{^\\\\^}" [s <> l <> a]
+  --,Entry "/" [d <> i <> fvs'] -- div; I don't like this
   ,Entry "{^/^}" [stk O <> stk E <> stk U]
-  ,Entry "*" [stk L.T <> stk A <> stk O <> stk E <> stk U
-           <> stk R.P <> stk R.L <> stk R.Z]
-  ,Entry "{^*^}" [stk L.S <> stk L.T <> stk L.R <> stk R.Fvs <> stk R.B <> stk R.G]
+  ,Entry "*" [t <> ii <> m' <> z']
+  ,Entry "{^*^}" [s <> t <> r <> fvs' <> b' <> g']
   ]
 
 punctuation =
-  let equal = stk L.K <> stk L.W <> stk L.R <> stk L.R
+  let equal = k <> w <> l
   in [Entry "{,}" [stk L.K <> stk L.W <> stk R.B <> stk R.G]
      ,Entry "{.}" [stk L.T <> stk L.P <> stk R.P <> stk R.L]
-     ,Entry "{?}" [stk L.K <> stk L.W <> stk R.P <> stk R.L]
-     ,Entry "{!}" [stk L.T <> stk L.P <> stk R.B <> stk R.G]
+     ,Entry "{!}" [stk L.K <> stk L.W <> stk R.P <> stk R.L]
+     ,Entry "{?}" [stk L.T <> stk L.P <> stk R.B <> stk R.G]
      ,Entry "{~|\\\"^}" [stk L.K <> stk L.W <> stk R.G <> stk R.S]
      ,Entry "{^~|\\\"}" [stk L.K <> stk L.R <> stk R.G <> stk R.S]
-     ,Entry "{~|\'^}" [stk L.S <> stk L.K <> stk R.G <> stk R.S]
+     ,Entry "{~|\'^}" [stk L.S <> stk L.W <> stk R.G <> stk R.S]
      ,Entry "{^~|\'}" [stk L.S <> stk L.R <> stk R.G <> stk R.S]
      ,Entry "{~|(^}" [stk L.P <> stk L.R <> stk E <> stk R.P <> stk R.B]
      ,Entry "{^~|)}" [stk L.P <> stk L.R <> stk E <> stk R.P <> stk R.B <> stk R.T]
-     ,Entry "{~|{^}" [stk L.K <> stk L.R <> stk E <> stk R.P <> stk R.B]
-     ,Entry "{^~|}}" [stk L.K <> stk L.R <> stk E <> stk R.P <> stk R.B <> stk R.T]
+     ,Entry "{~|\\\\{^}" [stk L.K <> stk L.R <> stk E <> stk R.P <> stk R.B]
+     ,Entry "{^~|\\\\}}" [stk L.K <> stk L.R <> stk E <> stk R.P <> stk R.B <> stk R.T]
      ,Entry "{~|[^}" [stk L.S <> stk L.R <> stk E <> stk R.P <> stk R.B]
      ,Entry "{^~|]}" [stk L.S <> stk L.R <> stk E <> stk R.P <> stk R.B <> stk R.T]
      ,Entry "{^-^}"  [stk L.H <> stk R.R]
      ,Entry "{^--^}" [stk L.H <> stk R.R <> stk R.B]
+     ,Entry "{^_^}" [s, k, r]
      ,Entry "=" [equal]
      ,Entry "{^=^}" [equal <> stk R.S]
      ,Entry "==" [equal, equal]
+     ,Entry "<{^}" [w <> a <> k']
+     ,Entry "{^}>" [w <> a <> k' <> t']
+     ,Entry "{^~^}" [t <> l <> d']
      ]

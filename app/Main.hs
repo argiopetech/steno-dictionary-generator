@@ -7,6 +7,7 @@ import Plover
 import Primary
 import Punctuation
 import Dictionary
+import Emacs
 import Keys
 import Steno.Alphabet
 import Steno.Numbers
@@ -22,7 +23,12 @@ numberEntries = hundreds hundredsModifier
 
 specialKeyEntries =
   let specialLeft = (Entry "Left" [leftArrow <> stk Hash] :) $ tail arrows
-  in controlKeys controlModifier control (backspace : alphabet)
+      fSlash      = Entry "/" [stk O, stk E, stk U]
+      cKeys       = space : tab : fSlash : backspace : alphabet
+  in controlKeys controlModifier control cKeys
+  ++ controlKeys (shiftModifier . controlModifier)
+                 (shift . control)
+                 cKeys
   ++ controlKeys altModifier alt alphabet
   ++ controlKeys superModifier super (space : alphabet)
   ++ controlKeys controlRModifier controlR (home : alphabet)
@@ -42,9 +48,9 @@ allEntries = alphabetEntries ++ numberEntries ++ specialKeyEntries ++ primaryDic
 
 main :: IO ()
 main = do
+  someBoundaryErrors <- printBoundaryErrors $ checkBoundaryErrors allEntries
   someEmpties <- printIfEmpty    $ checkEmpty     allEntries
   someDupls   <- printDuplicates $ checkDuplicate allEntries
-  someBoundaryErrors <- printBoundaryErrors $ checkBoundaryErrors allEntries
 
   when (not (someEmpties || someDupls {-|| someBoundaryErrors-})) $ do
     writeJson "alphabet"     alphabetEntries
@@ -54,5 +60,6 @@ main = do
     writeJson "punctuation"  punctuation
     writeJson "coding"       coding
     writeJson "plover"       plover
+    writeJson "emacs"        emacs
 
   where writeJson n = writeFile (n ++ ".json") . toJson

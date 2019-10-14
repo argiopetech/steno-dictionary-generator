@@ -10,7 +10,7 @@ import qualified Keys.Right as R
 
 leftArrow = stk R.Fvs
 
-arrows = 
+arrows =
   [Entry "Left" [leftArrow]
   ,Entry "Right" [stk R.T]
   ,Entry "Up" [stk R.L]
@@ -20,13 +20,13 @@ home = Entry "Home" [stk R.P <> stk R.B]
 space = Entry "Space" [stk L.S <> stk L.P]
 enter = Entry "Return" [stk L.R <> stk L.T]
 backspace = Entry "Backspace" [stk R.D]
-
+tab = Entry "Tab" [stk L.T <> stk A]
 
 specialKeys =
-  [Entry "Tab" [stk L.T <> stk A]
+  [tab
   ,Entry "Escape" [stk L.S <> stk L.K <> stk L.P]
-  ,Entry "PgUp" [stk R.P <> stk R.L]
-  ,Entry "PgDown" [stk R.B <> stk R.G]
+  ,Entry "Page_Up" [stk R.P <> stk R.L]
+  ,Entry "Page_Down" [stk R.B <> stk R.G]
   ,home
   ,Entry "End" [stk R.T <> stk R.S]
   ,Entry "Delete" [stk R.Z]
@@ -34,4 +34,4 @@ specialKeys =
 
 controlKeys modifier control = map go
   where go (Entry n s) =
-          Entry ("{}{#" ++ control n ++ "}") $ map modifier s
+          Entry ("{}{#" ++ control n ++ "}{^}") $ map modifier s

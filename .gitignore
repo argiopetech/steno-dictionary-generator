@@ -3,3 +3,5 @@ steno-dictionary-generator.cabal
 *~
 data/
 notes/
+*.lock
+.liquid/

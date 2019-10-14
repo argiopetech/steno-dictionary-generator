@@ -2,7 +2,7 @@ module Sounds where
 
 import Stroke
 import Suffixes
-import Keys 
+import Keys
 import qualified Keys.Left as L
 import qualified Keys.Right as R
 
@@ -46,13 +46,14 @@ d' = stk R.D
 z' = stk R.Z
 
 -- Right hand chorded sounds
-ch' = stks [R.Fvs, R.P]
 dh' = stks [R.T]
 k'  = stks [R.B, R.G]
 m'  = stks [R.P, R.L]
 n'  = stks [R.P, R.B]
 ng' = n' <> stk R.G
-sh' = stks [R.R, R.B]
+sh' = stks [fvs', p']
+ch' = stks [r', b']
+shn' = stks [sh', n']
 
 -- Vowel sounds, still need some work
 a = stks [A]           -- short 'a': bat

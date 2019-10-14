@@ -23,9 +23,7 @@ pluralPosessive = suffixS [R.S, R.Z] "s'"
 contractLL = suffix R.L "'ll"
 contractM = suffixS [R.P, R.L] "'m"
 contractS = suffix R.Z "'s"
+contractD = suffix R.D "'d"
 
 ing = suffix R.G "{^ing}"
 ed = suffix R.D "{^ed}"
-
-
-
