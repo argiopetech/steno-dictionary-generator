@@ -93,8 +93,7 @@ ry'    = stks [r', ee]
 
 
 primaryDictionary = entries
-  [entry "/" [stk O <> stk E <> stk U]
-  ,entry "{^}{#Return}{^}{MODE:RESET}" [r <> r']
+  [entry "{^}{#Return}{^}{MODE:RESET}" [r <> r']
   ,entry "{^}{#Return}{^}{-|}" [w <> r <> r' <> b']
   ,entry "{^}{#Return}{#Return}{^}{-|}" [k <> w <> r <> r' <> b' <> g']
   ,entry "the"     [dh']

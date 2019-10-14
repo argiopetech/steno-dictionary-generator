@@ -17,6 +17,8 @@ arrows =
 home = Entry "Home" [stk R.P <> stk R.B]
 space = Entry "Space" [stk L.S <> stk L.P]
 enter = Entry "Return" [stk L.R <> stk L.T]
+backspace = Entry "Backspace" [stk R.D]
+
 
 specialKeys =
   [Entry "Tab" [stk L.T <> stk A]
@@ -24,7 +26,9 @@ specialKeys =
   ,Entry "PgUp" [stk R.P <> stk R.L]
   ,Entry "PgDown" [stk R.B <> stk R.G]
   ,home
-  ,Entry "End" [stk R.T <> stk R.S]]
+  ,Entry "End" [stk R.T <> stk R.S]
+  ,Entry "Delete" [stk R.Z]
+  ,backspace]
 
 controlKeys modifier control = map go
   where go (Entry n s) =
