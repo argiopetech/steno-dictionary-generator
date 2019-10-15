@@ -147,13 +147,14 @@ primaryDictionary =
   ,entry  "on"       [o <> n']
   ,entry  "only"     [oe <> n' <> ly']
   ,entry  "or"       [o <> r']
-  ,entry  "ordinary" [o <> r' <> d', n <> e <> ry']
+  ,entryS "ordinary" [o <> r' <> d', n <> e <> ry']
+                     [ly]
   ,entry  "our"      [ow <> r']
   ,entry  "out"      [ow <> t']
 
   -- p section
   ,entryS "present" [p <> r <> e <> z' <> n' <> t']
-                    [ing, ed]
+                    [ing, ed, ly]
   ,entry  "push"    [p <> oo <> sh']
 
   -- q section
@@ -177,8 +178,8 @@ primaryDictionary =
   ,entry  "stew"       [stew]
   ,entryS "student"    [stew, dnt]
                        [plural, contractS, pluralPosessive]
-  ,entry  "sure"       [sure]
-  ,entry  "surely"     [sure <> ly']
+  ,entryS "sure"       [sure]
+                       [ly]
 
   -- t section
   ,entryS "thank" [thank]
