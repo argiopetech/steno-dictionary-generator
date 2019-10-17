@@ -1,0 +1,4 @@
+{
+"R-RB": "{^}{IME:EDITOR_ACTION}{^}{MODE:RESET}",
+"*": "=undo"
+}
