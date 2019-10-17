@@ -3,6 +3,7 @@ module Main where
 import CommonIssues
 import Config
 import ControlKeys
+import Dotterel
 import Plover
 import Primary
 import Punctuation
@@ -63,5 +64,6 @@ main = do
     writeJson "plover"       plover
     writeJson "emacs"        emacs
     writeJson "xmonad"       xmonad
+    writeJson "dotterel"     dotterel
 
   where writeJson n = writeFile (n ++ ".json") . toJson
