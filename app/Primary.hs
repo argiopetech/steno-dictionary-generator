@@ -62,6 +62,7 @@ primaryDictionary =
   ,entry  "can"    [k <> a <> n']
   ,entry  "cat"    [k <> a <> t']
   ,entry  "cd"     [k <> r <> d'] -- as in, fingerspelling 'c'
+  ,entry  "chrome" [k <> r <> oe <> m']
   ,entryS "come"   [come]
                    [ing]
   ,entry  "commit" [k <> m <> i <> t']

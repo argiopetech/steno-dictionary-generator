@@ -12,6 +12,7 @@ import Keys
 import Steno.Alphabet
 import Steno.Numbers
 import Stroke
+import XMonad
 
 import Control.Monad (when)
 
@@ -30,11 +31,11 @@ specialKeyEntries =
                  (shift . control)
                  cKeys
   ++ controlKeys altModifier alt alphabet
-  ++ controlKeys superModifier super (space : alphabet)
+  ++ controlKeys superModifier super (tab : space : alphabet)
   ++ controlKeys controlRModifier controlR (home : alphabet)
   ++ controlKeys (shiftModifier . superModifier)
                  (shift . super)
-                 (enter : alphabet)
+                 (tab : enter : alphabet)
   ++ controlKeys fingerspellingModifier id arrows
   ++ controlKeys shiftModifier shift specialLeft
   ++ controlKeys controlModifier control arrows
@@ -43,7 +44,7 @@ specialKeyEntries =
                  specialLeft
   ++ controlKeys fingerspellingModifier id specialKeys
 
-allEntries = alphabetEntries ++ numberEntries ++ specialKeyEntries ++ primaryDictionary ++ punctuation ++ coding ++ plover
+allEntries = alphabetEntries ++ numberEntries ++ specialKeyEntries ++ primaryDictionary ++ punctuation ++ coding ++ plover ++ xmonad
 
 
 main :: IO ()
@@ -61,5 +62,6 @@ main = do
     writeJson "coding"       coding
     writeJson "plover"       plover
     writeJson "emacs"        emacs
+    writeJson "xmonad"       xmonad
 
   where writeJson n = writeFile (n ++ ".json") . toJson
