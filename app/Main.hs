@@ -23,6 +23,8 @@ alphabetEntries = fingerspelling fingerspellingModifier capsModifier
 numberEntries = hundreds hundredsModifier
              ++ reverses reverseModifier
 
+tinyModifications = reverses (addVowel E)
+
 specialKeyEntries =
   let specialLeft = (Entry "Left" [leftArrow <> stk Hash] :) $ tail arrows
       fSlash      = Entry "/" [stk O, stk E, stk U]
@@ -65,5 +67,6 @@ main = do
     writeJson "emacs"        emacs
     writeJson "xmonad"       xmonad
     writeJson "dotterel"     dotterel
+    writeJson "tinymod"      tinyModifications
 
   where writeJson n = writeFile (n ++ ".json") . toJson
