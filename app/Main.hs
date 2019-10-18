@@ -33,7 +33,8 @@ specialKeyEntries =
   ++ controlKeys (shiftModifier . controlModifier)
                  (shift . control)
                  cKeys
-  ++ controlKeys altModifier alt alphabet
+  ++ controlKeys altModifier alt (tab : alphabet)
+  ++ controlKeys (shiftModifier . altModifier) (shift . alt) [tab]
   ++ controlKeys superModifier super (tab : space : alphabet)
   ++ controlKeys controlRModifier controlR (home : alphabet)
   ++ controlKeys (shiftModifier . superModifier)
