@@ -54,6 +54,7 @@ primaryDictionary =
   ,entry  "been"  [b <> i <> n']
   ,entry  "best"  [b <> e <> fvs' <> t']
   ,entryS "break" [b <> r <> aa <> k'] [ing]
+  ,entry  "broadcast" [b <> r <> o <> d', k <> a <> fvs' <> t']
   ,entryS "build" [b <> i <> l' <> d'] [ing]
   ,entry  "but"   [b <> u <> t']
   ,entry  "by"    [b <> ii]
@@ -74,12 +75,14 @@ primaryDictionary =
   ,entry  "do"   [d <> ew]
 
   -- e section
-  ,entry  "early"  [r <> l]
-  ,entry  "echo"   [e <> k']
-  ,entryS "Elliot" [e <> l' <> t'] [contractS]
-  ,entryS "email"  [ee, mail]      [ing]
-  ,entry  "Emily"  [e <> m, ly']
-
+  ,entry  "early"     [r <> l]
+  ,entry  "echo"      [e <> k']
+  ,entryS "Elliot"    [e <> l' <> t'] [contractS]
+  ,entryS "email"     [ee, mail]      [ing]
+  ,entry  "emergency" [m <> e <> r' <> g', n <> s' <> ee]
+  ,entry  "Emily"     [e <> m, ly']
+  ,entry  "entry"     [n, t <> r <> ee]
+   
   -- f section
   ,entryS "faculty" [f <> a <> k' <> l' <> ty']
                     [contractS]
@@ -181,8 +184,10 @@ primaryDictionary =
                        [plural, contractS, pluralPosessive]
   ,entryS "sure"       [sure]
                        [ly]
+  ,entry  "system"     [s <> i <> s', t <> m']
 
   -- t section
+  ,entry  "test"  [t <> e <> fvs' <> t']
   ,entryS "thank" [thank]
                   [plural, ing, ed]
   ,entry  "that"  [dh <> a <> t']
