@@ -46,4 +46,5 @@ punctuation =
      ,Entry "<{^}" [w <> a <> k']
      ,Entry "{^}>" [w <> a <> k' <> t']
      ,Entry "{^~^}" [t <> l <> d']
+     ,Entry ":" [s <> t <> p <> h <> fvs' <> p' <> l' <> t']
      ]

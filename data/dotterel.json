@@ -122,6 +122,7 @@
 "STKPW*": "{>}{&z}",
 "STKPW*F": "{&Z}",
 "STKPW*R": "{}{#Control_L(z)}{^}",
+"STPH-FPLT": ":",
 "SKP": "Escape",
 "SKWR*": "{>}{&j}",
 "SKWR*F": "{&J}",

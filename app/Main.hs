@@ -39,7 +39,7 @@ specialKeyEntries =
   ++ controlKeys controlRModifier controlR (home : alphabet)
   ++ controlKeys (shiftModifier . superModifier)
                  (shift . super)
-                 (tab : enter : alphabet)
+                 (space : tab : enter : alphabet)
   ++ controlKeys shiftModifier shift specialLeft
   ++ controlKeys controlModifier control arrows
   ++ controlKeys (shiftModifier . controlModifier)

@@ -142,6 +142,7 @@
 "KP*RZ": "{}{#Control_R(x)}{^}",
 "KWR*RZ": "{}{#Control_R(y)}{^}",
 "STKPW*RZ": "{}{#Control_R(z)}{^}",
+"SP*FS": "{}{#shift(super(Space))}{^}",
 "TA*FS": "{}{#shift(super(Tab))}{^}",
 "TR*FS": "{}{#shift(super(Return))}{^}",
 "A*FS": "{}{#shift(super(a))}{^}",
