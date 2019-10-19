@@ -18,6 +18,7 @@ coding =
   ,Entry "{^/^}" [stk O <> stk E <> stk U]
   ,Entry "*" [t <> ii <> m' <> z']
   ,Entry "{^*^}" [s <> t <> r <> fvs' <> b' <> g']
+  ,Entry "<>"    [p <> e <> n' <> d']
   ]
 
 punctuation =

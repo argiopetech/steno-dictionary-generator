@@ -21,6 +21,19 @@ printIfEmpty es = do
 
   return empties
 
+-- | Deduplicates entries by stroke, keeping the last occurrence of any
+-- stroke. This simulates the loading of multiple steno dictionary without
+-- needing multiple files.
+--
+-- Useful primarily for e.g., Dotterel, which, for all its lovely attributes,
+-- has (as of version 0.2 beta) a very poor dictionary mangement system.
+dedupEntries :: [Entry] -> [Entry]
+dedupEntries es =
+  let map = foldl' (\m e@(Entry _ ss) ->
+                      M.insert ss e m)
+                   M.empty es
+  in M.elems map
+
 
 checkDuplicate es =
   let map = foldl' (\m (Entry n ss) ->

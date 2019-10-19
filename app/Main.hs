@@ -40,15 +40,26 @@ specialKeyEntries =
   ++ controlKeys (shiftModifier . superModifier)
                  (shift . super)
                  (tab : enter : alphabet)
-  ++ controlKeys fingerspellingModifier id arrows
   ++ controlKeys shiftModifier shift specialLeft
   ++ controlKeys controlModifier control arrows
   ++ controlKeys (shiftModifier . controlModifier)
                  (shift . control)
                  specialLeft
+  ++ controlKeys fingerspellingModifier id arrows
   ++ controlKeys fingerspellingModifier id specialKeys
 
 allEntries = alphabetEntries ++ numberEntries ++ specialKeyEntries ++ primaryDictionary ++ punctuation ++ coding ++ plover ++ xmonad
+
+phoneEntries = dedupEntries $ alphabetEntries
+                           ++ numberEntries
+                           ++ punctuation
+                           ++ primaryDictionary
+                           ++ plover
+                           ++ controlKeys fingerspellingModifier id
+                                          arrows ++ specialKeys
+                           ++ controlKeys controlModifier control
+                                          alphabet
+                           ++ dotterel
 
 
 main :: IO ()
@@ -67,7 +78,7 @@ main = do
     writeJson "plover"       plover
     writeJson "emacs"        emacs
     writeJson "xmonad"       xmonad
-    writeJson "dotterel"     dotterel
     writeJson "tinymod"      tinyModifications
+    writeJson "dotterel"     phoneEntries
 
   where writeJson n = writeFile (n ++ ".json") . toJson
