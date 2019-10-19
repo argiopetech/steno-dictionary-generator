@@ -56,7 +56,7 @@ phoneEntries = dedupEntries $ alphabetEntries
                            ++ primaryDictionary
                            ++ plover
                            ++ controlKeys fingerspellingModifier id
-                                          arrows ++ specialKeys
+                                          (arrows ++ specialKeys)
                            ++ controlKeys controlModifier control
                                           alphabet
                            ++ dotterel
