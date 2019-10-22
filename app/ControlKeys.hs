@@ -17,6 +17,7 @@ arrows =
   ,Entry "Down" [stk R.P]]
 
 home = Entry "Home" [stk R.P <> stk R.B]
+end = Entry "End" [stk R.T <> stk R.S]
 space = Entry "Space" [stk L.S <> stk L.P]
 enter = Entry "Return" [stk L.R <> stk L.T]
 backspace = Entry "Backspace" [stk R.D]
@@ -28,7 +29,7 @@ specialKeys =
   ,Entry "Page_Up" [stk R.P <> stk R.L]
   ,Entry "Page_Down" [stk R.B <> stk R.G]
   ,home
-  ,Entry "End" [stk R.T <> stk R.S]
+  ,end
   ,Entry "Delete" [stk R.Z]
   ,backspace]
 

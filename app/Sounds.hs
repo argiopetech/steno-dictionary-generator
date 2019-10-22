@@ -17,6 +17,7 @@ r = stk L.R
 
 -- left hand chorded sounds
 b  = stks [L.P, L.W]
+c  = stks [L.K, L.R]
 ch = stks [L.K, L.H]
 d  = stks [L.T, L.K]
 dh = stks [L.T, L.H] -- As in "the"
@@ -30,6 +31,8 @@ sh = stks [L.S, L.H]
 th = dh -- As in "thing", "theta"
 v  = stks [L.S, L.R]
 wh = stks [L.W, L.H]
+wr = stks [L.W, L.R]
+x  = stks [L.K, L.P]
 y  = stks [L.K, L.W, L.R]
 z  = addModifier Star $ stk L.S
 
@@ -54,6 +57,7 @@ ng' = n' <> stk R.G
 sh' = stks [fvs', p']
 ch' = stks [r', b']
 shn' = stks [sh', n']
+x' = stks [k', s']
 
 -- Vowel sounds, still need some work
 a = stks [A]           -- short 'a': bat
@@ -64,11 +68,13 @@ i = stks [E, U]        -- short 'i': bit
 u = stks [U]           -- short 'u': but
 
 aa = stks [A, E, U]    -- long 'a': ate
-ee = stks [A, E]       -- long 'e': eat
+ee = stks [A, E]       -- long 'e': eat, originally AE
 ii = stks [A, O, E, U] -- long 'i': hide
 oe = stks [O, E]       -- long 'o': oat
 
-ow = stks [O, U]       -- 'ow': cow
+ow = stks [A, O, U]    -- 'ow': cow
 oi = stks [O, E, U]    -- 'oi': oil, toy
 oo = stks [A, O]       -- 'oo': hood, book
-ew = stks [O, U]       -- 'oo' for non-'oo' words: two
+ew = stks [O, U]       -- 'oo' for non-'oo' words: two, originally OU
+
+er = stk U <> stk R.R

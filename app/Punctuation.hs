@@ -19,6 +19,8 @@ coding =
   ,Entry "*" [t <> ii <> m' <> z']
   ,Entry "{^*^}" [s <> t <> r <> fvs' <> b' <> g']
   ,Entry "<>"    [p <> e <> n' <> d']
+  ,Entry "{^}^{^}" [x <> p']
+  ,Entry "{^}#{^}" [h <> a <> sh']
   ]
 
 punctuation =

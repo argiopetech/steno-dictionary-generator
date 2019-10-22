@@ -3,6 +3,7 @@ module Main where
 import CommonIssues
 import Config
 import ControlKeys
+import CSharp
 import Dotterel
 import Plover
 import Primary
@@ -26,14 +27,15 @@ numberEntries = hundreds hundredsModifier
 tinyModifications = reverses (addVowel E)
 
 specialKeyEntries =
-  let specialLeft = (Entry "Left" [leftArrow <> stk Hash] :) $ tail arrows
+  let specialLeft = (Entry "Left" [leftArrow <> stk Hash] :)
+                  $ home : end : tail arrows
       fSlash      = Entry "/" [stk O, stk E, stk U]
       cKeys       = space : tab : fSlash : backspace : alphabet
   in controlKeys controlModifier control cKeys
   ++ controlKeys (shiftModifier . controlModifier)
                  (shift . control)
                  cKeys
-  ++ controlKeys altModifier alt (tab : alphabet)
+  ++ controlKeys altModifier alt (fSlash : tab : alphabet)
   ++ controlKeys (shiftModifier . altModifier) (shift . alt) [tab]
   ++ controlKeys superModifier super (tab : space : alphabet)
   ++ controlKeys controlRModifier controlR (home : alphabet)
@@ -80,5 +82,6 @@ main = do
     writeJson "xmonad"       xmonad
     writeJson "tinymod"      tinyModifications
     writeJson "dotterel"     phoneEntries
+    writeJson "csharp"       csharp
 
   where writeJson n = writeFile (n ++ ".json") . toJson
