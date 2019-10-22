@@ -29,8 +29,7 @@ primaryDictionary =
   [entry "{^}{#Return}{^}{MODE:RESET}" [r <> r' <> b']
   ,entry "{^}\\n{^}{-|}" [r <> r']
   ,entry "{^}\\n\\n{^}{-|}" [w <> r <> r' <> b']] <>
---There are apparently at least 5 copies in Lincoln's handwriting. Not a guarantee, but a pretty good sign.
---There are apparently at HRAEFT 5 KAEU in HREUPBG UPBZ HAPBD RAOEUGT. Not a ..., but a PRAET good SAOEUPB.
+
   -- a section
   let after = stks [a, fvs', t', r']
   in entries
@@ -166,7 +165,8 @@ primaryDictionary =
                     [ing]
   ,entry  "like"    [l <> ii <> k']
   ,entry  "link"    [l <> i <> n' <> k']
-  ,entry  "Lincoln" [l <> i <> n' <> k', n']
+  ,entryS "Lincoln" [l <> i <> n' <> k', n']
+                    [contractS]
   ,entry  "ls"      [l <> s']] <>
 
   -- m section
