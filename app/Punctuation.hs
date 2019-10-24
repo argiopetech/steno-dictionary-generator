@@ -9,9 +9,10 @@ import Sounds
 import qualified Keys.Left as L
 import qualified Keys.Right as R
 
+dot = Entry "." [d <> o <> t']
 
 coding =
-  [Entry "." [d <> o <> t']
+  [dot
   ,Entry "{^.^}" [p <> p']
   ,Entry "{^\\\\^}" [s <> l <> a]
   --,Entry "/" [d <> i <> fvs'] -- div; I don't like this

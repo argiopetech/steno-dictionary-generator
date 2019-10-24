@@ -1,4 +1,5 @@
 {
+"TKA*URT": "{}{#Control_L(.)}{^}",
 "SP*R": "{}{#Control_L(Space)}{^}",
 "TA*R": "{}{#Control_L(Tab)}{^}",
 "O*R/*ER/*UR": "{}{#Control_L(/)}{^}",
@@ -29,6 +30,7 @@
 "KP*R": "{}{#Control_L(x)}{^}",
 "KWR*R": "{}{#Control_L(y)}{^}",
 "STKPW*R": "{}{#Control_L(z)}{^}",
+"TKA*UFRT": "{}{#shift(Control_L(.))}{^}",
 "SP*FR": "{}{#shift(Control_L(Space))}{^}",
 "TA*FR": "{}{#shift(Control_L(Tab))}{^}",
 "O*FR/*EFR/*UFR": "{}{#shift(Control_L(/))}{^}",

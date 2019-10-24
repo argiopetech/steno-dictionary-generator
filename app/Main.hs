@@ -30,7 +30,7 @@ specialKeyEntries =
   let specialLeft = (Entry "Left" [leftArrow <> stk Hash] :)
                   $ home : end : tail arrows
       fSlash      = Entry "/" [stk O, stk E, stk U]
-      cKeys       = space : tab : fSlash : backspace : alphabet
+      cKeys       = dot : space : tab : fSlash : backspace : alphabet
   in controlKeys controlModifier control cKeys
   ++ controlKeys (shiftModifier . controlModifier)
                  (shift . control)

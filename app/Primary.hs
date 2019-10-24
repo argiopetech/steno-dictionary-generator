@@ -79,11 +79,13 @@ primaryDictionary =
 
   -- d section
   entries
-  [entry  "date" [d <> aa <> t']
-  ,entryS "dent" [d <> e <> n' <> t']
-                 [plural]
-  ,entry  "diff" [d <> i <> fvs']
-  ,entry  "do"   [d <> ew]] <>
+  [entry  "date"   [d <> aa <> t']
+  ,entryS "dent"   [d <> e <> n' <> t']
+                   [plural]
+  ,entry  "diff"   [d <> i <> fvs']
+  ,entry  "do"     [d <> ew]
+  ,entry  "done"   [d <> u <> n']
+  ,entry  "double" [d <> u <> b' <> l']] <>
 
   -- e section
   entries
@@ -93,6 +95,7 @@ primaryDictionary =
                       [plural]
   ,entryS "Elliot"    [e <> l' <> t']
                       [contractS]
+  ,entry  "else"      [e <> l' <> s']
   ,entryS "email"     [ee, mail]
                       [ing]
   ,entry  "emacs"     [ee, m <> a <> x']
@@ -105,8 +108,10 @@ primaryDictionary =
   entries
   [entryS "faculty" [f <> a <> k' <> l' <> ty']
                     [contractS]
+  ,entry  "false"   [f <> aw <> l' <> s']
   ,entry  "find"    [f <> ii <> nd']
   ,entry  "for"     [f <> o <> r']
+  ,entry  "float"   [f <> l <> oe <> t']
   ,entry  "free"    [f <> r <> ee]
   ,entry  "from"    [f <> r <> o <> m']] <>
 
@@ -136,6 +141,7 @@ primaryDictionary =
                       [contractM, contractD]
   ,entry  "if"        [i <> fvs']
   ,entry  "in"        [n']
+  ,entry  "input"     [n, p <> oo <> t']
   ,entry  "instant"   [n, s <> t <> a <> n' <> t']
   ,entryS "interview" [inter, v <> ew]
                       [plural]
@@ -248,12 +254,19 @@ primaryDictionary =
   ,entry  "statistics" [s <> t <> a <> t' <> z']
   ,entry  "stew"       [stew]
   ,entry  "steward"    [stew <> d']
-  ,entry  "Stuart"     [stew <> t']
-  ,entry  "Stewart"    [stew, t']
+  ,entryS "string"     [s <> t <> r <> g']
+                       [plural]
+  ,entry  "strong"     [s <> t <> r <> aw <> ng']
+  ,entry  "stronger"   [s <> t <> r <> aw <> ng', r']
+  ,entry  "Stuart"     [stew <> r <> t']
+  ,entry  "Stewart"    [stew, r <> t']
   ,entryS "student"    [stew, dnt]
                        [plural, contractS, pluralPosessive]
   ,entryS "sure"       [sure]
                        [ly]
+  ,entryS "surround"   [s <> r <> ow <> n' <> d'] [plural]
+  ,entryS "switch"     [s <> w <> i <> ch']
+                       [plural]
   ,entry  "system"     [s <> i <> s', t <> m']] <>
 
   -- t section
@@ -276,7 +289,8 @@ primaryDictionary =
   ,entry  "to"    [t <> ew]
   ,entry  "trace" [tray <> s']
   ,entry  "Tracy" [tray, see]
-  ,entry  "tray"  [tray]] <>
+  ,entry  "tray"  [tray]
+  ,entry  "true"  [t <> r <> ew]] <>
 
   -- u section
   entries
@@ -301,6 +315,7 @@ primaryDictionary =
   ,entry  "were"    [w <> er]
   ,entry  "what"    [w <> u <> t']
   ,entry  "which"   [wh <> i <> ch']
+  ,entry  "while"   [wh <> ii <> l']
   ,entry  "who"     [h <> ew]
   ,entry  "will"    [w <> i <> l']
   ,entry  "with"    [w <> i <> dh']
