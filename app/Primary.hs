@@ -64,18 +64,20 @@ primaryDictionary =
   let come  = stks [k, o, m']
       car   = stks [k, aw, r']
   in entries
-  [entry  "can"     [k <> a <> n']
-  ,entry  "car"     [car]
-  ,entry  "Carly"   [car, ly']
-  ,entry  "cat"     [k <> a <> t']
-  ,entry  "cd"      [k <> r <> d'] -- as in, fingerspelling 'c'
-  ,entry  "chrome"  [k <> r <> oe <> m']
-  ,entry  "crystal" [k <> r <> i <> fvs' <> t' <> l']
-  ,entryS "come"    [come]
-                    [ing]
-  ,entry  "commit"  [k <> m <> i <> t']
-  ,entryS "copy"    [k <> aw <> p' <> ee]
-                    [plural]] <>
+  [entry  "can"      [k <> a <> n']
+  ,entry  "car"      [car]
+  ,entry  "Carly"    [car, ly']
+  ,entry  "cat"      [k <> a <> t']
+  ,entry  "cd"       [k <> r <> d'] -- as in, fingerspelling 'c'
+  ,entry  "chrome"   [k <> r <> oe <> m']
+  ,entry  "crystal"  [k <> r <> i <> fvs' <> t' <> l']
+  ,entryS "come"     [come]
+                     [ing]
+  ,entry  "commit"   [k <> m <> i <> t']
+  ,entryS "conflict" [k <> o <> n', f <> l <> i <> k' <> t']
+                     [ed, ing]
+  ,entryS "copy"     [k <> aw <> p' <> ee]
+                     [plural]] <>
 
   -- d section
   entries
@@ -167,7 +169,9 @@ primaryDictionary =
   ,entry  "link"    [l <> i <> n' <> k']
   ,entryS "Lincoln" [l <> i <> n' <> k', n']
                     [contractS]
-  ,entry  "ls"      [l <> s']] <>
+  ,entry  "ls"      [l <> s']
+  ,entry  "luck"    [l <> u <> k']
+  ,entry  "lucky"   [l <> u <> k' <> ee]] <>
 
   -- m section
   entries
@@ -177,6 +181,7 @@ primaryDictionary =
   ,entry  "male"    [rep [A, E] mail]
   ,entry  "may"     [m <> aa]
   ,entry  "me"      [m <> ee]
+  ,entryS "meet"    [m <> ee <> t'] [ing]
   ,entry  "mic"     [m <> ii, k']
   ,entry  "Mike"    [m <> ii <> k']
   ,entry  "mom"     [m <> o <> m']
@@ -229,6 +234,7 @@ primaryDictionary =
                     [plural]
   ,entry  "real"    [r <> ee <> l']
   ,entry  "right"   [r <> ii <> t']
+  ,entry  "rog"     [r <> o <> g']
   ,entry  "run"     [r <> u <> n']] <>
 
   -- s section
