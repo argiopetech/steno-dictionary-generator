@@ -103,6 +103,8 @@ primaryDictionary =
                    [plural]
   ,entry  "diff"   [d <> i <> fvs']
   ,entry  "do"     [d <> ew]
+  ,entry  "does"   [d <> u <> z']
+  ,entry  "doesn't" [d <> u <> z', n' <> t']
   ,entry  "done"   [d <> u <> n']
   ,entry  "double" [d <> u <> b' <> l']] <>
 

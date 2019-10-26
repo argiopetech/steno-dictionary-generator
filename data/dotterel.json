@@ -194,6 +194,8 @@
 "TKEUF": "diff",
 "TKUPB": "done",
 "TKUBL": "double",
+"TKUZ": "does",
+"TKUZ/-PBT": "doesn't",
 "TKPW*": "{>}{&g}",
 "TKPW*F": "{&G}",
 "TKPW*R": "{}{#Control_L(g)}{^}",
