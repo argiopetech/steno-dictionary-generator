@@ -176,7 +176,7 @@ primaryDictionary =
 
   -- j section
   entries
-  [] <>
+  [entry "job" [j <> o <> b']] <>
 
   -- k section
   entries
@@ -356,8 +356,8 @@ primaryDictionary =
   [entry  "val"      [val]
   ,entry  "value"    [val, you]
   ,entry  "version"  [ver <> shn']
-  ,entry  "virgin"   [ver, jh <> n']
-  ,entry  "Virginia" [v <> r', jh <> n', y]] <>
+  ,entry  "virgin"   [ver, j <> n']
+  ,entry  "Virginia" [v <> r', j <> n', y]] <>
 
   -- w section
   let well  = stks [w, e, l']
