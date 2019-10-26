@@ -18,6 +18,7 @@ primaryDictionary =
       noon = stks [n, oo, n']
       write = stks [wr, ii, t']
       see   = stks [s', ee]
+      till  = t <> i <> l'
 
       -- Suffixes
       dnt  = stks [d, n', t']
@@ -308,6 +309,7 @@ primaryDictionary =
   ,entry  "they"  [dh <> aa]
   ,entry  "they're" [dh <> aa <> r']
   ,entry  "this"  [dh <> i <> s']
+  ,entry  "till"  [till]
   ,entryS "time"  [t <> ii <> m']
                   [plural]
   ,entry  "to"    [t <> ew]
@@ -319,7 +321,8 @@ primaryDictionary =
   -- u section
   let up = u <> p'
   in entries
-  [entry  "up"       [up]
+  [entry  "until"    [n, till]
+  ,entry  "up"       [up]
   ,entry  "upcoming" [up, k <> o <> m' <> g']
   ,entry  "use"      [y <> ew <> s']] <>
 
