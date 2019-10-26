@@ -247,7 +247,8 @@ primaryDictionary =
   ,entryS "ordinary" [o <> r' <> d', n <> e <> ry']
                      [ly]
   ,entry  "our"      [ow <> r']
-  ,entry  "out"      [ow <> t']] <>
+  ,entry  "out"      [ow <> t']
+  ,entry  "own"      [oe <> n']] <>
 
   -- p section
   let per = stks [p, r']
@@ -274,6 +275,7 @@ primaryDictionary =
   ,entry  "real"    [r <> ee <> l']
   ,entry  "renew"   [r, n <> ew]
   ,entry  "renewal" [r, n <> ew <> l']
+  ,entry  "require" [r <> ee, k <> w <> ii <> r']
   ,entry  "right"   [r <> ii <> t']
   ,entry  "rog"     [r <> o <> g']
   ,entry  "run"     [r <> u <> n']] <>
