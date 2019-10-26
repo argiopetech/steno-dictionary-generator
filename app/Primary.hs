@@ -356,7 +356,7 @@ primaryDictionary =
   ,entryS "welcome" [well, come]
                     [ing]
   ,entry  "were"    [w <> er]
-  ,entry  "what"    [w <> u <> t']
+  ,entry  "what"    [wh <> u <> t']
   ,entry  "which"   [wh <> i <> ch']
   ,entry  "while"   [wh <> ii <> l']
   ,entry  "who"     [h <> ew]
