@@ -184,12 +184,16 @@ primaryDictionary =
   ,entry  "lucky"   [l <> u <> k' <> ee]] <>
 
   -- m section
-  entries
+  let may = m <> aa
+  in entries
   [entryS "mail"    [mail]
                     [ing]
   ,entry  "made"    [m <> aa <> d']
+  ,entry  "main"    [may <> n']
+  ,entry  "Maine"   [may, n']
+  ,entry  "maintain" [may <> n', t <> aa <> n']
   ,entry  "male"    [rep [A, E] mail]
-  ,entry  "may"     [m <> aa]
+  ,entry  "may"     [may]
   ,entry  "me"      [m <> ee]
   ,entryS "meet"    [m <> ee <> t'] [ing]
   ,entry  "mic"     [m <> ii, k']
@@ -323,7 +327,8 @@ primaryDictionary =
   -- w section
   let well  = stks [w, e, l']
   in entries
-  [entry  "was"     [w <> u <> z']
+  [entry  "want"    [w <> aw <> n' <> t']
+  ,entry  "was"     [w <> u <> z']
   ,entry  "we"      [w <> ee]
   ,entry  "well"    [well]
   ,entryS "welcome" [well, come]
