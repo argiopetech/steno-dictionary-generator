@@ -34,12 +34,17 @@ primaryDictionary =
 
   -- a section
   let after = stks [a, fvs', t', r']
+      agree = g <> r <> ee
   in entries
   [entry  "a"         [aa]
-  ,entryS "Aaron"     [e <> r' <> n'] [contractS]
+  ,entryS "Aaron"     [e <> r' <> n']
+                      [contractS]
   ,entry  "add"       [a <> d']
   ,entry  "after"     [after]
-  ,entryS "afternoon" [after, noon] [plural]
+  ,entryS "afternoon" [after, noon]
+                      [plural]
+  ,entry  "agree"     [agree]
+  ,entry  "agreement" [agree, m <> n' <> t']
   ,entry  "all"       [aw <> l']
   ,entry  "an"        [a <> n']
   ,entry  "and"       [nd']
@@ -366,6 +371,7 @@ primaryDictionary =
                     [plural, ed, ing]
   ,entry  "would"   [w <> o <> d']
   ,entry  "world"   [w <> er <> l' <> d']
+  ,entry  "worth"   [w <> er <> th']
   ,entryS "write"   [write]
                     [ing]
   ,entry  "written" [w <> r <> i <> t' <> n']

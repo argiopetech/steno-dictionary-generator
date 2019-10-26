@@ -57,6 +57,7 @@ ng' = n' <> stk R.G
 sh' = stks [fvs', p']
 ch' = stks [r', b']
 shn' = stks [sh', n']
+th'  = stks [t']
 x' = stks [k', s']
 
 -- Vowel sounds, still need some work
