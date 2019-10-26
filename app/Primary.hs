@@ -328,6 +328,7 @@ primaryDictionary =
                   [contractS]
   ,entry  "they"  [dh <> aa]
   ,entry  "they're" [dh <> aa <> r']
+  ,entry  "thing" [th <> i <> g']
   ,entry  "think" [th <> i <> n' <> k']
   ,entry  "this"  [dh <> i <> s']
   ,entry  "till"  [till]
