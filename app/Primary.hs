@@ -103,6 +103,7 @@ primaryDictionary =
                    [plural]
   ,entry  "diff"   [d <> i <> fvs']
   ,entry  "do"     [d <> ew]
+  ,entry  "don't"  [d <> oe <> n' <> t']
   ,entry  "does"   [d <> u <> z']
   ,entry  "doesn't" [d <> u <> z', n' <> t']
   ,entry  "done"   [d <> u <> n']
@@ -151,7 +152,8 @@ primaryDictionary =
   -- h section
   let hand = stks [h <> a <> n' <> d']
   in entries
-  [entry  "has"         [h <> a <> z']
+  [entry  "had"         [h <> a <> d']
+  ,entry  "has"         [h <> a <> z']
   ,entry  "hand"        [hand]
   ,entry  "handwriting" [hand, write <> g']
   ,entryS "have"        [h <> a <> fvs']
@@ -226,6 +228,7 @@ primaryDictionary =
                     [plural]
   ,entry  "Microsoft" [m <> s']
   ,entry  "MS"      [m, s]
+  ,entry  "much"    [m <> u <> ch']
   ,entry  "my"      [m <> ii]] <>
 
   -- n section
@@ -305,6 +308,7 @@ primaryDictionary =
   ,entry  "Stewart"    [stew, r <> t']
   ,entryS "student"    [stew, dnt]
                        [plural, contractS, pluralPosessive]
+  ,entry  "success"    [s <> k', s <> e <> s']
   ,entryS "sure"       [sure]
                        [ly]
   ,entryS "surround"   [s <> r <> ow <> n' <> d'] [plural]
@@ -365,6 +369,7 @@ primaryDictionary =
   [entry  "want"    [w <> aw <> n' <> t']
   ,entry  "was"     [w <> u <> z']
   ,entry  "we"      [w <> ee]
+  ,entry  "we've"   [w <> ee <> fvs']
   ,entry  "well"    [well]
   ,entryS "welcome" [well, come]
                     [ing]
