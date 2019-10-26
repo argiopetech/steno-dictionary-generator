@@ -306,9 +306,11 @@ primaryDictionary =
   ,entry  "true"  [t <> r <> ew]] <>
 
   -- u section
-  entries
-  [entry  "up"   [u <> p']
-  ,entry  "use"  [y <> ew <> s']] <>
+  let up = u <> p'
+  in entries
+  [entry  "up"       [up]
+  ,entry  "upcoming" [up, k <> o <> m' <> g']
+  ,entry  "use"      [y <> ew <> s']] <>
 
   -- v section
   let ver = stks [v <> er]
