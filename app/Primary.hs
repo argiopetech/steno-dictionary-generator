@@ -380,7 +380,7 @@ primaryDictionary =
   ,entry  "who"     [h <> ew]
   ,entry  "will"    [w <> i <> l']
   ,entry  "with"    [w <> i <> dh']
-  ,entryS "wonder"  [w <> u <> n', d' <> r']
+  ,entryS "wonder"  [w <> u <> n', d <> r']
                     [plural, ed, ing]
   ,entry  "would"   [w <> o <> d']
   ,entry  "world"   [w <> er <> l' <> d']
