@@ -65,6 +65,7 @@ primaryDictionary =
   let car   = stks [k, aw, r']
       cert  = s <> er <> t'
       come  = stks [k, o, m']
+      con   = k <> o <> n'
   in entries
   [entry  "can"      [k <> a <> n']
   ,entry  "car"      [car]
@@ -79,8 +80,10 @@ primaryDictionary =
   ,entryS "come"     [come]
                      [ing]
   ,entry  "commit"   [k <> m <> i <> t']
-  ,entryS "conflict" [k <> o <> n', f <> l <> i <> k' <> t']
+  ,entry  "con"      [con]
+  ,entryS "conflict" [con, f <> l <> i <> k' <> t']
                      [ed, ing]
+  ,entry  "contract" [con, t <> r <> a <> k' <> t']
   ,entryS "copy"     [k <> aw <> p' <> ee]
                      [plural]] <>
 
@@ -307,7 +310,8 @@ primaryDictionary =
   ,entry  "that"  [dh <> a <> t']
   ,entry  "the"   [dh']
   ,entry  "their" [dh <> e <> r']
-  ,entry  "there" [dh <> r']
+  ,entryS "there" [dh <> r']
+                  []
   ,entry  "they"  [dh <> aa]
   ,entry  "they're" [dh <> aa <> r']
   ,entry  "this"  [dh <> i <> s']
