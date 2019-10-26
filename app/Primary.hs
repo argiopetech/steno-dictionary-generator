@@ -225,9 +225,11 @@ primaryDictionary =
   ,entry  "per"     [per]
   ,entry  "perfect" [per, f <> e <> k' <> t']
   ,entry  "plural"  [p <> l <> oo <> r' <> l']
+  ,entry  "pool"    [p <> ew <> l']
   ,entryS "present" [p <> r <> e <> z' <> n' <> t']
                     [ing, ed, ly]
   ,entry  "pretty"  [p <> r <> e <> ty']
+  ,entry  "pull"    [p <> oo <> l']
   ,entry  "push"    [p <> oo <> sh']] <>
 
   -- q section
