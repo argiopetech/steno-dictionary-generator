@@ -220,7 +220,10 @@ primaryDictionary =
   ,entry  "more"    [m <> oe <> r']
   ,entryS "morning" [m <> oe <> r' <> ng']
                     [plural, contractS]
-  ,entryS "mount"   [m <> ow <> n' <> t'] [plural]
+  ,entryS "mount"   [m <> ow <> n' <> t']
+                    [plural]
+  ,entry  "Microsoft" [m <> s']
+  ,entry  "MS"      [m, s]
   ,entry  "my"      [m <> ii]] <>
 
   -- n section
