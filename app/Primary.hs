@@ -241,6 +241,8 @@ primaryDictionary =
   [entryS "reason"  [r <> ee <> fvs' <> n']
                     [plural]
   ,entry  "real"    [r <> ee <> l']
+  ,entry  "renew"   [r, n <> ew]
+  ,entry  "renewal" [r, n <> ew <> l']
   ,entry  "right"   [r <> ii <> t']
   ,entry  "rog"     [r <> o <> g']
   ,entry  "run"     [r <> u <> n']] <>
