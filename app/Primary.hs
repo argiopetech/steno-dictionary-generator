@@ -120,7 +120,10 @@ primaryDictionary =
   -- g section
   entries
   [entry  "get"       [g <> e <> t']
+  ,entry  "gift"      [g <> i <> fvs' <> t']
   ,entry  "git"       [g <> i <> t']
+  ,entry  "give"      [g <> i <> fvs']
+  ,entry  "given"     [g <> i <> fvs' <> n']
   ,entry  "good"      [g <> oo <> d']
   ,entry  "great"     [g <> r <> aa <> t']
   ,entryS "guarantee" [g <> e <> r' <> n' <> ty']
