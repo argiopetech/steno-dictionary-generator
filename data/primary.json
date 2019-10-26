@@ -49,6 +49,8 @@
 "KAEUP": "copy",
 "KAEUPS": "copy{^s}",
 "TKAEUT": "date",
+"TKAEU": "day",
+"TKAEUS": "day{^s}",
 "TKEPBT": "dent",
 "TKEPBTS": "dent{^s}",
 "TKEUF": "diff",

@@ -84,8 +84,11 @@ primaryDictionary =
                      [plural]] <>
 
   -- d section
-  entries
-  [entry  "date"   [d <> aa <> t']
+  let day = d <> aa
+  in entries
+  [entry  "date"   [day <> t']
+  ,entryS "day"    [day]
+                   [plural]
   ,entryS "dent"   [d <> e <> n' <> t']
                    [plural]
   ,entry  "diff"   [d <> i <> fvs']
