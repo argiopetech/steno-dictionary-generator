@@ -155,6 +155,8 @@
 "SR-R/SKWR-PB/KWR": "Virginia",
 "SR*R": "{}{#Control_L(v)}{^}",
 "SR-GS": "{^~|'}",
+"SRAL": "val",
+"SRAL/KWROU": "value",
 "SRAOUPBSD": "surround{^s}",
 "SRAOUPBD": "surround",
 "SRAEUBL": "available",

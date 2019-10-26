@@ -19,6 +19,7 @@ primaryDictionary =
       write = stks [wr, ii, t']
       see   = stks [s', ee]
       till  = t <> i <> l'
+      you   = y <> ew
 
       -- Suffixes
       dnt  = stks [d, n', t']
@@ -336,10 +337,13 @@ primaryDictionary =
   ,entry  "use"      [y <> ew <> s']] <>
 
   -- v section
-  let ver = stks [v <> er]
+  let val = v <> a <> l'
+      ver = stks [v <> er]
   in entries
-  [entry  "version" [ver <> shn']
-  ,entry  "virgin"  [ver, jh <> n']
+  [entry  "val"      [val]
+  ,entry  "value"    [val, you]
+  ,entry  "version"  [ver <> shn']
+  ,entry  "virgin"   [ver, jh <> n']
   ,entry  "Virginia" [v <> r', jh <> n', y]] <>
 
   -- w section
@@ -373,7 +377,7 @@ primaryDictionary =
 
   -- y section
   entries
-  [entry  "you"  [y <> ew]
+  [entry  "you"  [you]
   ,entry  "your" [y <> o <> r']] <>
 
   -- z section
