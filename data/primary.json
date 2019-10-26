@@ -125,6 +125,8 @@
 "HREUPBG": "link",
 "HREUPBG/-PB": "Lincoln",
 "HREUPBG/-PBZ": "Lincoln's",
+"HRAUG": "log",
+"HRAUGS": "log{^s}",
 "HR-S": "ls",
 "HRUBG": "luck",
 "HRAEUBG": "lucky",

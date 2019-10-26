@@ -428,6 +428,8 @@
 "HRAES": "lease",
 "HRAESD": "lease{^ed}",
 "HRAEUBG": "lucky",
+"HRAUG": "log",
+"HRAUGS": "log{^s}",
 "HRET": "let",
 "HRES": "less",
 "HREUPBG": "link",

@@ -186,6 +186,8 @@ primaryDictionary =
   ,entry  "link"    [l <> i <> n' <> k']
   ,entryS "Lincoln" [l <> i <> n' <> k', n']
                     [contractS]
+  ,entryS "log"     [l <> aw <> g']
+                    [plural]
   ,entry  "ls"      [l <> s']
   ,entry  "luck"    [l <> u <> k']
   ,entry  "lucky"   [l <> u <> k' <> ee]] <>
