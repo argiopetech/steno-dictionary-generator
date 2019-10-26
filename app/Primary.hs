@@ -69,6 +69,7 @@ primaryDictionary =
   ,entry  "Carly"    [car, ly']
   ,entry  "cat"      [k <> a <> t']
   ,entry  "cd"       [k <> r <> d'] -- as in, fingerspelling 'c'
+  ,entry  "change"   [ch <> aa <> n' <> g']
   ,entry  "chrome"   [k <> r <> oe <> m']
   ,entry  "crystal"  [k <> r <> i <> fvs' <> t' <> l']
   ,entryS "come"     [come]
