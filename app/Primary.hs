@@ -321,7 +321,8 @@ primaryDictionary =
   -- u section
   let up = u <> p'
   in entries
-  [entry  "until"    [n, till]
+  [entry  "under"    [u <> n', d <> r']
+  ,entry  "until"    [n, till]
   ,entry  "up"       [up]
   ,entry  "upcoming" [up, k <> o <> m' <> g']
   ,entry  "use"      [y <> ew <> s']] <>
