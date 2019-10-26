@@ -61,14 +61,17 @@ primaryDictionary =
   ,entry  "by"        [b <> ii]] <>
 
   -- c section
-  let come  = stks [k, o, m']
-      car   = stks [k, aw, r']
+  let car   = stks [k, aw, r']
+      cert  = s <> er <> t'
+      come  = stks [k, o, m']
   in entries
   [entry  "can"      [k <> a <> n']
   ,entry  "car"      [car]
   ,entry  "Carly"    [car, ly']
   ,entry  "cat"      [k <> a <> t']
   ,entry  "cd"       [k <> r <> d'] -- as in, fingerspelling 'c'
+  ,entry  "cert"     [cert]
+  ,entry  "certification" [cert, f <> k', aa <> sh' <> n']
   ,entry  "change"   [ch <> aa <> n' <> g']
   ,entry  "chrome"   [k <> r <> oe <> m']
   ,entry  "crystal"  [k <> r <> i <> fvs' <> t' <> l']
