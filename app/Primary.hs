@@ -47,7 +47,8 @@ primaryDictionary =
   ,entry  "are"       [a <> r']
   ,entry  "as"        [a <> z']
   ,entry  "at"        [a <> t']
-  ,entry  "available" [v <> aa <> b' <> l']] <>
+  ,entry  "available" [v <> aa <> b' <> l']
+  ,entry  "Azure"     [a <> z', r']] <>
 
   -- b section
   entries
