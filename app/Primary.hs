@@ -18,6 +18,8 @@ primaryDictionary =
       noon = stks [n, oo, n']
       write = stks [wr, ii, t']
       see   = stks [s', ee]
+      till  = t <> i <> l'
+      you   = y <> ew
 
       -- Suffixes
       dnt  = stks [d, n', t']
@@ -32,12 +34,17 @@ primaryDictionary =
 
   -- a section
   let after = stks [a, fvs', t', r']
+      agree = g <> r <> ee
   in entries
   [entry  "a"         [aa]
-  ,entryS "Aaron"     [e <> r' <> n'] [contractS]
+  ,entryS "Aaron"     [e <> r' <> n']
+                      [contractS]
   ,entry  "add"       [a <> d']
   ,entry  "after"     [after]
-  ,entryS "afternoon" [after, noon] [plural]
+  ,entryS "afternoon" [after, noon]
+                      [plural]
+  ,entry  "agree"     [agree]
+  ,entry  "agreement" [agree, m <> n' <> t']
   ,entry  "all"       [aw <> l']
   ,entry  "an"        [a <> n']
   ,entry  "and"       [nd']
@@ -62,31 +69,44 @@ primaryDictionary =
   ,entry  "by"        [b <> ii]] <>
 
   -- c section
-  let come  = stks [k, o, m']
-      car   = stks [k, aw, r']
+  let car   = stks [k, aw, r']
+      cert  = s <> er <> t'
+      come  = stks [k, o, m']
+      con   = k <> o <> n'
   in entries
   [entry  "can"      [k <> a <> n']
   ,entry  "car"      [car]
   ,entry  "Carly"    [car, ly']
   ,entry  "cat"      [k <> a <> t']
   ,entry  "cd"       [k <> r <> d'] -- as in, fingerspelling 'c'
+  ,entry  "cert"     [cert]
+  ,entry  "certification" [cert, f <> k', aa <> sh' <> n']
+  ,entry  "change"   [ch <> aa <> n' <> g']
   ,entry  "chrome"   [k <> r <> oe <> m']
   ,entry  "crystal"  [k <> r <> i <> fvs' <> t' <> l']
   ,entryS "come"     [come]
                      [ing]
   ,entry  "commit"   [k <> m <> i <> t']
-  ,entryS "conflict" [k <> o <> n', f <> l <> i <> k' <> t']
+  ,entry  "con"      [con]
+  ,entryS "conflict" [con, f <> l <> i <> k' <> t']
                      [ed, ing]
+  ,entry  "contract" [con, t <> r <> a <> k' <> t']
   ,entryS "copy"     [k <> aw <> p' <> ee]
                      [plural]] <>
 
   -- d section
-  entries
-  [entry  "date"   [d <> aa <> t']
+  let day = d <> aa
+  in entries
+  [entry  "date"   [day <> t']
+  ,entryS "day"    [day]
+                   [plural]
   ,entryS "dent"   [d <> e <> n' <> t']
                    [plural]
   ,entry  "diff"   [d <> i <> fvs']
   ,entry  "do"     [d <> ew]
+  ,entry  "don't"  [d <> oe <> n' <> t']
+  ,entry  "does"   [d <> u <> z']
+  ,entry  "doesn't" [d <> u <> z', n' <> t']
   ,entry  "done"   [d <> u <> n']
   ,entry  "double" [d <> u <> b' <> l']] <>
 
@@ -121,7 +141,10 @@ primaryDictionary =
   -- g section
   entries
   [entry  "get"       [g <> e <> t']
+  ,entry  "gift"      [g <> i <> fvs' <> t']
   ,entry  "git"       [g <> i <> t']
+  ,entry  "give"      [g <> i <> fvs']
+  ,entry  "given"     [g <> i <> fvs' <> n']
   ,entry  "good"      [g <> oo <> d']
   ,entry  "great"     [g <> r <> aa <> t']
   ,entryS "guarantee" [g <> e <> r' <> n' <> ty']
@@ -130,7 +153,8 @@ primaryDictionary =
   -- h section
   let hand = stks [h <> a <> n' <> d']
   in entries
-  [entry  "has"         [h <> a <> z']
+  [entry  "had"         [h <> a <> d']
+  ,entry  "has"         [h <> a <> z']
   ,entry  "hand"        [hand]
   ,entry  "handwriting" [hand, write <> g']
   ,entryS "have"        [h <> a <> fvs']
@@ -155,7 +179,7 @@ primaryDictionary =
 
   -- j section
   entries
-  [] <>
+  [entry "job" [j <> o <> b']] <>
 
   -- k section
   entries
@@ -176,17 +200,23 @@ primaryDictionary =
   ,entry  "link"    [l <> i <> n' <> k']
   ,entryS "Lincoln" [l <> i <> n' <> k', n']
                     [contractS]
+  ,entryS "log"     [l <> aw <> g']
+                    [plural]
   ,entry  "ls"      [l <> s']
   ,entry  "luck"    [l <> u <> k']
   ,entry  "lucky"   [l <> u <> k' <> ee]] <>
 
   -- m section
-  entries
+  let may = m <> aa
+  in entries
   [entryS "mail"    [mail]
                     [ing]
   ,entry  "made"    [m <> aa <> d']
+  ,entry  "main"    [may <> n']
+  ,entry  "Maine"   [may, n']
+  ,entry  "maintain" [may <> n', t <> aa <> n']
   ,entry  "male"    [rep [A, E] mail]
-  ,entry  "may"     [m <> aa]
+  ,entry  "may"     [may]
   ,entry  "me"      [m <> ee]
   ,entryS "meet"    [m <> ee <> t'] [ing]
   ,entry  "mic"     [m <> ii, k']
@@ -195,7 +225,11 @@ primaryDictionary =
   ,entry  "more"    [m <> oe <> r']
   ,entryS "morning" [m <> oe <> r' <> ng']
                     [plural, contractS]
-  ,entryS "mount"   [m <> ow <> n' <> t'] [plural]
+  ,entryS "mount"   [m <> ow <> n' <> t']
+                    [plural]
+  ,entry  "Microsoft" [m <> s']
+  ,entry  "MS"      [m, s]
+  ,entry  "much"    [m <> u <> ch']
   ,entry  "my"      [m <> ii]] <>
 
   -- n section
@@ -217,7 +251,8 @@ primaryDictionary =
   ,entryS "ordinary" [o <> r' <> d', n <> e <> ry']
                      [ly]
   ,entry  "our"      [ow <> r']
-  ,entry  "out"      [ow <> t']] <>
+  ,entry  "out"      [ow <> t']
+  ,entry  "own"      [oe <> n']] <>
 
   -- p section
   let per = stks [p, r']
@@ -226,9 +261,11 @@ primaryDictionary =
   ,entry  "per"     [per]
   ,entry  "perfect" [per, f <> e <> k' <> t']
   ,entry  "plural"  [p <> l <> oo <> r' <> l']
+  ,entry  "pool"    [p <> ew <> l']
   ,entryS "present" [p <> r <> e <> z' <> n' <> t']
                     [ing, ed, ly]
   ,entry  "pretty"  [p <> r <> e <> ty']
+  ,entry  "pull"    [p <> oo <> l']
   ,entry  "push"    [p <> oo <> sh']] <>
 
   -- q section
@@ -240,6 +277,9 @@ primaryDictionary =
   [entryS "reason"  [r <> ee <> fvs' <> n']
                     [plural]
   ,entry  "real"    [r <> ee <> l']
+  ,entry  "renew"   [r, n <> ew]
+  ,entry  "renewal" [r, n <> ew <> l']
+  ,entry  "require" [r <> ee, k <> w <> ii <> r']
   ,entry  "right"   [r <> ii <> t']
   ,entry  "rog"     [r <> o <> g']
   ,entry  "run"     [r <> u <> n']] <>
@@ -269,6 +309,7 @@ primaryDictionary =
   ,entry  "Stewart"    [stew, r <> t']
   ,entryS "student"    [stew, dnt]
                        [plural, contractS, pluralPosessive]
+  ,entry  "success"    [s <> k', s <> e <> s']
   ,entryS "sure"       [sure]
                        [ly]
   ,entryS "surround"   [s <> r <> ow <> n' <> d'] [plural]
@@ -286,11 +327,16 @@ primaryDictionary =
                   [plural, ing, ed]
   ,entry  "that"  [dh <> a <> t']
   ,entry  "the"   [dh']
-  ,entry  "their" [dh <> e <> r']
-  ,entry  "there" [dh <> r']
+  ,entryS "their" [dh <> e <> r']
+                  [plural]
+  ,entryS "there" [dh <> r']
+                  [contractS]
   ,entry  "they"  [dh <> aa]
   ,entry  "they're" [dh <> aa <> r']
+  ,entry  "thing" [th <> i <> g']
+  ,entry  "think" [th <> i <> n' <> k']
   ,entry  "this"  [dh <> i <> s']
+  ,entry  "till"  [till]
   ,entryS "time"  [t <> ii <> m']
                   [plural]
   ,entry  "to"    [t <> ew]
@@ -300,36 +346,46 @@ primaryDictionary =
   ,entry  "true"  [t <> r <> ew]] <>
 
   -- u section
-  entries
-  [entry  "up"   [u <> p']
-  ,entry  "use"  [y <> ew <> s']] <>
+  let up = u <> p'
+  in entries
+  [entry  "under"    [u <> n', d <> r']
+  ,entry  "until"    [n, till]
+  ,entry  "up"       [up]
+  ,entry  "upcoming" [up, k <> o <> m' <> g']
+  ,entry  "use"      [y <> ew <> s']] <>
 
   -- v section
-  let ver = stks [v <> er]
+  let val = v <> a <> l'
+      ver = stks [v <> er]
   in entries
-  [entry  "version" [ver <> shn']
-  ,entry  "virgin"  [ver, jh <> n']
-  ,entry  "Virginia" [v <> r', jh <> n', y]] <>
+  [entry  "val"      [val]
+  ,entry  "value"    [val, you]
+  ,entry  "version"  [ver <> shn']
+  ,entry  "virgin"   [ver, j <> n']
+  ,entry  "Virginia" [v <> r', j <> n', y]] <>
 
   -- w section
   let well  = stks [w, e, l']
   in entries
-  [entry  "was"     [w <> u <> z']
+  [entry  "want"    [w <> aw <> n' <> t']
+  ,entry  "was"     [w <> u <> z']
   ,entry  "we"      [w <> ee]
+  ,entry  "we've"   [w <> ee <> fvs']
   ,entry  "well"    [well]
   ,entryS "welcome" [well, come]
                     [ing]
   ,entry  "were"    [w <> er]
-  ,entry  "what"    [w <> u <> t']
+  ,entry  "what"    [wh <> u <> t']
   ,entry  "which"   [wh <> i <> ch']
   ,entry  "while"   [wh <> ii <> l']
   ,entry  "who"     [h <> ew]
   ,entry  "will"    [w <> i <> l']
   ,entry  "with"    [w <> i <> dh']
-  ,entryS "wonder"  [w <> u <> n', d' <> r']
+  ,entryS "wonder"  [w <> u <> n', d <> r']
                     [plural, ed, ing]
   ,entry  "would"   [w <> o <> d']
   ,entry  "world"   [w <> er <> l' <> d']
+  ,entry  "worth"   [w <> er <> th']
   ,entryS "write"   [write]
                     [ing]
   ,entry  "written" [w <> r <> i <> t' <> n']
@@ -341,7 +397,7 @@ primaryDictionary =
 
   -- y section
   entries
-  [entry  "you"  [y <> ew]
+  [entry  "you"  [you]
   ,entry  "your" [y <> o <> r']] <>
 
   -- z section

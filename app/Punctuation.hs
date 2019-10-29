@@ -14,6 +14,7 @@ dot = Entry "." [d <> o <> t']
 coding =
   [dot
   ,Entry "{^.^}" [p <> p']
+  ,Entry "{^,^}" [w <> b']
   ,Entry "{^\\\\^}" [s <> l <> a]
   --,Entry "/" [d <> i <> fvs'] -- div; I don't like this
   ,Entry "{^/^}" [stk O <> stk E <> stk U]

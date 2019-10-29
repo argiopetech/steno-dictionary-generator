@@ -23,7 +23,7 @@ d  = stks [L.T, L.K]
 dh = stks [L.T, L.H] -- As in "the"
 f  = stks [L.T, L.P]
 g  = stks [L.T, L.K, L.P, L.W]
-jh = stks [L.S, L.K, L.W, L.R]-- As in "jee"
+j  = stks [L.S, L.K, L.W, L.R]-- As in "jee"
 l  = stks [L.H, L.R]
 m  = stks [L.P, L.H]
 n  = stks [L.T, L.P, L.H]
@@ -57,6 +57,7 @@ ng' = n' <> stk R.G
 sh' = stks [fvs', p']
 ch' = stks [r', b']
 shn' = stks [sh', n']
+th'  = stks [t']
 x' = stks [k', s']
 
 -- Vowel sounds, still need some work

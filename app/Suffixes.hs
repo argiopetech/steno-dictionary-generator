@@ -19,7 +19,7 @@ suffixSC conflicts ks s =
           else init ss ++ ([last ss <> stks ks])
   in (\n -> n ++ s, ender)
 
-plural = suffix R.S "{^s}"
+plural = suffixSC [R.S, R.D] [R.S] "{^s}"
 pluralPosessive = suffixSC [R.S, R.Z, R.T, R.D] [R.S, R.Z] "s'"
 
 contractLL = suffix R.L "'ll"
