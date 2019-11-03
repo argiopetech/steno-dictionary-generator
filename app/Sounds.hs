@@ -59,6 +59,8 @@ ch' = stks [r', b']
 shn' = stks [sh', n']
 th'  = stks [t']
 x' = stks [k', s']
+j'   = p' <> b' <> l' <> g'
+zh'  = j'
 
 -- Vowel sounds, still need some work
 a = stks [A]           -- short 'a': bat
