@@ -97,7 +97,8 @@ primaryDictionary =
   -- d section
   let day = d <> aa
   in entries
-  [entry  "date"   [day <> t']
+  [entryS "date"   [day <> t']
+                   [plural]
   ,entryS "day"    [day]
                    [plural]
   ,entryS "dent"   [d <> e <> n' <> t']
@@ -108,7 +109,8 @@ primaryDictionary =
   ,entry  "does"   [d <> u <> z']
   ,entry  "doesn't" [d <> u <> z', n' <> t']
   ,entry  "done"   [d <> u <> n']
-  ,entry  "double" [d <> u <> b' <> l']] <>
+  ,entryS "double" [d <> u <> b' <> l']
+                   [ing, ed, plural]] <>
 
   -- e section
   entries
@@ -133,6 +135,7 @@ primaryDictionary =
                     [contractS]
   ,entry  "false"   [f <> aw <> l' <> s']
   ,entry  "find"    [f <> ii <> nd']
+  ,entry  "fire"    [f <> ii <> r']
   ,entry  "for"     [f <> o <> r']
   ,entry  "float"   [f <> l <> oe <> t']
   ,entry  "free"    [f <> r <> ee]
@@ -209,6 +212,7 @@ primaryDictionary =
 
   -- m section
   let may = m <> aa
+      mod = m <> o <> d'
   in entries
   [entryS "mail"    [mail]
                     [ing]
@@ -222,6 +226,9 @@ primaryDictionary =
   ,entryS "meet"    [m <> ee <> t'] [ing]
   ,entry  "mic"     [m <> ii, k']
   ,entry  "Mike"    [m <> ii <> k']
+  ,entry  "mod"      [m <> o <> d']
+  ,entry  "modify"   [m <> o <> d', f <> ii]
+  ,entry  "modifier" [m <> o <> d', f <> ii <> r']
   ,entry  "mom"     [m <> o <> m']
   ,entry  "more"    [m <> oe <> r']
   ,entryS "morning" [m <> oe <> r' <> ng']
@@ -235,10 +242,12 @@ primaryDictionary =
 
   -- n section
   entries
-  [entry "no"   [n <> oe]
-  ,entry "noon" [noon]
-  ,entry "not"  [n <> o <> t']
-  ,entry "now"  [n <> ow]] <>
+  [entry  "no"     [n <> oe]
+  ,entry  "noon"   [noon]
+  ,entry  "not"    [n <> o <> t']
+  ,entry  "now"    [n <> ow]
+  ,entryS "number" [n <> u <> m', b <> r']
+                   [plural, ed, ing]] <>
 
   -- o section
   entries
