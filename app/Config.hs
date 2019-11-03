@@ -9,6 +9,8 @@ import qualified Keys.Right as R
 
 hundredsModifier = addRight R.Z
 reverseModifier  = addVowel U . addVowel E
+doublesModifier  = addRight R.D
+
 fingerspellingModifier = addModifier Star
 capsModifier = addRight R.Fvs
 

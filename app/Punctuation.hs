@@ -51,4 +51,5 @@ punctuation =
      ,Entry "{^}>" [w <> a <> k' <> t']
      ,Entry "{^~^}" [t <> l <> d']
      ,Entry ":" [s <> t <> p <> h <> fvs' <> p' <> l' <> t']
+     ,Entry "{&$}" [stk R.D <> stk Hash]
      ]

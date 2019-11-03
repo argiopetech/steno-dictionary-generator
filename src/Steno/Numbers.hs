@@ -23,6 +23,11 @@ n9 = Entry "9" [stk R.T <> stk Hash]
 numbers = [n1, n2, n3, n4, n5, n0, n6, n7, n8, n9]
 
 
+doubles doublesModifier = map go numbers
+  where go (Entry n s) =
+          Entry (n <> n) $ map doublesModifier s
+          
+
 hundreds hundredsModifier = map go numbers
   where go (Entry n s) =
           Entry (n ++ "00") $ map hundredsModifier s

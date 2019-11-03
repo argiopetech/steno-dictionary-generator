@@ -23,6 +23,7 @@ alphabetEntries = fingerspelling fingerspellingModifier capsModifier
 
 numberEntries = hundreds hundredsModifier
              ++ reverses reverseModifier
+             ++ doubles  doublesModifier
 
 tinyModifications = reverses (addVowel E)
 

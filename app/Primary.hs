@@ -112,9 +112,9 @@ primaryDictionary =
 
   -- e section
   entries
-  [entry  "early"     [r <> l]
+  [entry  "early"     [er <> l']
   ,entry  "echo"      [e <> k']
-  ,entryS "effort"    [f <> r' <> t']
+  ,entryS "effort"    [e, f <> r' <> t']
                       [plural]
   ,entryS "Elliot"    [e <> l' <> t']
                       [contractS]
@@ -159,6 +159,7 @@ primaryDictionary =
   ,entry  "handwriting" [hand, write <> g']
   ,entryS "have"        [h <> a <> fvs']
                         [ing]
+  ,entry  "he"          [h <> ee]
   ,entry  "how"         [h <> ow]] <>
 
   -- i section
