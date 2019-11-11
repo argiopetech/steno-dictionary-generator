@@ -127,6 +127,7 @@ primaryDictionary =
   ,entry  "bitch"     [b.i.ch']
   ,entry  "blame"     [b.l.aa.m']
   ,entry  "bleach"    [b.l.ee.ch']
+  ,entry  "blite"     [b.l.ii, t']
   ,entry  "blithe"    [b.l.ii.dh']
   ,entry  "blush"     [b.l.u.sh']
   ,entry  "board"     [b.o.r', d']
@@ -339,7 +340,7 @@ primaryDictionary =
           [plural
           ,ed
           ,ing]
-  ,entryS "edit"   [e.d'.t']
+  ,entryS "edit"   [e.d',t']
           [plural
           ,ed
           ,ing]
@@ -1074,11 +1075,13 @@ primaryDictionary =
                   [plural]
   ,entryS "tit"   [t.i.t']
                   [plural]
+  ,entry  "titular" [t.i.ch', l.r']
   ,entry  "to"    [t.ew]
   ,entry  "trace" [tray.s']
   ,entry  "Tracy" [tray, see]
   ,entry  "tray"  [tray]
-  ,entry  "true"  [t.r.ew]] <>
+  ,entry  "true"  [t.r.ew]
+  ,entry  "twitch" [t.w.i.ch']] <>
 
   -- u section
   let up = u.p'
