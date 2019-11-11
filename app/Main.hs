@@ -6,7 +6,7 @@ import ControlKeys
 import CSharp
 import Dotterel
 import Plover
-import Primary
+import Primary hiding ((.))
 import Punctuation
 import Dictionary
 import Emacs
@@ -24,6 +24,7 @@ alphabetEntries = fingerspelling fingerspellingModifier capsModifier
 numberEntries = hundreds hundredsModifier
              ++ reverses reverseModifier
              ++ doubles  doublesModifier
+             ++ cardinals
 
 tinyModifications = reverses (addVowel E)
 
@@ -67,9 +68,10 @@ phoneEntries = dedupEntries $ alphabetEntries
 
 main :: IO ()
 main = do
-  someBoundaryErrors <- printBoundaryErrors $ checkBoundaryErrors allEntries
-  someEmpties <- printIfEmpty    $ checkEmpty     allEntries
-  someDupls   <- printDuplicates $ checkDuplicate allEntries
+  someBoundaryErrors <- printBoundaryErrors $
+                          checkBoundaryErrors . notEmpty $ allEntries
+  someDupls   <- printDuplicates $ checkDuplicate . notEmpty $ allEntries
+  someEmpties <- printIfEmpty    $ checkEmpty allEntries
 
   when (not (someEmpties || someDupls {-|| someBoundaryErrors-})) $ do
     writeJson "alphabet"     alphabetEntries

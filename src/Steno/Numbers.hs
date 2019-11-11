@@ -22,7 +22,11 @@ n9 = Entry "9" [stk R.T <> stk Hash]
 
 numbers = [n1, n2, n3, n4, n5, n0, n6, n7, n8, n9]
 
-
+cardinals = zipWith go cards numbers
+  where cards = ["one", "two", "three", "four", "five"
+                ,"zero", "six", "seven", "eight", "nine"]
+        go c (Entry _ s) = Entry c (map (<> stk R.B <> stk R.G) s)
+                
 doubles doublesModifier = map go numbers
   where go (Entry n s) =
           Entry (n <> n) $ map doublesModifier s

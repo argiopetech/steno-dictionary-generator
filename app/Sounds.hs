@@ -27,6 +27,7 @@ j  = stks [L.S, L.K, L.W, L.R]-- As in "jee"
 l  = stks [L.H, L.R]
 m  = stks [L.P, L.H]
 n  = stks [L.T, L.P, L.H]
+q  = stks [L.K, L.W]
 sh = stks [L.S, L.H]
 th = dh -- As in "thing", "theta"
 v  = stks [L.S, L.R]
@@ -57,7 +58,7 @@ ng' = n' <> stk R.G
 sh' = stks [fvs', p']
 ch' = stks [r', b']
 shn' = stks [sh', n']
-th'  = stks [t']
+th'  = t' <> stk Star
 x' = stks [k', s']
 j'   = p' <> b' <> l' <> g'
 zh'  = j'
@@ -72,6 +73,7 @@ u = stks [U]           -- short 'u': but
 
 aa = stks [A, E, U]    -- long 'a': ate
 ee = stks [A, E]       -- long 'e': eat, originally AE
+ee' = stks [A, O, E]   -- Long 'e' disambiguation
 ii = stks [A, O, E, U] -- long 'i': hide
 oe = stks [O, E]       -- long 'o': oat
 
@@ -81,3 +83,8 @@ oo = stks [A, O]       -- 'oo': hood, book
 ew = stks [O, U]       -- 'oo' for non-'oo' words: two, originally OU
 
 er = stk U <> stk R.R
+
+
+-- Others
+star = stk Star
+hash = stk Hash

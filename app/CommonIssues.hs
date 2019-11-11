@@ -12,6 +12,7 @@ import qualified Data.Map as M
 
 
 checkEmpty = filter (\(Entry _ es) -> null es)
+notEmpty   = filter (\(Entry _ es) -> not . null $ es)
 printIfEmpty es = do
   let empties = not $ null es
 
