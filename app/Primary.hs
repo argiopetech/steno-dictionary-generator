@@ -3,6 +3,7 @@ module Primary where
 
 import qualified Prelude as P
 import Prelude ((<>), ($))
+import Data.List (nub)
 
 import Dictionary
 import Sounds
@@ -19,7 +20,7 @@ import qualified Keys.Right as R
 infixr 9 .
 
 sstk w =
-  let selection = P.map (\(Entry _ s) -> s) $ P.filter (\(Entry n _) -> n P.== w) primaryDictionary
+  let selection = P.map stroke $ P.filter ((P.==) w P.. name) primaryDictionary
       len = P.length selection
   in if len P.== 1
        then P.head selection
@@ -45,6 +46,15 @@ infixl 5 :
 (^:) s w1 = s : sstk w1
 infixl 5 ^:
 
+nounSuffixes = [plural, contractS, pluralPosessive]
+verbSuffixes = [ed, plural, ing]
+pnoun  w s = entryS w s [contractS] -- Proper nouns
+noun   w s = entryS w s nounSuffixes
+verb   w s = entryS w s verbSuffixes
+gverb  w s = entryS w s $ verbSuffixes <> P.map (combine ing) nounSuffixes
+nvpair w s = entryS w s $ verbSuffixes <> P.tail nounSuffixes
+ngv    w s = entryS w s $ verbSuffixes <> P.tail nounSuffixes <> P.map (combine ing) nounSuffixes
+
 primaryDictionary =
   let -- Suffixes
       dnt  = d.n'.t'
@@ -65,8 +75,7 @@ primaryDictionary =
       any   = n.ee
   in entries
   [entry  "a"         [aa]
-  ,entryS "Aaron"     [e.r'.n']
-                      [contractS]
+  ,pnoun  "Aaron"     [e.r'.n']
   ,entry  "able"      [aa.b'.l']
   ,entry  "about"     [b.ow.t']
   ,entry  "ace"       [aa.s']
@@ -76,40 +85,40 @@ primaryDictionary =
   ,entryS "afternoon" (after ^: "noon")
           [plural]
   ,entry  "against"   [g.e.n'.s'.t']
-  ,entry  "agree"     [agree]
-  ,entry  "agreement" [agree, m.n'.t']
+  ,verb   "agree"     [agree]
+  ,noun   "agreement" [agree, m.n'.t']
   ,entry  "all"       [aw.l']
-  ,entry  "allowance" [l.ow.n'.s']
+  ,noun   "allowance" [l.ow.n'.s']
   ,entry  "almost"    [aw.l', m.oe.st']
   ,entry  "among"     [m.u.ng']
-  ,entry  "amount"    [m, ow.n'.t'] -- m',?
+  ,nvpair "amount"    [m, ow.n'.t'] -- m',?
   ,entry  "an"        [a.n']
   ,entry  "and"       [nd']
-  ,entry  "anger"     [g.r.r']
-  ,entry  "announce"  [n, ow.n'.s'] -- n'?
+  ,nvpair "anger"     [g.r.r']
+  ,verb   "announce"  [n, ow.n'.s'] -- n'?
   ,entry  "another"   [n.u.dh'.r']
   ,entry  "any"       [any]
-  ,entry  "anybody"   ("any" ++ "body")
+  ,entryS "anybody"   ("any" ++ "body")
+          [contractS]
   ,entry  "anything"  ("any" ++ "thing")
   ,entry  "anyhow"    ("any" ++ "how")
   ,entry  "anyone"    ("any" ++ "won")
   ,entry  "anywhere"  ("any" ++ "where")
   ,entryS "apparent"  [p.e.r'.n'.t']
           [ly]
-  ,entry  "ape"       [aa.p']
-  ,entry  "April"     [aa, p.r'.l']
+  ,noun   "ape"       [aa.p']
+  ,pnoun  "April"     [aa, p.r'.l']
   ,entry  "are"       [a.r']
-  ,entry  "arm"       [a.r'.m']
+  ,nvpair "arm"       [a.r'.m']
   ,entry  "as"        [a.z']
-  ,entry  "ash"       [a.sh']
+  ,noun   "ash"       [a.sh']
   ,entry  "ask"       [a.fvs'.k']
   ,entry  "at"        [a.t']
   ,entry  "available" [v.aa.l', b'.l']
 --  ,entry  "available" [v.aa.b'.l'] -- Potential brief
-  ,entryS "average"   [a.fvs'.r'.g']
-          [plural]
+  ,nvpair "average"   [a.fvs'.r'.g']
   ,entry  "awful"     [aw.fvs'.l']
-  ,entry  "Azure"     [a.z', r']] <>
+  ,pnoun  "Azure"     [a.z', r']] <>
 
   -- b section
   let br = b.r
@@ -123,47 +132,48 @@ primaryDictionary =
           [plural]
   ,entry  "been"      [b.i.n']
   ,entry  "before"    [b, f.oe.r']
-  ,entryS "begin"     [b, g.i.n']
+  ,entryS "begin"     [b, g.i.n']  -- irregular verb
           [ing]
   ,entry  "beige"     [b.aa.zh']
-  ,entry  "being"     [b.ee.ng']
-  ,entry  "belong"    [b, l.o.ng']
+  ,noun   "being"     [b.ee.ng']
+  ,gverb  "belong"    [b, l.o.ng']
   ,entry  "bento"     [b.i.n', t.oe]
   ,entry  "best"      [b.e.st']
   ,entry  "bimodal"   [b.ii, m.oe, d.l']
   ,entryS "bin"       [b.i, n']
           [ed]
-  ,entry  "birth"     [b.er.th']
-  ,entry  "bitch"     [b.i.ch']
-  ,entry  "blame"     [b.l.aa.m']
-  ,entry  "bleach"    [b.l.ee.ch']
-  ,entry  "blite"     [b.l.ii, t']
+  ,nvpair "birth"     [b.er.th']
+  ,noun   "bitch"     [b.i.ch']
+  ,verb   "blame"     [b.l.aa.m']
+  ,verb   "bleach"    [b.l.ee.ch']
+  ,nvpair "blite"     [b.l.ii, t']
   ,entry  "blithe"    [b.l.ii.dh']
   ,entry  "blush"     [b.l.u.sh']
-  ,entry  "board"     [b.o.r', d']
-  ,entry  "body"      [b.o.d', ee]
-  ,entry  "bomb"      [b.aw.m', b']
+  ,nvpair "board"     [b.o.r', d']
+  ,nvpair "body"      [b.o.d', ee]
+  ,nvpair "bomb"      [b.aw.m', b']
   ,entry  "bored"     [b.o.r'.d']
   ,entry  "botch"     [b.o.ch']
   ,entry  "bottom"    [b.o.t'.m']
   ,entry  "bread"     [b.r.e.d']
   ,entryS "break"     [br.aa.k']
           [ing]
-  ,entry  "breathe"   [br.ee.th']
+  ,verb   "breathe"   [br.ee.th']
   ,entry  "breath"    [br.e.th']
   ,entry  "bring"     [br.g']
   ,entry  "broadcast" [br.o.d', k.a.st']
   ,entry  "bruise"    [br.ew.s']
   ,entry  "brush"     [br.u.sh']
   ,entry  "brutal"    [br.ew.t'.l']
-  ,entryS "budget"    [b.u.j'.t']
-          [plural]
-  ,entryS "build"     [b.i.l'.d']
-          [ing]
-  ,entry  "bush"      [b.oo.sh]
+  ,entry  "brutality" ("brutal" +: ty')
+  ,noun   "budget"    [b.u.j'.t']
+  ,noun   "build"     [b.i.l'.d']   -- irregular verb, build/built/built
+  ,noun   "building"  ("build" +: g')
+  ,entry  "built"     [b.i.l'.t']   -- irregular past form of "build"
+  ,nvpair "bush"      [b.oo.sh]
   ,entry  "but"       [b.u.t']
-  ,entry  "butter"    [b.u.t', r']
-  ,entry  "buyer"     [b.ii.r']
+  ,noun   "butter"    [b.u.t', r']
+  ,noun   "buyer"     [b.ii.r']
   ,entry  "by"        [b.ii]] <>
 
   -- c section
@@ -173,61 +183,62 @@ primaryDictionary =
       con   = k.o.n'
       cr    = k.r
   in entries
-  [entry  "cab"       [k.a.b']
-  ,entry  "cad"       [k.a.d']
-  ,entry  "call"      [k.aw.l']
-  ,entryS "calm"      [k.aw, m']
-          [ed]
-  ,entry  "came"      [k.aa.m']
-  ,entry  "can"       [k.a.n']
-  ,entry  "car"       [car]
-  ,entry  "carriage"  [k.a.r'.j']
-  ,entry  "Carly"     [car, ly']
-  ,entry  "castle"    [k.a.fvs'.l']
-  ,entry  "cat"       [k.a.t']
-  ,entry  "catch"     [k.a.ch']
-  ,entry  "caught"    [k.aw.t']
-  ,entry  "cause"     [k.aw.z']
-  ,entry  "cd"        [k.r.d'] -- as in, fingerspelling 'c'
-  ,entry  "cease"     [s.ee.s']
-  ,entry  "cement"    [s.m.e.n'.t']
-  ,entry  "cert"      [cert]
-  ,entry  "certification" [cert, f.k', aa.sh'.n']
+  [noun   "cab"       [k.a.b']
+  ,noun   "cad"       [k.a.d']
+  ,nvpair "call"      [k.aw.l']
+  ,verb   "calm"      [k.aw, m']
+  ,entry  "came"      [k.aa.m']  -- irregular past form of "come"
+  ,nvpair "can"       [k.a.n']
+  ,noun   "car"       [car]
+  ,noun   "carriage"  [k.a.r'.j']
+  ,pnoun  "Carly"     [car, ly']
+  ,nvpair "castle"    [k.a.fvs'.l']
+  ,noun   "cat"       [k.a.t']
+  ,entry  "catch"     [k.a.ch']   -- irregular verb, catch/caught/caught
+  ,entry  "caught"    [k.aw.t']   -- irregular past form of "catch"
+  ,nvpair "cause"     [k.aw.z']
+  ,entry  "cd"        [k.r.d']    -- as in, fingerspelling 'c'
+  ,verb   "cease"     [s.ee.s']
+  ,nvpair "cement"    [s.m.e.n'.t']
+  ,noun   "cert"      [cert]
+  ,noun   "certification" [cert, f.k', aa.sh'.n']
   ,entry  "chaff"     [ch.a.fvs']
   ,entry  "chance"    [ch.a.n'.s']
   ,entry  "change"    [ch.aa.n'.g']
-  ,entry  "channel"   [ch.a.n'.l']
-  ,entry  "chant"     [ch.a.n'.t']
-  ,entry  "charm"     [ch.a.r'.m']
-  ,entry  "chart"     [ch.a.r'.t']
-  ,entry  "chasm"     [k.a.fvs'.m']
-  ,entry  "chat"      [ch.a.t']
-  ,entry  "check"     [ch.e.k']
+  ,noun   "channel"   [ch.a.n'.l']
+  ,nvpair "chant"     [ch.a.n'.t']
+  ,nvpair "charm"     [ch.a.r'.m']
+  ,nvpair "chart"     [ch.a.r'.t']
+  ,noun   "chasm"     [k.a.fvs'.m']
+  ,nvpair "chat"      [ch.a.t']
+  ,nvpair "check"     [ch.e.k']
   ,entry  "chess"     [ch.e.s']
-  ,entry  "chest"     [ch.e.st']
-  ,entry  "chin"      [ch.i.n']
+  ,noun   "chest"     [ch.e.st']
+  ,noun   "chin"      [ch.i.n']
   ,entry  "chive"     [ch.ii.fvs']
-  ,entry  "choose"    [ch.oo.s']
-  ,entry  "chop"      [ch.o.p']
+  ,entry  "choose"    [ch.oo.s']   -- irregular verb choose/chose/chosen
+  ,verb   "chop"      [ch.o.p']
   ,entry  "chore"     [ch.oe.r']
+  ,entry  "chose"     [ch.oe.s']   -- irregular past form of "choose"
+  ,entry  "chosen"    [ch.oe.s', n'] -- irregular past participle of "choose"
   ,entry  "chrome"    [k.r.oe.m']
-  ,entry  "chuck"     [ch.u.k']
-  ,entry  "churn"     [ch.er.n']
-  ,entry  "coat"      [k.oe.t']
-  ,entry  "cod"       [k.o.d']
-  ,entry  "code"      [k.oe.d']
-  ,entry  "cog"       [k.o.g']
-  ,entry  "coil"      [k.oi.l']
-  ,entryS "come"      [come]
+  ,verb   "chuck"     [ch.u.k']
+  ,nvpair "churn"     [ch.er.n']
+  ,ngv    "coat"      [k.oe.t']
+  ,noun   "cod"       [k.o.d']
+  ,nvpair "code"      [k.oe.d']
+  ,nvpair "cog"       [k.o.g']
+  ,nvpair "coil"      [k.oi.l']
+  ,entryS "come"      [come]    -- irregular verb come/came/come
           [ing]
-  ,entry  "commend"   [k.m.e.n'.d']
-  ,entry  "commit"    [k.m.i.t']
-  ,entry  "con"       [con]
-  ,entryS "conflict"  [con, f.l.i.k'.t']
-          [ed, ing]
-  ,entryS "continue"  [k.n', t.i.n', y] [ed]
-  ,entry  "contract"  [con, t.r.a.k'.t']
-  ,entry  "cock"      [k.aw.k']
+  ,verb   "commend"   [k.m.e.n'.d']
+  ,nvpair "commit"    [k.m.i.t']
+  ,noun   "con"       [con]
+  ,nvpair "conflict"  [con, f.l.i.k'.t']
+  ,nvpair "continue"  [k.n', t.i.n', y]
+  ,noun   "contract"  [con, t.r.a.k'.t']
+  ,verb   "contract"  [k.n', t.r.a.k'.t']
+  ,nvpair "cock"      [k.aw.k']
   ,entry  "coke"      [k.oe.k']
   ,entry  "cop"       [k.o.p']
   ,entry  "cope"      [k.oe.p']
@@ -239,7 +250,7 @@ primaryDictionary =
           [ed]
   ,entry  "cot"     [c.o.t']
   ,entry  "could"   [k.oo.d']
-  ,entry  "course"  [k.o.r'.s']
+  ,entry  "course"  [k.o.r', s']
   ,entry  "cover"   [k.o.fvs'.r']
   ,entry  "crap"    [cr.a.p']
   ,entry  "crash"   [cr.a.sh']
@@ -259,15 +270,15 @@ primaryDictionary =
   ,entryS "crush"   [cr.u.sh']
           [ed, ing]
   ,entry  "crutch"  [cr.u.ch']
-  ,entry  "crystal" [k.r.i.fvs'.t'.l']
-  ,entry  "cub"     [k.u.b']
-  ,entry  "cube"    [k, y.ew.b']
+  ,noun   "crystal" [k.r.i.fvs'.t'.l']
+  ,noun   "cub"     [k.u.b']
+  ,noun   "cube"    [k, y.ew.b']
   ,entry  "cuff"    [k.u.fvs']
   ,entry  "cull"    [k.u.l']
-  ,entry  "cunt"    [k.u.n'.t']
-  ,entry  "cup"     [k.u.p']
-  ,entry  "cure"    [k, y.oo.r']
-  ,entry  "curse"   [k.er.s']
+  ,noun   "cunt"    [k.u.n'.t']
+  ,noun   "cup"     [k.u.p']
+  ,verb   "cure"    [k, y.oo.r']
+  ,verb   "curse"   [k.er.s']
   ,entryS "cuss"    [k.u.s']
           [ed, ing]
   ,entry  "cut"     [k.u.t']
@@ -343,42 +354,33 @@ primaryDictionary =
   ,entry  "earth"  [er.th']
   ,entry  "ease"   [ee.z']
   ,entry  "easy"   [ee.z', ee]
-  ,entryS "eat"    [ee.t']
+  ,entryS "eat"    [ee.t'] -- irregular verb, eat/ate/eaten
           [ing]
-  ,entryS "echo"   [e.k']
-          [plural]
-  ,entryS "edge"   [e.j']
-          [plural
-          ,ed
-          ,ing]
-  ,entryS "edit"   [e.d',t']
-          [plural
-          ,ed
-          ,ing]
-  ,entryS "eel"    [ee.l']
-          [plural]
-  ,entryS "effort" [f.r'.t']
-          [plural]
-  ,entryS "Elliot"    [e.l'.t']
-          [contractS]
-  ,entry  "eke" [ee.k']
-  ,entry  "elf" [l.fvs']
+  ,nvpair "echo"      [e.k']
+  ,nvpair "edge"      [e.j']
+  ,nvpair "edit"      [e.d',t']
+  ,noun   "eel"       [ee.l']
+  ,noun   "effort"    [f.r'.t']
+  ,pnoun  "Elliot"    [e.l'.t']
+  ,verb   "eke"       [ee.k']
+  ,entry  "elf"       [l.fvs']    -- Has irregular plural
   ,entry  "else"      [e.l'.s']
-  ,entry  "elves" [l.fvs'.z']
+  ,entry  "elves"     [l.fvs'.z'] -- Irregular plural of "elf"
   ,entryS "email"     (ee ^: "mail")
           [ing]
   ,entry  "emacs"     [ee, m.a.x']
-  ,entry  "emergency" [m.er.g', n.s'.ee]
-  ,entry  "Emily"     [e.m, ly']
-  ,entryS "enact" [n.a.k'.t'] [plural]
-  ,entryS "entry"     [n, t.r.ee] [plural]
-  ,entry  "etch" [e.ch']
-  ,entry  "even" [ee.fvs'.n']
-  ,entry  "ever" [e.fvs'.r']
-  ,entry  "every" [e.fvs'.r', ee]
-  ,entry  "evil" [ee.fvs'.l']
-  ,entry  "exam"    [x.a.m']
-  ,entry  "example" [x.a.m', p'.l']
+  ,noun   "emergency" ("merge" +: n.s'.ee)
+  ,pnoun  "Emily"     [e.m, ly']
+  ,verb   "enact"     [n.a.k'.t']
+  ,noun   "entry"     [n, t.r.ee]
+  ,gverb  "etch"      [e.ch']
+  ,entry  "even"      [ee.fvs'.n']
+  ,entry  "ever"      [e.fvs'.r']
+  ,entry  "every"     ("ever" +: ee)
+  ,entry  "evil"      [ee.fvs'.l']
+  ,noun   "exam"      [x.a.m']
+  ,verb   "examine"   ("exam" +: n')
+  ,noun   "example"   ("exam" +: p'.l')
   ,entry  "except"    [x.e.p'.t']] <>
 
   -- f section
@@ -615,7 +617,7 @@ primaryDictionary =
   ,entry  "lust"     [l.u.st']] <>
 
   -- m section
-  let ma  = m.a 
+  let ma  = m.a
       mee = m.ee
       may = m.aa
       mod = m.o.d'
@@ -646,8 +648,8 @@ primaryDictionary =
   ,entry  "meth"      [m.e.th']
   ,entry  "method"    [m.e.th'.d']
   ,entry  "mic"       [m.ii, k']
-  ,entry  "Microsoft" [m.s']
-  ,entry  "Mike"      [m.ii.k']
+  ,pnoun  "Microsoft" [m.s']
+  ,pnoun  "Mike"      [m.ii.k']
   ,entry  "mod"       [m.o.d']
   ,entry  "modify"    ("mod" +: f.ii)
   ,entry  "modifier"  ("mod" +: f.ii.r')
@@ -916,6 +918,7 @@ primaryDictionary =
   ,entry  "sail"     [s.aa, l']
   ,entry  "sale"     [s.aa.l']
   ,entry  "sap"      [s.a.p']
+  ,pnoun  "Sasha"    [s.aw.sh']
   ,entry  "sass"     [s.a.s']
   ,entry  "sat"      [s.a.t']
   ,entry  "Saul"     [s.aw.l']

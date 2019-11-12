@@ -6,7 +6,8 @@ import Data.List (intercalate)
 import Text.Printf
 
 
-data Entry = Entry String [Stroke]
+data Entry = Entry {name   :: String
+                   ,stroke :: [Stroke]}
   deriving (Eq)
 
 entry name strokes = [Entry name strokes]

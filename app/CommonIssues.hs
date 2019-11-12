@@ -11,8 +11,9 @@ import Text.Printf
 import qualified Data.Map as M
 
 
-checkEmpty = filter (\(Entry _ es) -> null es)
-notEmpty   = filter (\(Entry _ es) -> not . null $ es)
+checkEmpty = filter (null . stroke)
+notEmpty   = filter (not . null . stroke)
+
 printIfEmpty es = do
   let empties = not $ null es
 
@@ -28,17 +29,19 @@ printIfEmpty es = do
 --
 -- Useful primarily for e.g., Dotterel, which, for all its lovely attributes,
 -- has (as of version 0.2 beta) a very poor dictionary mangement system.
+
+
 dedupEntries :: [Entry] -> [Entry]
 dedupEntries es =
-  let map = foldl' (\m e@(Entry _ ss) ->
-                      M.insert ss e m)
+  let map = foldl' (\m e ->
+                      M.insert (stroke e) e m)
                    M.empty es
   in M.elems map
 
 
 checkDuplicate es =
-  let map = foldl' (\m (Entry n ss) ->
-                      appendOrInsert ss n m)
+  let map = foldl' (\m e ->
+                      appendOrInsert (stroke e) (name e) m)
                    M.empty es
   in M.toList $ M.filter ((> 1) . length) map
 
@@ -58,13 +61,15 @@ printDuplicates es = do
 
 checkBoundaryErrors :: [Entry] -> [(Stroke, [String])]
 checkBoundaryErrors es =
-  let (b, w, e) = foldl' (\(b, w, e) (Entry n ss) ->
-                            case length ss of
-                              0 -> (b, w, e)
-                              1 -> (b, appendOrInsert (head ss) n w, e)
-                              _ -> (appendOrInsert (head ss) n b
-                                   ,w
-                                   ,appendOrInsert (last ss) n e))
+  let (b, w, e) = foldl' (\(b, w, e) entry ->
+                            let n  = name   entry
+                                ss = stroke entry
+                            in case length ss of
+                                 0 -> (b, w, e)
+                                 1 -> (b, appendOrInsert (head ss) n w, e)
+                                 _ -> (appendOrInsert (head ss) n b
+                                      ,w
+                                      ,appendOrInsert (last ss) n e))
                          (mempty, mempty, mempty)
                          es
       doUnion     = M.unionWith (++)

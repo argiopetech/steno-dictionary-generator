@@ -20,15 +20,17 @@ suffixSC conflicts ks s =
   in (\n -> n ++ s, ender)
 
 plural = suffixSC [R.S, R.D] [R.S] "{^s}"
-pluralPosessive = suffixSC [R.S, R.Z, R.T, R.D] [R.S, R.Z] "s'"
+pluralPosessive = suffixSC (enumFrom R.S) [R.S, R.Z] "{^s}{^}'"
 
-contractLL = suffix R.L "'ll"
-contractM = suffixS [R.P, R.L] "'m"
-contractS = suffixSC [R.T, R.Z] [R.Z] "'s"
-contractD = suffixSC [R.S, R.D] [R.D] "'d"
+contractLL = suffixSC (enumFrom R.L) [R.L]      "'ll"
+contractM  = suffixSC (enumFrom R.P) [R.P, R.L] "'m"
+contractS  = suffixSC [R.T, R.Z] [R.Z] "'s"
+contractD  = suffixSC [R.S, R.D] [R.D] "'d"
 
-ing = suffix R.G "{^ing}"
-ed = suffix R.D "{^ed}"
+ing = suffixSC (enumFrom R.G)       [R.G] "{^ing}"
+ed  = suffixSC (R.S : enumFrom R.D) [R.D] "{^ed}"
+
+combine (nMod1, sMod1) (nMod2, sMod2) = (nMod2 . nMod1, sMod2 . sMod1)
 
 ly =
   let ender = \ss ->

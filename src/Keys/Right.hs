@@ -1,7 +1,7 @@
 module Keys.Right where
 
 data RightKey =  Fvs | R | P | B | L | G | T | S | D | Z
-  deriving (Eq, Ord)
+  deriving (Enum, Eq, Ord)
 
 instance Show RightKey where
   showsPrec _ Fvs = showString "F"
