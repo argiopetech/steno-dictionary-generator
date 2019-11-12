@@ -16,27 +16,37 @@ import qualified Keys.Right as R
 -- Super non-standard override, but
 -- makes the entries *much* easier to read.
 (.) = (<>)
+infixr 9 .
+
+sstk w =
+  let selection = P.map (\(Entry _ s) -> s) $ P.filter (\(Entry n _) -> n P.== w) primaryDictionary
+      len = P.length selection
+  in if len P.== 1
+       then P.head selection
+       else P.error $ P.show len <> " entries found for \"" <> w <> "\""
+
+(++) w1 w2 = sstk w1 <> sstk w2
+
+(+) = go P.. sstk
+  where go  [] s = [s]
+        go [a] s = [a . s]
+        go  ls s = P.init ls <> [P.last ls . s]
+infixr 5 +
+
+(+:) w1 s = sstk w1 <> [s]
+infixr 5 +:
+
+(^) = (P.. sstk) P.. go
+  where go s  [] = [s]
+        go s [a] = [s . a]
+        go s  ls = s . P.head ls : P.init ls
+infixl 5 :
+
+(^:) s w1 = s : sstk w1
+infixl 5 ^:
 
 primaryDictionary =
-  let body   = [b.o.d', ee]
-      frost  = f.r.o.st'
-      hore   = h.o.r
-      how    = h.ow
-      mail   = m.aa.l'
-      noon   = n.ew.n'
-      one    = w.u.n'
-      place  = p.l.aa.s'
-      scribe = s.k.r.ii.b'
-      see    = s.ee
-      thing  = th.g'
-      till   = t.i.l'
-      time   = t.ii.m'
-      times  = time.z'
-      where' = w.e.r'
-      write  = wr.ii.t'
-      you    = y.ew
-
-      -- Suffixes
+  let -- Suffixes
       dnt  = d.n'.t'
       bl'  = b'.l'
       ly'  = l'.ee
@@ -63,7 +73,7 @@ primaryDictionary =
   ,entry  "actually"  [a.k', ch.ew.ly']
   ,entry  "add"       [a.d']
   ,entry  "after"     [after]
-  ,entryS "afternoon" [after, noon]
+  ,entryS "afternoon" (after ^: "noon")
           [plural]
   ,entry  "against"   [g.e.n'.s'.t']
   ,entry  "agree"     [agree]
@@ -79,11 +89,11 @@ primaryDictionary =
   ,entry  "announce"  [n, ow.n'.s'] -- n'?
   ,entry  "another"   [n.u.dh'.r']
   ,entry  "any"       [any]
-  ,entry  "anybody"   (any : body)
-  ,entry  "anything"  [any, thing]
-  ,entry  "anyhow"    [any, how]
-  ,entry  "anyone"    [any, one]
-  ,entry  "anywhere"  [any, where']
+  ,entry  "anybody"   ("any" ++ "body")
+  ,entry  "anything"  ("any" ++ "thing")
+  ,entry  "anyhow"    ("any" ++ "how")
+  ,entry  "anyone"    ("any" ++ "won")
+  ,entry  "anywhere"  ("any" ++ "where")
   ,entryS "apparent"  [p.e.r'.n'.t']
           [ly]
   ,entry  "ape"       [aa.p']
@@ -105,11 +115,11 @@ primaryDictionary =
   let br = b.r
   in entries
   [entry  "balm"      [b.aw.m']
-  ,entry  "balmy"     [b.aw.m'.ee]
+  ,entry  "balmy"     ("balm" + ee)
   ,entry  "be"        [b.ee]
-  ,entry  "became"    [b, k.aa.m']
-  ,entry  "because"   [b, k.aw.z']
-  ,entryS "become"    [b, k.aw.m']
+  ,entry  "became"    (b ^: "came")
+  ,entry  "because"   (b ^: "cause")
+  ,entryS "become"    (b ^: "come")
           [plural]
   ,entry  "been"      [b.i.n']
   ,entry  "before"    [b, f.oe.r']
@@ -131,7 +141,7 @@ primaryDictionary =
   ,entry  "blithe"    [b.l.ii.dh']
   ,entry  "blush"     [b.l.u.sh']
   ,entry  "board"     [b.o.r', d']
-  ,entry  "body"      body
+  ,entry  "body"      [b.o.d', ee]
   ,entry  "bomb"      [b.aw.m', b']
   ,entry  "bored"     [b.o.r'.d']
   ,entry  "botch"     [b.o.ch']
@@ -177,6 +187,7 @@ primaryDictionary =
   ,entry  "cat"       [k.a.t']
   ,entry  "catch"     [k.a.ch']
   ,entry  "caught"    [k.aw.t']
+  ,entry  "cause"     [k.aw.z']
   ,entry  "cd"        [k.r.d'] -- as in, fingerspelling 'c'
   ,entry  "cease"     [s.ee.s']
   ,entry  "cement"    [s.m.e.n'.t']
@@ -287,7 +298,7 @@ primaryDictionary =
           [plural]
   ,entry  "depress" [d.p.r.e.s']
   ,entry  "derange" [drain, j']
-  ,entryS "describe" [d, scribe]
+  ,entryS "describe" (d ^: "scribe")
           [ed]
   ,entry  "design" [d, z.ii.n']
   ,entry  "desire" [d, z.ii.r']
@@ -354,8 +365,8 @@ primaryDictionary =
   ,entry  "elf" [l.fvs']
   ,entry  "else"      [e.l'.s']
   ,entry  "elves" [l.fvs'.z']
-  ,entryS "email"     [ee, mail]
-                      [ing]
+  ,entryS "email"     (ee ^: "mail")
+          [ing]
   ,entry  "emacs"     [ee, m.a.x']
   ,entry  "emergency" [m.er.g', n.s'.ee]
   ,entry  "Emily"     [e.m, ly']
@@ -405,7 +416,7 @@ primaryDictionary =
   ,entry  "frigid" [f.r.i.j'.d']
   ,entry  "fringe" [f.r.i.n, j']
   ,entry  "from"    [f.r.o.m']
-  ,entry  "frost"   [frost]
+  ,entry  "frost"   [f.r.o.st']
   ,entry  "fuck"    [f.u.k']] <>
 
   -- g section
@@ -455,7 +466,7 @@ primaryDictionary =
   ,entry  "hall" [h.aw.l']
   ,entry  "halt" [h.aw.l'.t']
   ,entry  "hand"        [hand]
-  ,entry  "handwriting" [hand, write.g']
+  ,entry  "handwriting" (hand ^: "write{^ing}")
   ,entry  "harm" [h.aw.r'.m']
   ,entry  "has"         [h.a.z']
   ,entry  "hash" [h.a.sh']
@@ -480,21 +491,21 @@ primaryDictionary =
   ,entry  "hid"         [h.i.d']
   ,entry  "hinge"       [h.i.n, j']
   ,entry  "hit"         [h.i.t']
-  ,entry  "hoary"       [hore.ry']
-  ,entry  "hoarfrost"   [hore, frost]
-  ,entry  "hog" [h.o.g']
-  ,entry  "hood" [h.oo.d']
+  ,entry  "hoary"       ("whore" + ry')
+  ,entry  "hoarfrost"   ("whore" ++ "frost")
+  ,entry  "hog"         [h.o.g']
+  ,entry  "hood"        [h.oo.d']
   ,entry  "hoe"         [h.oe]
-  ,entry  "hop" [h.o.p']
-  ,entry  "hope" [h.oe.p']
-  ,entry  "horrible" [hore.bl']
-  ,entry  "horror"      [hore, r]
+  ,entry  "hop"         [h.o.p']
+  ,entry  "hope"        [h.oe.p']
+  ,entry  "horrible"    ("whore" + bl')
+  ,entry  "horror"      ("whore" +: r')
   ,entry  "host" [h.oe.st']
   ,entry  "hot" [h.o.t']
   ,entry  "house" [h.ow.s']
   ,entry  "hover" [h.o.fvs'.r']
-  ,entry  "how"         [how]
-  ,entry  "howl" [how.l']
+  ,entry  "how"         [h.ow]
+  ,entry  "howl"        ("how" + l')
   ,entry  "hub" [h.u.b']
   ,entry  "huff" [h.u.fvs']
   ,entry  "hug" [h.u.g']
@@ -562,70 +573,74 @@ primaryDictionary =
                    [ed, ing]] <>
 
   -- l section
-  entries
+  let lee = l.ee
+  in entries
   [entry  "lace"     [l.aa.s']
   ,entry  "lash"     [l.a.sh']
   ,entry  "latch"    [l.a.ch']
-  ,entryS "lead"     [l.ee.d']
-                     [plural, ing]
+  ,entryS "lead"     [lee.d']
+          [plural, ing]
   ,entryS "lead"     [l.e.d']
-                     [ed]
-  ,entryS "leader"   [l.ee.d', r']
-                     [plural]
+          [ed]
+  ,entryS "leader"   [lee.d', r']
+          [plural]
   ,entryS "learn"    [l.er.n']
-                     [ed]
-  ,entryS "lease"    [l.ee.s']
-                     [ed]
-  ,entry  "least"    [l.ee.st']
-  ,entry  "leech"    [l.ee.ch']
+          [ed]
+  ,entryS "lease"    [lee.s']
+          [ed]
+  ,entry  "least"    [lee.st']
+  ,entry  "lee"      [lee]
+  ,entry  "leech"    [lee.ch']
   ,entry  "lend"     [l.e.nd']
   ,entry  "less"     [l.e.s']
   ,entry  "let"      [l.e.t']
   ,entry  "letter"   [l.e.t', r']
   ,entry  "leverage" [l.e.fvs', r'.j']
   ,entryS "look"     [l.oo.k']
-                     [ing]
+          [ing]
   ,entry  "lounge"   [l.ow.n', j']
   ,entryS "lover"    [l.u.fvs'.r']
-                     [plural]
+          [plural]
   ,entry  "like"     [l.ii.k']
   ,entry  "link"     [l.i.n'.k']
-  ,entryS "Lincoln"  [l.i.n'.k', n']
-                     [contractS]
+  ,entryS "Lincoln"  ("link" +: n')
+          [contractS]
   ,entryS "log"      [l.aw.g']
-                     [plural]
+          [plural]
   ,entry  "loin"     [l.oi.n']
   ,entry  "ls"       [l.s']
   ,entry  "luck"     [l.u.k']
-  ,entry  "lucky"    [l.u.k'.ee]
+  ,entry  "lucky"    ("luck" + ee)
   ,entry  "lung"     [l.u.ng']
   ,entry  "lust"     [l.u.st']] <>
 
   -- m section
-  let may = m.aa
+  let ma  = m.a 
+      mee = m.ee
+      may = m.aa
       mod = m.o.d'
   in entries
-  [entry  "maggot"    [m.a.g'.t']
-  ,entry  "maim"      [m.aa.m']
-  ,entryS "mail"      [mail]
-                      [ing]
-  ,entry  "made"      [m.aa.d']
+  [entry  "maggot"    [ma.g'.t']
+  ,entry  "maim"      [may.m']
+  ,entryS "mail"      [may.l']
+          [ing]
+  ,entry  "made"      [may.d']
   ,entry  "main"      [may.n']
   ,entry  "Maine"     [may, n']
   ,entry  "maintain"  [may.n', t.aa.n']
-  ,entry  "male"      [rep ([] :: [RightKey]) mail, l']
-  ,entry  "mallet"    [m.a.l'.t']
+  ,entry  "male"      [may, l']
+  ,entry  "mallet"    [ma.l'.t']
   ,entry  "malt"      [m.aw.l'.t']
   ,entry  "many"      [m.e, n'.ee]
-  ,entry  "mash"      [m.a.sh']
-  ,entry  "mat"       [m.a.t']
-  ,entry  "match"     [m.a.ch']
-  ,entry  "math"      [m.a.th']
-  ,entry  "matter"    [m.a.t', r']
+  ,entry  "mash"      [ma.sh']
+  ,entry  "mat"       [ma.t']
+  ,entry  "match"     [ma.ch']
+  ,entry  "math"      [ma.th']
+  ,entry  "matter"    [ma.t', r']
   ,entry  "may"       [may]
-  ,entry  "me"        [m.ee]
-  ,entry  "meal"      [m.ee.l']
-  ,entryS "meet"      [m.ee.t'] [ing]
+  ,entry  "me"        [mee]
+  ,entry  "meal"      [mee.l']
+  ,entryS "meet"      [mee.t'] [ing]
   ,entry  "merge"     [m.er.j']
   ,entry  "mesh"      [m.e.sh']
   ,entry  "meth"      [m.e.th']
@@ -634,17 +649,17 @@ primaryDictionary =
   ,entry  "Microsoft" [m.s']
   ,entry  "Mike"      [m.ii.k']
   ,entry  "mod"       [m.o.d']
-  ,entry  "modify"    [m.o.d', f.ii]
-  ,entry  "modifier"  [m.o.d', f.ii.r']
+  ,entry  "modify"    ("mod" +: f.ii)
+  ,entry  "modifier"  ("mod" +: f.ii.r')
   ,entry  "mom"       [m.o.m']
   ,entry  "mope"      [m.oe.p']
-  ,entry  "morals"    [m.o.r'.l'.s']
+  ,entry  "morals"    ("more" + l'.s')
   ,entry  "more"      [m.o.r']
-  ,entryS "morning"   [m.o.r'.ng']
-                      [plural, contractS]
+  ,entryS "morning"   ("more" + ng')
+          [plural, contractS]
   ,entry  "mound"     [m.ow.n'.d']
   ,entryS "mount"     [m.ow.n'.t']
-                      [plural]
+          [plural]
   ,entry  "move"      [m.ew.fvs']
   ,entry  "MS"        [m, s]
   ,entry  "much"      [m.u.ch']
@@ -670,7 +685,7 @@ primaryDictionary =
   ,entry  "nock"   [n.o.k']
   ,entry  "nod"    [n.o.d']
   ,entry  "noise"  [n.oi.z']
-  ,entry  "noon"   [noon]
+  ,entry  "noon"   [n.ew.n']
   ,entry  "not"    [n.o.t']
   ,entry  "notes"  [n.oe.t'.s']
   ,entry  "noun"   [n.ow.n']
@@ -751,7 +766,7 @@ primaryDictionary =
   ,entry  "ping"     [p.g']
   ,entry  "Pinyin"   [p.i.n', y.i.n']
   ,entry  "pipe"     [p.ii.p']
-  ,entry  "place"    [place]
+  ,entry  "place"    [p.l.aa.s']
   ,entry  "plumb"    [p.l.u.m']
   ,entry  "plunge"   [p.l.u.n', j']
   ,entry  "plural"   [p.l.oo.r'.l']
@@ -888,7 +903,8 @@ primaryDictionary =
   ,entry  "rut" [r.u.t']] <>
 
   -- s section
-  let sis  = s.i.s'
+  let see  = s.ee
+      sis  = s.i.s'
       some = s.u.m'
       spun = s.p.u.n'
       stew = s.t.ew
@@ -912,7 +928,7 @@ primaryDictionary =
   ,entry  "scoff"    [s.k.aw.fvs']
   ,entry  "scour"    [s.k.ow.r']
   ,entry  "scribble" [s.k.r.i.b'.l']
-  ,entry  "scribe"   [scribe]
+  ,entry  "scribe"   [s.k.r.ii.b']
   ,entryS "scuffle"  [s.k.u.fvs'.l'] [ed]
   ,entry  "sea"      [s.ee']
   ,entry  "seat"     [s.ee.t']
@@ -970,13 +986,14 @@ primaryDictionary =
   ,entry  "soil"     [s.oi.l']
   ,entry  "sold"     [s.oe.l'.d']
   ,entry  "some"     [some]
-  ,entry  "somebody" (some : body)
-  ,entry  "somehow"  [some, how]
-  ,entry  "someone"  [some, one]
-  ,entry  "someplace" [some, place]
-  ,entry  "something" [some, thing]
-  ,entry  "sometimes" [some, times]
-  ,entry  "somewhere" [some, where']
+  ,entry  "somebody"  ("some" ++ "body")
+  ,entry  "somehow"   ("some" ++ "how")
+  ,entry  "someone"   ("some" ++ "won")
+  ,entry  "someplace" ("some" ++ "place")
+  ,entry  "something" ("some" ++ "thing")
+  ,entry  "sometime"  ("some" ++ "time")
+  ,entry  "sometimes" ("some" ++ "time{^s}")
+  ,entry  "somewhere" ("some" ++ "where")
   ,entry  "song"      [s.o.ng']
   ,entry  "soot"      [s.oo.t']
   ,entry  "sop"       [s.o.p']
@@ -984,7 +1001,7 @@ primaryDictionary =
   ,entryS "sound"     [s.ow.nd']
                       [plural]
   ,entry  "soy"       [s.oi]
-  ,entry  "spew"      [s.p, you]
+  ,entry  "spew"      (s.p ^: "you")
   ,entry  "sphere"    [s.f.ee.r']
   ,entry  "spill"     [s.p.i.l']
   ,entry  "spite"     [s.p.ii.t']
@@ -1013,7 +1030,7 @@ primaryDictionary =
   ,entry  "stew"       [stew]
   ,entry  "steward"    [stew.d']
   ,entry  "Stewart"    [stew, r.t']
-  ,entry  "still"      [s.t.i.l']
+  ,entry  "still"      (s ^ "till")
   ,entry  "store"      [s.t.o.r']
   ,entry  "storage"    [s.t.o.r'.j']
   ,entry  "storing"    [s.t.o.r'.g']
@@ -1054,42 +1071,42 @@ primaryDictionary =
   let thank = stks [th, a, ng', k']
       tray  = stks [t, r, aa]
   in entries
-  [entry  "tab"   [t.a.b']
-  ,entry  "teat"  [t.ee.t]
-  ,entry  "test"  [t.e.fvs'.t']
-  ,entryS "thank" [thank]
-                  [plural, ing, ed]
-  ,entry  "that"  [dh.a.t']
-  ,entry  "the"   [dh']
-  ,entryS "their" [dh.e.r']
-                  [plural]
-  ,entryS "there" [dh.r']
-                  [contractS]
-  ,entry  "they"  [dh.aa]
+  [entry  "tab"     [t.a.b']
+  ,entry  "teat"    [t.ee.t]
+  ,entry  "test"    [t.e.fvs'.t']
+  ,entryS "thank"   [thank]
+                    [plural, ing, ed]
+  ,entry  "that"    [dh.a.t']
+  ,entry  "the"     [dh']
+  ,entryS "their"   [dh.e.r']
+                    [plural]
+  ,entryS "there"   [dh.r']
+                    [contractS]
+  ,entry  "they"    [dh.aa]
   ,entry  "they're" [dh.aa.r']
-  ,entry  "thing" [thing]
-  ,entry  "think" [th.i.n'.k']
-  ,entry  "this"  [dh.i.s']
-  ,entry  "till"  [till]
-  ,entryS "time"  [time]
-                  [plural]
-  ,entryS "tit"   [t.i.t']
-                  [plural]
+  ,entry  "thing"   [th.g']
+  ,entry  "think"   [th.i.n'.k']
+  ,entry  "this"    [dh.i.s']
+  ,entry  "till"    [t.i.l']
+  ,entryS "time"    [t.ii.m']
+          [plural]
+  ,entryS "tit"     [t.i.t']
+          [plural]
   ,entry  "titular" [t.i.ch', l.r']
-  ,entry  "to"    [t.ew]
-  ,entry  "trace" [tray.s']
-  ,entry  "Tracy" [tray, see]
-  ,entry  "tray"  [tray]
-  ,entry  "true"  [t.r.ew]
-  ,entry  "twitch" [t.w.i.ch']] <>
+  ,entry  "to"      [t.ew]
+  ,entry  "trace"   [tray.s']
+  ,entry  "Tracy"   (tray ^: "see")
+  ,entry  "tray"    [tray]
+  ,entry  "true"    [t.r.ew]
+  ,entry  "twitch"  [t.w.i.ch']] <>
 
   -- u section
   let up = u.p'
   in entries
   [entry  "under"    [u.n', d.r']
-  ,entry  "until"    [n, till]
+  ,entry  "until"    (n ^: "till")
   ,entry  "up"       [up]
-  ,entry  "upcoming" [up, k.o.m'.g']
+  ,entry  "upcoming" (up ^: "come{^ing}")
   ,entry  "use"      [y.ew.s']] <>
 
   -- v section
@@ -1097,7 +1114,7 @@ primaryDictionary =
       ver = stks [v.er]
   in entries
   [entry  "val"      [val]
-  ,entry  "value"    [val, you]
+  ,entry  "value"    (val ^: "you")
   ,entry  "version"  [ver.shn']
   ,entry  "virgin"   [ver, j.n']
   ,entry  "Virginia" [v.r', j.n', y]] <>
@@ -1111,37 +1128,39 @@ primaryDictionary =
   ,entry  "we've"   [w.ee.fvs']
   ,entry  "well"    [well]
   ,entryS "welcome" [well, come]
-                    [ing]
+          [ing]
   ,entry  "were"    [w.er]
   ,entry  "what"    [w.u.t']
-  ,entry  "where"   [where']
+  ,entry  "where"   [w.e.r']
   ,entry  "which"   [w.i.ch']
   ,entry  "while"   [w.ii.l']
   ,entry  "who"     [h.ew]
-  ,entry  "whore"   [hore]
+  ,entry  "whore"   [h.o.r']
   ,entry  "will"    [w.i.l']
   ,entry  "witch"   [w.i, ch']
   ,entry  "with"    [w.i.dh']
-  ,entryS "wonder"  [w.u.n', d.r']
-                    [plural, ed, ing]
-  ,entry  "would"   [w.o.d']
+  ,entry  "wood"    [w.oo, d']
+  ,entry  "won"     [w.u.n']
+  ,entryS "wonder"  ("won" +: d.r')
+          [plural, ed, ing]
+  ,entry  "would"   [w.oo.d']
   ,entry  "world"   [w.er.l'.d']
   ,entry  "worth"   [w.er.th']
   ,entry  "wren"    [w.r.e.n']
   ,entry  "wrench"  [w.r.e.n', ch']
   ,entry  "wretch"  [w.r.e.ch']
-  ,entryS "write"   [write]
-                    [ing]
+  ,entryS "write"   [wr.ii.t']
+          [ing]
   ,entry  "written" [w.r.i.t'.n']
   ,entry  "wrote"   [r.oe.t']] <>
 
   -- x section
   entries
-  [] <>
+  [entry "x-ray" (x ^: "ray")] <>
 
   -- y section
   entries
-  [entry  "you"  [you]
+  [entry  "you"  [y.ew]
   ,entry  "your" [y.o.r']] <>
 
   -- z section

@@ -6,7 +6,7 @@ import ControlKeys
 import CSharp
 import Dotterel
 import Plover
-import Primary hiding ((.))
+import Primary hiding ((.), (++))
 import Punctuation
 import Dictionary
 import Emacs
