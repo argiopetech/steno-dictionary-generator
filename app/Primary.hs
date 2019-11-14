@@ -2,7 +2,7 @@
 module Primary where
 
 import qualified Prelude as P
-import Prelude ((<>), ($))
+import Prelude ((<>), ($), String)
 import Data.List (nub)
 
 import Dictionary
@@ -26,25 +26,30 @@ sstk w =
        then P.head selection
        else P.error $ P.show len <> " entries found for \"" <> w <> "\""
 
+(++) :: String -> String -> [Stroke]
 (++) w1 w2 = sstk w1 <> sstk w2
 
+(+) :: String -> Stroke -> [Stroke]
 (+) = go P.. sstk
   where go  [] s = [s]
         go [a] s = [a . s]
         go  ls s = P.init ls <> [P.last ls . s]
 infixr 5 +
 
+(+:) :: String -> Stroke -> [Stroke]
 (+:) w1 s = sstk w1 <> [s]
 infixr 5 +:
 
+(^) :: Stroke -> String -> [Stroke]
 (^) = (P.. sstk) P.. go
   where go s  [] = [s]
         go s [a] = [s . a]
         go s  ls = s . P.head ls : P.init ls
 infixl 5 :
 
+(^:) :: Stroke -> String -> [Stroke]
 (^:) s w1 = s : sstk w1
-infixl 5 ^:
+infixl 7 ^:
 
 nounSuffixes = [plural, contractS, pluralPosessive]
 verbSuffixes = [ed, plural, ing]
@@ -54,6 +59,7 @@ verb   w s = entryS w s verbSuffixes
 gverb  w s = entryS w s $ verbSuffixes <> P.map (combine ing) nounSuffixes
 nvpair w s = entryS w s $ verbSuffixes <> P.tail nounSuffixes
 ngv    w s = entryS w s $ verbSuffixes <> P.tail nounSuffixes <> P.map (combine ing) nounSuffixes
+
 
 primaryDictionary =
   let -- Suffixes
@@ -73,6 +79,7 @@ primaryDictionary =
   let after = stks [a, fvs', t', r']
       agree = g.r.ee
       any   = n.ee
+      ntenn = [n, t.e.n']
   in entries
   [entry  "a"         [aa]
   ,pnoun  "Aaron"     [e.r'.n']
@@ -81,22 +88,45 @@ primaryDictionary =
   ,entry  "ace"       [aa.s']
   ,entry  "actually"  [a.k', ch.ew.ly']
   ,entry  "add"       [a.d']
+  ,noun   "addend"    ("add" ++ "end")
+  ,entryS "addenda"   [d.e.n.d']       -- Irregular noun, addendum/addenda
+          [contractS]
+  ,entryS "addendum"  [d.e.n.d', m']   -- Irregular noun, addendum/addenda
+          [contractS]
   ,entry  "after"     [after]
-  ,entryS "afternoon" (after ^: "noon")
-          [plural]
+  ,noun   "afternoon" (after ^: "noon")
   ,entry  "against"   [g.e.n'.s'.t']
   ,verb   "agree"     [agree]
   ,noun   "agreement" [agree, m.n'.t']
+  ,entryS "alga"      [a.l', j]        -- Irregular noun, alga/algae
+          [contractS]
+  ,entryS "algae"     [a.l', j.ee]     -- Irregular noun, alga/algae
+          [contractS]
   ,entry  "all"       [aw.l']
   ,noun   "allowance" [l.ow.n'.s']
   ,entry  "almost"    [aw.l', m.oe.st']
+  ,entryS "alumna"    [l.u.m', n]      -- Irregular noun, alumna/alumnae
+          [contractS]
+  ,entryS "alumnae"   [l.u.m', n.aa]   -- Irregular noun, alumna/alumnae
+          [contractS]
+  ,entryS "alumni"    [l.u.m', n.ii]   -- Irregular noun, alumnus/alumni
+          [contractS]
+  ,entryS "alumnus"   [l.u.m', n.s']   -- Irregular noun, alumnus/alumni
+          [finalApostrophe]
   ,entry  "among"     [m.u.ng']
   ,nvpair "amount"    [m, ow.n'.t'] -- m',?
   ,entry  "an"        [a.n']
+  ,entryS "analyses"  (n.a.l' ^: "sees") -- Irregular noun, analysis/analyses
+          [finalApostrophe]
+  ,entryS "analysis"  (n.a.l' ^: "sis")  -- Irregular noun, analysis/analyses
+          [contractS]
   ,entry  "and"       [nd']
   ,nvpair "anger"     [g.r.r']
   ,verb   "announce"  [n, ow.n'.s'] -- n'?
   ,entry  "another"   [n.u.dh'.r']
+  ,noun   "antenna"   ntenn             -- Sometimes irregular noun, antenna/antennae
+  ,entryS "antennae"  (ntenn <> [aa])   -- Sometimes irregular noun, antenna/antennae
+          [contractS]
   ,entry  "any"       [any]
   ,entryS "anybody"   ("any" ++ "body")
           [contractS]
@@ -104,10 +134,14 @@ primaryDictionary =
   ,entry  "anyhow"    ("any" ++ "how")
   ,entry  "anyone"    ("any" ++ "won")
   ,entry  "anywhere"  ("any" ++ "where")
+  ,noun   "ape"       [aa.p']
+  ,pnoun  "April"     [aa, p.r.l']
+  ,noun   "apparatus" [a.p', r.a.t'.s'] -- Irregular noun, apparatus/apparatuses (handled appropriately by Plover)
+  ,entryS "appendices" (sstk "pen" <> d.i ^: "sees") -- Irregular noun, appendix/appendices
+          [finalApostrophe]
+  ,noun   "appendix"   ("pen" ++ "dick{^s}")         -- Irregular noun, appendix/appendices
   ,entryS "apparent"  [p.e.r'.n'.t']
           [ly]
-  ,noun   "ape"       [aa.p']
-  ,pnoun  "April"     [aa, p.r'.l']
   ,entry  "are"       [a.r']
   ,nvpair "arm"       [a.r'.m']
   ,entry  "as"        [a.z']
@@ -118,14 +152,36 @@ primaryDictionary =
 --  ,entry  "available" [v.aa.b'.l'] -- Potential brief
   ,nvpair "average"   [a.fvs'.r'.g']
   ,entry  "awful"     [aw.fvs'.l']
+  ,noun   "axe"       [a.x']
+  ,entryS "axes"      ("axe" +: ee.s') -- Irregular noun, axis/axes
+          [finalApostrophe]
+  ,entryS "axis"      ("axe" +: s)     -- Irregular noun, axis/axes
+          [contractS]
   ,pnoun  "Azure"     [a.z', r']] <>
 
   -- b section
   let br = b.r
   in entries
-  [entry  "balm"      [b.aw.m']
+  [entryS "bacilli"   [b, s.i.l', ii] -- Irregular noun, bacillus/bacilli
+          [contractS]
+  ,entryS "bacillus"  [b, s.i.l', s'] -- Irregular noun, bacillus/bacilli
+          [contractS]
+  ,entryS "bacteria"  [b.k', t.ee.r']     -- Irregular noun, bacteria/bacterium
+          [contractS]
+  ,entryS "bacterium" [b.k', t.ee.r', m'] -- Irregular noun, bacteria/bacterium
+          [contractS]
+  ,entry  "balm"      [b.aw.m']
   ,entry  "balmy"     ("balm" + ee)
+  ,noun   "base"      [b.aa, s']
+  ,entryS "bases"     [b.aa, s.ee.s'] -- Irregular noun, basis/bases
+          [finalApostrophe]
+  ,entryS "basis"     [b.aa, s.s']    -- Irregular noun, basis/bases
+          [contractS]
   ,entry  "be"        [b.ee]
+  ,entryS "beau"      [b.ow.star]   -- Irregular noun, beau/beaux
+          [contractS]
+  ,entryS "beaux"     ("beau" + s') -- Irregular noun, beau/beaux
+          [contractS]
   ,entry  "became"    (b ^: "came")
   ,entry  "because"   (b ^: "cause")
   ,entryS "become"    (b ^: "come")
@@ -143,6 +199,8 @@ primaryDictionary =
   ,entryS "bin"       [b.i, n']
           [ed]
   ,nvpair "birth"     [b.er.th']
+  ,entryS "bison"     ("buy" ++ "son") -- Irregular noun, bison/bison
+          [contractS]
   ,noun   "bitch"     [b.i.ch']
   ,verb   "blame"     [b.l.aa.m']
   ,verb   "bleach"    [b.l.ee.ch']
@@ -155,6 +213,8 @@ primaryDictionary =
   ,entry  "bored"     [b.o.r'.d']
   ,entry  "botch"     [b.o.ch']
   ,entry  "bottom"    [b.o.t'.m']
+  ,nvpair "bow"       [b.ow]
+  ,noun   "bow"       [b.oe]
   ,entry  "bread"     [b.r.e.d']
   ,entryS "break"     [br.aa.k']
           [ing]
@@ -167,14 +227,20 @@ primaryDictionary =
   ,entry  "brutal"    [br.ew.t'.l']
   ,entry  "brutality" ("brutal" +: ty')
   ,noun   "budget"    [b.u.j'.t']
+  ,entryS "bufalo"    ("buff" ++ "low") -- Irregular noun, buffalo/bufaloes
+          [contractS]
+  ,entryS "bufaloes"  ("bufalo" + s')   -- Irregular noun, buffalo/bufaloes
+          [finalApostrophe]
+  ,entry  "buff"      [b.u.fvs']
   ,noun   "build"     [b.i.l'.d']   -- irregular verb, build/built/built
   ,noun   "building"  ("build" +: g')
   ,entry  "built"     [b.i.l'.t']   -- irregular past form of "build"
   ,nvpair "bush"      [b.oo.sh]
   ,entry  "but"       [b.u.t']
   ,noun   "butter"    [b.u.t', r']
-  ,noun   "buyer"     [b.ii.r']
-  ,entry  "by"        [b.ii]] <>
+  ,noun   "buy"       [b.ii]
+  ,noun   "buyer"     ("buy" + r')
+  ,entry  "by"        [b.i]] <>
 
   -- c section
   let car   = stks [k, aw, r']
@@ -198,7 +264,7 @@ primaryDictionary =
   ,entry  "caught"    [k.aw.t']   -- irregular past form of "catch"
   ,nvpair "cause"     [k.aw.z']
   ,entry  "cd"        [k.r.d']    -- as in, fingerspelling 'c'
-  ,verb   "cease"     [s.ee.s']
+  ,verb   "cease"     ("see" +: s')
   ,nvpair "cement"    [s.m.e.n'.t']
   ,noun   "cert"      [cert]
   ,noun   "certification" [cert, f.k', aa.sh'.n']
@@ -317,7 +383,7 @@ primaryDictionary =
   ,entryS "destroy" [d, s.t.r.oi]
           [ed, ing, plural]
   ,entry  "devil" [d.e.fvs'.l']
-  ,entry  "dick"  [d.i.k']
+  ,noun   "dick"  [d.i.k']
   ,entry  "diff"   [d.i.fvs']
   ,entry  "different" [d.i.fvs'.r'.n'.t']
 
@@ -332,14 +398,12 @@ primaryDictionary =
   ,entry  "does"   [d.u.z']
   ,entry  "doesn't" [d.u.z', n'.t']
   ,entry  "done"   [d.u.n']
-  ,entry  "donor" [d.oe.n', r']
-  ,entryS "double" [d.u.b'.l']
-          [ing, ed, plural]
-  ,entryS "drag"  [d.r.a.g']
-          [plural, ed, ing]
+  ,noun   "donor" [d.oe.n', r']
+  ,verb   "double" [d.u.b'.l']
+  ,verb   "drag"  [d.r.a.g']
   ,entry  "drain"  [drain]
-  ,entry  "dream" [d.r.ee.m']
-  ,entry  "drug" [d.r.u.g']
+  ,nvpair "dream" [d.r.ee.m']
+  ,nvpair "drug" [d.r.u.g']
   ,entry  "duck" [d.u.k']
   ,entry  "due" [d, ew]
   ,entry  "duffer" [d.u.fvs'.r']
@@ -372,6 +436,7 @@ primaryDictionary =
   ,noun   "emergency" ("merge" +: n.s'.ee)
   ,pnoun  "Emily"     [e.m, ly']
   ,verb   "enact"     [n.a.k'.t']
+  ,nvpair "end"       [n, d']
   ,noun   "entry"     [n, t.r.ee]
   ,gverb  "etch"      [e.ch']
   ,entry  "even"      [ee.fvs'.n']
@@ -603,6 +668,7 @@ primaryDictionary =
   ,entry  "lounge"   [l.ow.n', j']
   ,entryS "lover"    [l.u.fvs'.r']
           [plural]
+  ,entry  "low"      [l.oe]
   ,entry  "like"     [l.ii.k']
   ,entry  "link"     [l.i.n'.k']
   ,entryS "Lincoln"  ("link" +: n')
@@ -756,7 +822,8 @@ primaryDictionary =
           ,ing]
   ,entry  "peer"     [pee.r]
   ,entry  "peg"      [p.e.g']
-  ,entry  "pent"     [p.e.n'.t']
+  ,entry  "pen"      [p.e.n']
+  ,entry  "pent"     ("pen" + t')
   ,entry  "pep"      [p.e.p']
   ,entry  "per"      [per]
   ,entry  "percent"  [per, s.e.n'.t']
@@ -938,6 +1005,7 @@ primaryDictionary =
   ,entry  "secrete"  [s, k.r.ee.t']
   ,entry  "see"      [see]
   ,entry  "seed"     [see.d']
+  ,entry  "sees"     [see.s']
   ,entry  "seethe"   [see.th']
   ,entry  "seize"    [see.z']
   ,entry  "sell"     [s.e.l']
@@ -967,6 +1035,7 @@ primaryDictionary =
   ,entry  "sin"      [s.i.n']
   ,entry  "sip"      [s.i.p']
   ,entry  "sir"      [s.i.r']
+  ,entry  "sis"      [s.i.s']
   ,entry  "sketch"   [s.k.e.ch']
   ,entry  "skew"     [s.k.ew]
   ,entry  "skirt"    [s.k.r'.t']
@@ -997,6 +1066,7 @@ primaryDictionary =
   ,entry  "sometime"  ("some" ++ "time")
   ,entry  "sometimes" ("some" ++ "time{^s}")
   ,entry  "somewhere" ("some" ++ "where")
+  ,noun   "son"       [rep [O] $ P.head $ sstk "sun"]
   ,entry  "song"      [s.o.ng']
   ,entry  "soot"      [s.oo.t']
   ,entry  "sop"       [s.o.p']
@@ -1058,6 +1128,7 @@ primaryDictionary =
   ,entry  "success"    [s.k', s.e.s']
   ,entry  "such"       [s.u.ch']
   ,entry  "sugar"      [s.h.oo.g',r']
+  ,noun   "sun"        [s.u.n']
   ,entry  "superb"     [s.p.er.b']
   ,entry  "suppress"   [s.p.r.e.s']
   ,entryS "sure"       [sure]
