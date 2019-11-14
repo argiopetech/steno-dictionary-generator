@@ -54,7 +54,9 @@ infixl 7 ^:
 nounSuffixes = [plural, contractS, pluralPosessive]
 verbSuffixes = [ed, plural, ing]
 pnoun  w s = entryS w s [contractS] -- Proper nouns
+pnoun' w s = entryS w s [contractS, ed] -- Proper nouns
 noun   w s = entryS w s nounSuffixes
+noun'  w s = entryS w s $ ed : nounSuffixes
 verb   w s = entryS w s verbSuffixes
 gverb  w s = entryS w s $ verbSuffixes <> P.map (combine ing) nounSuffixes
 nvpair w s = entryS w s $ verbSuffixes <> P.tail nounSuffixes
@@ -454,19 +456,19 @@ primaryDictionary =
   ,entryS "faculty" [f.a.k'.l'.ty']
                     [contractS]
   ,entry  "false"   [f.aw.l'.s']
-  ,entry  "fang" [f.aa.ng']
-  ,entry  "fee"  [fee]
-  ,entry  "feeble" [fee.bl']
-  ,entry  "feral" [f.e.r'.l']
-  ,entry  "fetch" [f.e.ch']
-  ,entry  "fidget" [f.i.j'.t']
-  ,entry  "fierce" [f.ee.r'.s']
-  ,entry  "fifth" [f.i.fvs'.th']
-  ,entry  "find"    [f.ii.nd']
-  ,entry  "finger" [f.g', r']
+  ,noun   "fang"    [f.aa.ng']
+  ,noun   "fee"     [fee]
+  ,entry  "feeble"  [fee.bl']
+  ,entry  "feral"   [f.e.r'.l']
+  ,verb   "fetch"   [f.e.ch']
+  ,verb   "fidget"  [f.i.j'.t']
+  ,entry  "fierce"  [f.ee.r'.s']
+  ,entry  "fifth"   [f.i.fvs'.th']
+  ,entry  "find"    [f.ii.nd']      -- irregular verb, find/found/found
+  ,entry  "finger"  [f.g', r']
   ,entry  "fire"    [f.ii.r']
-  ,entry  "fish" [f.i.sh']
-  ,entry  "flash" [f.l.a.sh']
+  ,entry  "fish"    [f.i.sh']
+  ,entry  "flash"   [f.l.a.sh']
   ,entry  "flaunt" [f.l.aw.n'.t']
   ,entry  "flesh" [f.l.e.sh']
   ,entry  "float"   [f.l.oe.t']
@@ -476,6 +478,7 @@ primaryDictionary =
   ,entry  "ford" [f.o.r'.d']
   ,entry  "forge" [f.o.r'.j']
   ,entryS "form" [f.o.r'.m'] [plural]
+  ,entry  "found"    [f.ow.n'.d']  -- irregular plural form of "find"
   ,entry  "free"    [f.r.ee]
   ,entry  "fresh" [f.r.e.sh']
   ,entry  "fries" [f.r.ii.z']
@@ -487,89 +490,94 @@ primaryDictionary =
 
   -- g section
   entries
-  [entry  "gadget"    [g.a.j'.t']
-  ,entry  "gang"      [g.a.ng']
-  ,entry  "garage"    [g.r.aw.zh']
-  ,entry  "gash"      [g.a.sh']
-  ,entryS "germ"      [j.e.r'.m'] [plural]
-  ,entryS "gerund"    [j.e.r', n'.d'] [plural]
-  ,entry  "get"       [g.e.t']
+  [noun   "gadget"    [g.a.j'.t']
+  ,noun'  "gang"      [g.a.ng']
+  ,noun   "garage"    [g.r.aw.zh']
+  ,nvpair "gash"      [g.a.sh']
+  ,entry  "gave"      [g.aa.fvs']       -- irregular past form of "give"
+  ,noun   "germ"      [j.e.r'.m']
+  ,noun   "gerund"    [j.e.r', n'.d']
+  ,entry  "get"       [g.e.t']          -- Irregular verb, get/got/gotten
   ,entry  "gift"      [g.i.fvs'.t']
-  ,entry  "git"       [g.i.t']
-  ,entry  "give"      [g.i.fvs']
-  ,entry  "given"     [g.i.fvs'.n']
+  ,pnoun  "git"       [g.i.t']
+  ,entry  "give"      [g.i.fvs']        -- irregular verb, give/gave/given
+  ,entry  "given"     [g.i.fvs'.n']     -- irregular past participle of "give"
   ,entry  "glad"      [g.l.a.d']
-  ,entry  "glare"     [g.l.aa.r']
-  ,entryS "glean"     [g.l.ee.n'.s'] [plural]
-  ,entryS "glide"     [g.l.ii.d'] [plural]
-  ,entry  "glitch"    [g.l.i.ch']
-  ,entry  "gnome"     [n.oe.m']
-  ,entry  "goblet"    [g.o.b'.l'.t']
+  ,verb   "glare"     [g.l.aa.r']
+  ,verb   "glean"     [g.l.ee.n'.s']
+  ,verb   "glide"     [g.l.ii.d']
+  ,nvpair "glitch"    [g.l.i.ch']
+  ,noun   "gnome"     [n.oe.m']
+  ,noun   "goblet"    [g.o.b'.l'.t']
   ,entry  "good"      [g.oo.d']
   ,entry  "gosh"      [g.o.sh']
-  ,entry  "gram"      [g.r.a.m']
-  ,entry  "grammar"   [g.r.a.m', r']
-  ,entry  "grant"     [g.r.a.n'.t']
-  ,entry  "gravel"    [g.r.a.fvs'.l']
+  ,entry  "got"       [g.o.t']
+  ,entry  "gotten"    ("got" +: n')
+  ,noun   "gram"      [g.r.a.m']
+  ,noun   "grammar"   ("gram" +: r')
+  ,nvpair "grant"     [g.r.a.n'.t']
+  ,noun   "gravel"    [g.r.a.fvs'.l']
   ,entry  "great"     [g.r.aa.t']
-  ,entry  "group"     [g.r.ew.p']
-  ,entry  "growth"    [g.r.oe.th']
-  ,entry  "grudge"    [g.r.u.j']
+  ,nvpair "group"     [g.r.ew.p']
+  ,noun   "growth"    [g.r.oe.th']
+  ,noun   "grudge"    [g.r.u.j']
   ,entry  "grunge"    [g.r.u.n', j']
-  ,entry  "grunt"     [g.r.u.n'.t']
-  ,entryS "guarantee" [g.e.r'.n'.ty']
-                      [ed, plural]
-  ,entry  "guest"     [g.e.st']
-  ,entry  "guide"     [g.ii.d']
-  ,entry  "gym"       [j.i.m']] <>
+  ,nvpair "grunt"     [g.r.u.n'.t']
+  ,nvpair "guarantee" [g.e.r'.n'.ty']
+  ,noun   "guest"     [g.e.st']
+  ,nvpair "guide"     [g.ii.d']
+  ,noun   "gym"       [j.i.m']] <>
 
   -- h section
   let hand = stks [h.a.n'.d']
   in entries
   [entry  "had"         [h.a.d']
-  ,entry  "hag" [h.a.g']
-  ,entry  "half" [h.a, fvs']
-  ,entry  "hall" [h.aw.l']
-  ,entry  "halt" [h.aw.l'.t']
-  ,entry  "hand"        [hand]
-  ,entry  "handwriting" (hand ^: "write{^ing}")
-  ,entry  "harm" [h.aw.r'.m']
+  ,noun   "hag"         [h.a.g']
+  ,entry  "half"        [h.a, fvs'] -- irregular half/halves, half/halve/halved
+  ,noun   "hall"        [h.aw.l']
+  ,verb   "halt"        [h.aw.l'.t']
+  ,nvpair "hand"        [hand]
+  ,pnoun  "handwriting" (hand ^: "write{^ing}")
+  ,verb   "harm"        [h.aw.r'.m']
   ,entry  "has"         [h.a.z']
-  ,entry  "hash" [h.a.sh']
-  ,entry  "hat" [h.a.t']
-  ,entry  "hatch" [h.a.ch']
-  ,entry  "hath" [h.a.th']
+  ,verb   "hash"        [h.a.sh']
+  ,noun'  "hat"         [h.a.t']
+  ,nvpair "hatch"       [h.a.ch']
+  ,entry  "hath"        [h.a.th']
   ,entryS "have"        [h.a.fvs']
                         [ing]
   ,entry  "he"          [h.ee]
-  ,entry  "head"        [h.e.d']
-  ,entry  "heal"        [h.ee.l']
-  ,entry  "health"      [h.e.l'.th']
-  ,entry  "heap"        [h.ee.p']
-  ,entry  "hear"        [h.ee.r']
-  ,entry  "heat"        [h.ee.t']
-  ,entry  "heel"        [h.ee'.l']
-  ,entry  "height"      [h.ii.t']
-  ,entry  "hell"        [h.e.l']
+  ,nvpair "head"        [h.e.d']
+  ,verb   "heal"        [h.ee.l']
+  ,noun   "health"      [h.e.l'.th']
+  ,nvpair "heap"        [h.ee.p']
+  ,entry  "hear"        [h.ee.r']    -- irregular verb, hear/heard/heard
+  ,nvpair "heat"        [h.ee.t']
+  ,nvpair "heel"        [h.ee'.l']
+  ,noun   "height"      [h.ii.t']
+  ,noun   "hell"        [h.e.l']
   ,entry  "her"         [h.er]
   ,entry  "here"        [h.ee'.r']
-  ,entry  "hermit"      [h.er.m'.t']
-  ,entry  "hid"         [h.i.d']
-  ,entry  "hinge"       [h.i.n, j']
-  ,entry  "hit"         [h.i.t']
+  ,nvpair "hermit"      [h.er.m'.t']
+  ,entry  "hid"         [h.i.d']      -- irregular plural of "hide"
+  ,entry  "hidden"      ("hid" +: n') -- irregular past participle of "hide"
+  ,entry  "hide"        [h.ii.d']     -- irregular verb, hide/hid/hidden
+  ,nvpair "hinge"       [h.i.n, j']
+  ,entry  "hit"         [h.i.t']      -- irregular verb hit/hit/hit
   ,entry  "hoary"       ("whore" + ry')
-  ,entry  "hoarfrost"   ("whore" ++ "frost")
-  ,entry  "hog"         [h.o.g']
-  ,entry  "hood"        [h.oo.d']
-  ,entry  "hoe"         [h.oe]
-  ,entry  "hop"         [h.o.p']
-  ,entry  "hope"        [h.oe.p']
+  ,pnoun  "hoarfrost"   ("whore" ++ "frost")
+  ,nvpair "hog"         [h.o.g']
+  ,noun'  "hood"        [h.oo.d']
+  ,verb   "hoe"         [h.oe]
+  ,verb   "hop"         [h.o.p']
+  ,verb   "hope"        [h.oe.p']
   ,entry  "horrible"    ("whore" + bl')
-  ,entry  "horror"      ("whore" +: r')
-  ,entry  "host" [h.oe.st']
-  ,entry  "hot" [h.o.t']
-  ,entry  "house" [h.ow.s']
-  ,entry  "hover" [h.o.fvs'.r']
+  ,noun   "horror"      ("whore" +: r')
+  ,nvpair "host"        [h.oe.st']
+  ,entryS "hot"         [h.o.t']
+          [plural]
+  ,entry  "house"       [h.ow.s']
+  ,entry  "hover"       [h.o.fvs'.r']
   ,entry  "how"         [h.ow]
   ,entry  "howl"        ("how" + l')
   ,entry  "hub" [h.u.b']
