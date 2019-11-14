@@ -52,7 +52,7 @@ specialKeyEntries =
   ++ controlKeys fingerspellingModifier id arrows
   ++ controlKeys fingerspellingModifier id specialKeys
 
-allEntries = alphabetEntries ++ numberEntries ++ specialKeyEntries ++ primaryDictionary ++ punctuation ++ coding ++ plover ++ xmonad
+allEntries = alphabetEntries ++ numberEntries ++ specialKeyEntries ++ primaryDictionary ++ punctuation ++ plover ++ xmonad
 
 phoneEntries = dedupEntries $ alphabetEntries
                            ++ numberEntries

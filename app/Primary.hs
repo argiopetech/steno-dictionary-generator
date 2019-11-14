@@ -245,7 +245,6 @@ primaryDictionary =
   -- c section
   let car   = stks [k, aw, r']
       cert  = s.er.t'
-      come  = stks [k, o, m']
       con   = k.o.n'
       cr    = k.r
   in entries
@@ -295,7 +294,7 @@ primaryDictionary =
   ,nvpair "code"      [k.oe.d']
   ,nvpair "cog"       [k.o.g']
   ,nvpair "coil"      [k.oi.l']
-  ,entryS "come"      [come]    -- irregular verb come/came/come
+  ,entryS "come"      [k.o.m']    -- irregular verb come/came/come
           [ing]
   ,verb   "commend"   [k.m.e.n'.d']
   ,nvpair "commit"    [k.m.i.t']
@@ -1053,22 +1052,25 @@ primaryDictionary =
   ,entry  "smush"    [s.m.oo.sh']
   ,entry  "snide"    [s.n.ii.d']
   ,entry  "so"       [s.oe]
-  ,entry  "soar"     [s.oe, r']
-  ,entry  "sob"      [s.aw.b']
-  ,entry  "soil"     [s.oi.l']
+  ,verb   "soar"     [s.oe, r']
+  ,nvpair "sob"      [s.aw.b']
+  ,nvpair "soil"     [s.oi.l']
   ,entry  "sold"     [s.oe.l'.d']
   ,entry  "some"     [some]
-  ,entry  "somebody"  ("some" ++ "body")
+  ,entryS "somebody"  ("some" ++ "body")
+          [contractS]
   ,entry  "somehow"   ("some" ++ "how")
-  ,entry  "someone"   ("some" ++ "won")
+  ,entryS "someone"   ("some" ++ "won")
+          [contractS]
   ,entry  "someplace" ("some" ++ "place")
-  ,entry  "something" ("some" ++ "thing")
+  ,entryS "something" ("some" ++ "thing")
+          [contractS]
   ,entry  "sometime"  ("some" ++ "time")
   ,entry  "sometimes" ("some" ++ "time{^s}")
   ,entry  "somewhere" ("some" ++ "where")
   ,noun   "son"       [rep [O] $ P.head $ sstk "sun"]
-  ,entry  "song"      [s.o.ng']
-  ,entry  "soot"      [s.oo.t']
+  ,noun   "song"      [s.o.ng']
+  ,pnoun  "soot"      [s.oo.t']
   ,entry  "sop"       [s.o.p']
   ,entry  "sore"      [s.oe.r']
   ,entryS "sound"     [s.ow.nd']
@@ -1087,10 +1089,10 @@ primaryDictionary =
   ,entry  "spouse"    [s.p.ow.s']
   ,entry  "sprawl"    [s.p.r.aw.l']
   ,entry  "spray"     [s.p.r.aa]
-  ,entry  "sprout"    [s.p.r.ow.t']
+  ,nvpair "sprout"    [s.p.r.ow.t']
   ,entry  "spun"      [spun]
-  ,entry  "squash"    [s.q.a.sh']
-  ,entry  "squish"    [s.q.i.sh']
+  ,nvpair "squash"    [s.q.a.sh']
+  ,verb   "squish"    [s.q.i.sh']
   ,entry  "stack"     [s.t.a.k']
   ,entry  "stair"     [s.t.aa, r']
   ,entry  "star"      [s.t.a.r']
@@ -1102,7 +1104,7 @@ primaryDictionary =
   ,entry  "status"     [s.t.a.t'.s']
   ,entry  "stew"       [stew]
   ,entry  "steward"    [stew.d']
-  ,entry  "Stewart"    [stew, r.t']
+  ,pnoun  "Stewart"    [stew, r.t']
   ,entry  "still"      (s ^ "till")
   ,entry  "store"      [s.t.o.r']
   ,entry  "storage"    [s.t.o.r'.j']
@@ -1118,16 +1120,18 @@ primaryDictionary =
                        [plural]
   ,entry  "strong"     [s.t.r.aw.ng']
   ,entry  "stronger"   [s.t.r.aw.ng', r']
-  ,entry  "Stuart"     [stew.r.t']
+  ,pnoun  "Stuart"     [stew.r.t']
   ,entryS "student"    [stew, dnt]
           [plural
           ,contractS
           ,pluralPosessive]
-  ,entry  "stun"       [s.t.u.n']
+  ,entryS "stun"       [s.t.u.n']
+          [ed, plural]
   ,entry  "stung"      [s.t.u.ng']
+  ,entry  "stunning"   ("stun" +: g')
   ,entry  "success"    [s.k', s.e.s']
   ,entry  "such"       [s.u.ch']
-  ,entry  "sugar"      [s.h.oo.g',r']
+  ,noun   "sugar"      [s.h.oo.g',r']
   ,noun   "sun"        [s.u.n']
   ,entry  "superb"     [s.p.er.b']
   ,entry  "suppress"   [s.p.r.e.s']
@@ -1135,21 +1139,19 @@ primaryDictionary =
           [ly]
   ,entryS "surround"   [s.r.ow.n'.d']
           [plural]
-  ,entryS "switch"     [s.w.i.ch']
-          [plural]
-  ,entry  "syringe"    [s.r.i.n', j']
-  ,entry  "syrup"      [s.er.p']
-  ,entry  "system"     [sis, t.m']] <>
+  ,nvpair "switch"     [s.w.i.ch']
+  ,nvpair "syringe"    [s.r.i.n', j']
+  ,noun   "syrup"      [s.er.p']
+  ,noun   "system"     [sis, t.m']] <>
 
   -- t section
   let thank = stks [th, a, ng', k']
       tray  = stks [t, r, aa]
   in entries
-  [entry  "tab"     [t.a.b']
-  ,entry  "teat"    [t.ee.t]
-  ,entry  "test"    [t.e.fvs'.t']
-  ,entryS "thank"   [thank]
-                    [plural, ing, ed]
+  [nvpair "tab"     [t.a.b']
+  ,noun   "teat"    [t.ee.t]
+  ,nvpair "test"    [t.e.fvs'.t']
+  ,verb   "thank"   [thank]
   ,entry  "that"    [dh.a.t']
   ,entry  "the"     [dh']
   ,entryS "their"   [dh.e.r']
@@ -1162,17 +1164,15 @@ primaryDictionary =
   ,entry  "think"   [th.i.n'.k']
   ,entry  "this"    [dh.i.s']
   ,entry  "till"    [t.i.l']
-  ,entryS "time"    [t.ii.m']
-          [plural]
-  ,entryS "tit"     [t.i.t']
-          [plural]
+  ,nvpair "time"    [t.ii.m']
+  ,noun   "tit"     [t.i.t']
   ,entry  "titular" [t.i.ch', l.r']
   ,entry  "to"      [t.ew]
-  ,entry  "trace"   [tray.s']
-  ,entry  "Tracy"   (tray ^: "see")
+  ,nvpair "trace"   [tray.s']
+  ,pnoun  "Tracy"   (tray ^: "see")
   ,entry  "tray"    [tray]
   ,entry  "true"    [t.r.ew]
-  ,entry  "twitch"  [t.w.i.ch']] <>
+  ,nvpair "twitch"  [t.w.i.ch']] <>
 
   -- u section
   let up = u.p'
@@ -1181,7 +1181,7 @@ primaryDictionary =
   ,entry  "until"    (n ^: "till")
   ,entry  "up"       [up]
   ,entry  "upcoming" (up ^: "come{^ing}")
-  ,entry  "use"      [y.ew.s']] <>
+  ,verb   "use"      [y.ew.s']] <>
 
   -- v section
   let val = v.a.l'
@@ -1189,44 +1189,43 @@ primaryDictionary =
   in entries
   [entry  "val"      [val]
   ,entry  "value"    (val ^: "you")
-  ,entry  "version"  [ver.shn']
-  ,entry  "virgin"   [ver, j.n']
-  ,entry  "Virginia" [v.r', j.n', y]] <>
+  ,noun   "version"  [ver.shn']
+  ,noun   "virgin"   [ver, j.n']
+  ,pnoun  "Virginia" [v.r', j.n', y]] <>
 
   -- w section
   let well  = stks [w, e, l']
   in entries
-  [entry  "want"    [w.aw.n'.t']
+  [verb   "want"    [w.aw.n'.t']
   ,entry  "was"     [w.u.z']
   ,entry  "we"      [w.ee]
   ,entry  "we've"   [w.ee.fvs']
   ,entry  "well"    [well]
-  ,entryS "welcome" [well, come]
-          [ing]
+  ,nvpair "welcome" ("well" ++ "come")
   ,entry  "were"    [w.er]
   ,entry  "what"    [w.u.t']
   ,entry  "where"   [w.e.r']
   ,entry  "which"   [w.i.ch']
   ,entry  "while"   [w.ii.l']
   ,entry  "who"     [h.ew]
-  ,entry  "whore"   [h.o.r']
+  ,noun   "whore"   [h.o.r']
   ,entry  "will"    [w.i.l']
-  ,entry  "witch"   [w.i, ch']
+  ,noun   "witch"   [w.i, ch']
   ,entry  "with"    [w.i.dh']
-  ,entry  "wood"    [w.oo, d']
+  ,noun   "wood"    [w.oo, d']
   ,entry  "won"     [w.u.n']
-  ,entryS "wonder"  ("won" +: d.r')
-          [plural, ed, ing]
+  ,verb   "wonder"  ("won" +: d.r')
   ,entry  "would"   [w.oo.d']
-  ,entry  "world"   [w.er.l'.d']
+  ,noun   "world"   [w.er.l'.d']
   ,entry  "worth"   [w.er.th']
-  ,entry  "wren"    [w.r.e.n']
-  ,entry  "wrench"  [w.r.e.n', ch']
-  ,entry  "wretch"  [w.r.e.ch']
-  ,entryS "write"   [wr.ii.t']
+  ,noun   "wren"    [w.r.e.n']
+  ,nvpair "wrench"  [w.r.e.n', ch']
+  ,noun   "wretch"  [w.r.e.ch']
+  ,entryS "write"   [wr.ii.t']    -- Irregular verb write/wrote/written
           [ing]
-  ,entry  "written" [w.r.i.t'.n']
-  ,entry  "wrote"   [r.oe.t']] <>
+  ,entry  "written" [w.r.i.t'.n'] -- Irregular verb write/wrote/written
+  ,entry  "wrote"   [r.oe.t']     -- Irregular verb write/wrote/written
+  ] <>
 
   -- x section
   entries
