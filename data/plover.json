@@ -5,5 +5,11 @@
 "KPA*": "{}{-|}",
 "S-P": "{^ ^}",
 "S-D": "{}{^}",
-"TK-LS": "{^}"
+"TK-LS": "{^}",
+"TPHAEUBL": "{}",
+"TKAEUBL": "{}",
+"TPHAEUBL/KR-FP": "{PLOVER:TOGGLE_DICT:+csharp.json}",
+"TKAEUBL/KR-FP": "{PLOVER:TOGGLE_DICT:-csharp.json}",
+"TPHAEUBL/HAFBG": "{PLOVER:TOGGLE_DICT:+haskell.json}",
+"TKAEUBL/HAFBG": "{PLOVER:TOGGLE_DICT:-haskell.json}"
 }
