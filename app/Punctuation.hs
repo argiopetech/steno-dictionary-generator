@@ -20,9 +20,9 @@ coding =
   ,Entry "{^/^}" [stk O <> stk E <> stk U]
   ,Entry "{&*}" [t <> ii <> m' <> z']
   ,Entry "{^*^}" [s <> t <> r <> fvs' <> b' <> g']
-  ,Entry "<>"    [p <> e <> n' <> d']
   ,Entry "{^}^{^}" [x <> p']
-  ,Entry "{^}#{^}" [h <> a <> sh' <> stk Star]
+  ,Entry "{^}#{^}" [h <> a <> sh' <> star]
+  ,Entry "|"      [p <> ii <> p' <> star]
   ]
 
 punctuation =
@@ -51,6 +51,6 @@ punctuation =
      ,Entry "{^}>"   [w <> a <> k' <> t']
      ,Entry "{^~^}"  [t <> l <> d']
      ,Entry ":"      [s <> t <> p <> h <> fvs' <> p' <> l' <> t']
-     ,Entry "$"   [stk R.D <> stk Hash]
-     ,Entry "&"      [m <> p' <> stk Star]
+     ,Entry "$"      [d' <> hash]
+     ,Entry "&"      [m <> p' <> star]
      ]

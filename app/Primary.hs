@@ -229,9 +229,9 @@ primaryDictionary =
   ,entry  "brutal"    [br.ew.t'.l']
   ,entry  "brutality" ("brutal" +: ty')
   ,noun   "budget"    [b.u.j'.t']
-  ,entryS "bufalo"    ("buff" ++ "low") -- Irregular noun, buffalo/bufaloes
+  ,entryS "buffalo"   ("buff" ++ "low") -- Irregular noun, buffalo/bufaloes
           [contractS]
-  ,entryS "bufaloes"  ("bufalo" + s')   -- Irregular noun, buffalo/bufaloes
+  ,entryS "buffaloes" ("buffalo" + s')  -- Irregular noun, buffalo/bufaloes
           [finalApostrophe]
   ,entry  "buff"      [b.u.fvs']
   ,noun   "build"     [b.i.l'.d']   -- irregular verb, build/built/built
