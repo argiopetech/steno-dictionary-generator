@@ -19,10 +19,12 @@
 "TRAOEU": "{#t r y Tab Tab}{-|}{^}",
 "TPH-T": "int{>}",
 "SRAUR": "var{>}",
-"PWAOL": "bool{>}",
+"PWOUL": "bool{>}",
 "-PBD": "&&",
 "AUR": "||",
 "TPHAUT": "!{^}",
+"TKPWHR": "!=",
+"HRAPLD": "=>",
 "KR/W": "{#c w Tab Tab}{^}",
 "KR/P-P": "Console.",
 "KR/R": "Console.ReadLine()"

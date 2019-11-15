@@ -10,6 +10,8 @@
 "TKAEUBL": "{}",
 "TPHAEUBL/KR-FP": "{PLOVER:TOGGLE_DICT:+csharp.json}",
 "TKAEUBL/KR-FP": "{PLOVER:TOGGLE_DICT:-csharp.json}",
+"TPHAEUBL/PHABGS": "{PLOVER:TOGGLE_DICT:+emacs.json}",
+"TKAEUBL/PHABGS": "{PLOVER:TOGGLE_DICT:-emacs.json}",
 "TPHAEUBL/HAFBG": "{PLOVER:TOGGLE_DICT:+haskell.json}",
 "TKAEUBL/HAFBG": "{PLOVER:TOGGLE_DICT:-haskell.json}"
 }

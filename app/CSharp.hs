@@ -42,11 +42,13 @@ csharp =
   
   ,entry "int{>}" [n <> t']
   ,entry "var{>}" [v <> aw <> r']
-  ,entry "bool{>}" [b <> oo <> l']
+  ,entry "bool{>}" [b <> ew <> l']
 
   ,entry "&&" [n' <> d']
   ,entry "||" [o <> r']
   ,entry "!{^}"  [n <> o <> t']
+  ,entry  "!="   [n <> k <> w <> l]
+  ,entry  "=>" [l <> a <> m' <> d']
   
   ,entry (tt "cw") [c, w]
   ,entry "Console." [c, p <> p']

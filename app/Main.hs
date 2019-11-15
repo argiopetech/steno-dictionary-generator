@@ -5,6 +5,7 @@ import Config
 import ControlKeys
 import CSharp
 import Dotterel
+import Haskell
 import Plover
 import Primary hiding ((.), (++))
 import Punctuation
@@ -86,5 +87,6 @@ main = do
     writeJson "tinymod"      tinyModifications
     writeJson "dotterel"     phoneEntries
     writeJson "csharp"       csharp
+    writeJson "haskell"      haskell
 
   where writeJson n = writeFile (n ++ ".json") . toJson
