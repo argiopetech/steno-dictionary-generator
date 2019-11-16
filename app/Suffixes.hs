@@ -19,7 +19,7 @@ suffixSC conflicts ks s =
           else init ss ++ ([last ss <> stks ks])
   in (\n -> n ++ s, ender)
 
-plural = suffixSC [R.S, R.D] [R.S] "{^s}"
+plural = suffixSC (enumFrom R.S) [R.S] "{^s}"
 pluralPosessive = suffixSC (enumFrom R.S) [R.S, R.Z] "{^s}{^}'"
 
 contractLL = suffixSC (enumFrom R.L) [R.L]      "'ll"
@@ -29,7 +29,7 @@ contractD  = suffixSC [R.S, R.D] [R.D] "'d"
 
 finalApostrophe = suffixSC [R.T, R.Z] [R.Z] "'"
 
-ing = suffixSC (enumFrom R.G)       [R.G] "{^ing}"
+ing = (\n -> n ++ "{^ing}", \ss -> ss <> [stk R.G])
 ed  = suffixSC (R.S : enumFrom R.D) [R.D] "{^ed}"
 
 combine (nMod1, sMod1) (nMod2, sMod2) = (nMod2 . nMod1, sMod2 . sMod1)

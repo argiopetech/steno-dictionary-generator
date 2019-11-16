@@ -69,8 +69,8 @@ phoneEntries = dedupEntries $ alphabetEntries
 
 main :: IO ()
 main = do
-  someBoundaryErrors <- printBoundaryErrors $
-                          checkBoundaryErrors . notEmpty $ allEntries
+--  someBoundaryErrors <- printBoundaryErrors $
+--                          checkBoundaryErrors . notEmpty $ allEntries
   someDupls   <- printDuplicates $ checkDuplicate . notEmpty $ allEntries
   someEmpties <- printIfEmpty    $ checkEmpty allEntries
 

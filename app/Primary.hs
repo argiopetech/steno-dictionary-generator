@@ -337,7 +337,7 @@ primaryDictionary =
   ,verb   "corrupt" [k.r, u.p'.t']
   ,entry  "cot"     [c.o.t']
   ,entry  "could"   [k.oo.d']
-  ,entry  "course"  [k.o.r', s']
+  ,noun   "course"  [k.o.r', s']
   ,entry  "cover"   [k.o.fvs'.r']
   ,entry  "crap"    [cr.a.p']
   ,entry  "crash"   [cr.a.sh']
@@ -413,6 +413,7 @@ primaryDictionary =
   ,entry  "dine"  [d.ii.n']
   ,entry  "diner" [d.ii.n', r']
   ,entry  "dinner" [d.i.n', r']
+  ,verb   "distill" (d ^: "still")
   ,entry  "ditch" [d.i.ch']
   ,entry  "do"     [d.ew]
   ,entry  "don't"  [d.oe.n'.t']
@@ -886,9 +887,10 @@ primaryDictionary =
   ,entry  "post"     [p.oe.st']
   ,entry  "pot"      [p.o.t']
   ,entry  "pour"     [pour]
-  ,entry  "pout"     [p.ow.t']
-  ,entry  "power"    [p.ow.r']
-  ,entry  "praise"   [pr.aa.z']
+  ,entry  "pout"     ("pow" + t')
+  ,entry  "pow"      [p.ow]
+  ,entry  "power"    ("pow" + r')
+  ,entry  "praise"   (p ^ "raise")
   ,entryS "present"  [pr.e.z', n'.t']
           [ing, ed, ly]
   ,entryS "press"    [pr.e.s']
@@ -1003,7 +1005,7 @@ primaryDictionary =
   ,pnoun  "rum"    [r.u.m']
   ,entryS "run"    [r.u.n']   -- irregular verb run/ran/run
           [ing]
-  ,entry  "rung"   [r.u.n, g']
+  ,entry  "rung"   [r.u.ng']
   ,entry  "ruse"   [r.ew.z']
   ,entry  "rush"   [r.u.sh']
   ,entry  "rut"    [r.u.t']] <>
@@ -1112,26 +1114,25 @@ primaryDictionary =
   ,noun   "son"       [rep [O] $ P.head $ sstk "sun"]
   ,noun   "song"      [s.o.ng']
   ,pnoun  "soot"      [s.oo.t']
-  ,entry  "sop"       [s.o.p']
+  ,verb   "sop"       [s.o.p']
   ,entry  "sore"      [s.oe.r']
-  ,entryS "sound"     [s.ow.nd']
-                      [plural]
+  ,noun   "sound"     [s.ow.nd']
   ,entry  "soy"       [s.oi]
-  ,entry  "spew"      (s.p ^: "you")
-  ,entry  "sphere"    [s.f.ee.r']
-  ,entry  "spill"     [s.p.i.l']
-  ,entry  "spite"     [s.p.ii.t']
-  ,entry  "splash"    [s.p.l.a.sh']
+  ,verb   "spew"      (s.p ^: "you")
+  ,noun   "sphere"    [s.f.ee.r']
+  ,nvpair "spill"     [s.p.i.l']
+  ,entry  "spin"      [s.p.i.n']  -- irregular verb spin/spun/spun
+  ,nvpair "spite"     [s.p.ii.t']
+  ,nvpair "splash"    [s.p.l.a.sh']
   ,entry  "splotch"   [s.p.l.o.ch']
   ,entry  "sponge"    [spun, j']
-  ,entry  "spore"     [s.p.oe.r']
-  ,entryS "spot"      [s.p.o.t']
-          [ed]
-  ,entry  "spouse"    [s.p.ow.s']
-  ,entry  "sprawl"    [s.p.r.aw.l']
+  ,noun   "spore"     [s.p.oe.r']
+  ,nvpair "spot"      [s.p.o.t']
+  ,noun   "spouse"    [s.p.ow.s']
+  ,verb   "sprawl"    [s.p.r.aw.l']
   ,entry  "spray"     [s.p.r.aa]
   ,nvpair "sprout"    [s.p.r.ow.t']
-  ,entry  "spun"      [spun]
+  ,entry  "spun"      [spun]        -- irregular post form of "spin"
   ,nvpair "squash"    [s.q.a.sh']
   ,verb   "squish"    [s.q.i.sh']
   ,entry  "stack"     [s.t.a.k']
@@ -1141,19 +1142,17 @@ primaryDictionary =
   ,entryS "start"     [s.t.a.r'.t']
           [ed]
   ,entry  "stash"     [s.t.a.sh']
-  ,entry  "statistics" [s.t.a.t'.z']
-  ,entry  "status"     [s.t.a.t'.s']
-  ,entry  "stew"       [stew]
-  ,entry  "steward"    [stew.d']
-  ,pnoun  "Stewart"    [stew, r.t']
+  ,entryS "stat"      [s.t.a.t']
+          [plural]
+  ,noun   "statistics" [s.t.a, t.i.s', t.i.x']
+  ,entry  "status"     [s.t.a, t.s']
+  ,nvpair "stew"       [stew]
+  ,noun   "steward"    ("stew" + r'.d')
+  ,pnoun  "Stewart"    ("stew" +: r'.t')
   ,entry  "still"      (s ^ "till")
-  ,entry  "store"      [s.t.o.r']
+  ,verb   "store"      [s.t.o.r']
   ,entry  "storage"    [s.t.o.r'.j']
-  ,entry  "storing"    [s.t.o.r'.g']
-  ,entryS "strap"      [s.t.r.a.p']
-          [plural
-          ,ed
-          ,ing]
+  ,nvpair "strap"      [s.t.r.a.p']
   ,entry  "straw"      [s.t.r.aw]
   ,entry  "stress"     [s.t.r.e.s']
   ,entry  "stretch"    [s.t.r.e.ch']
@@ -1161,15 +1160,10 @@ primaryDictionary =
                        [plural]
   ,entry  "strong"     [s.t.r.aw.ng']
   ,entry  "stronger"   [s.t.r.aw.ng', r']
-  ,pnoun  "Stuart"     [stew.r.t']
-  ,entryS "student"    [stew, dnt]
-          [plural
-          ,contractS
-          ,pluralPosessive]
-  ,entryS "stun"       [s.t.u.n']
-          [ed, plural]
-  ,entry  "stung"      [s.t.u.ng']
-  ,entry  "stunning"   ("stun" +: g')
+  ,pnoun  "Stuart"     ("stew" + r'.t')
+  ,noun   "student"    ("stew" +: dnt)
+  ,verb   "stun"       [s.t.u.n']
+  ,entry  "stung"      ("stun" + g')  -- irregular past form of "sting"
   ,entry  "success"    [s.k', s.e.s']
   ,entry  "such"       [s.u.ch']
   ,noun   "sugar"      [s.h.oo.g',r']
