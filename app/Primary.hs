@@ -93,7 +93,7 @@ primaryDictionary =
   ,noun   "addend"    ("add" ++ "end")
   ,entryS "addenda"   [d.e.n.d']       -- Irregular noun, addendum/addenda
           [contractS]
-  ,entryS "addendum"  [d.e.n.d', m']   -- Irregular noun, addendum/addenda
+  ,entryS "addendum"  [d.e.n.d', m']   -- Irregular plural of "addendum"
           [contractS]
   ,entry  "after"     [after]
   ,noun   "afternoon" (after ^: "noon")
@@ -102,23 +102,23 @@ primaryDictionary =
   ,noun   "agreement" [agree, m.n'.t']
   ,entryS "alga"      [a.l', j]        -- Irregular noun, alga/algae
           [contractS]
-  ,entryS "algae"     [a.l', j.ee]     -- Irregular noun, alga/algae
+  ,entryS "algae"     [a.l', j.ee]     -- Irregular plural of "alga"
           [contractS]
   ,entry  "all"       [aw.l']
   ,noun   "allowance" [l.ow.n'.s']
   ,entry  "almost"    [aw.l', m.oe.st']
   ,entryS "alumna"    [l.u.m', n]      -- Irregular noun, alumna/alumnae
           [contractS]
-  ,entryS "alumnae"   [l.u.m', n.aa]   -- Irregular noun, alumna/alumnae
+  ,entryS "alumnae"   [l.u.m', n.aa]   -- Irregular plural of "alumna"
           [contractS]
-  ,entryS "alumni"    [l.u.m', n.ii]   -- Irregular noun, alumnus/alumni
+  ,entryS "alumni"    [l.u.m', n.ii]   -- Irregular plural of "alumnus"
           [contractS]
   ,entryS "alumnus"   [l.u.m', n.s']   -- Irregular noun, alumnus/alumni
           [finalApostrophe]
   ,entry  "among"     [m.u.ng']
   ,nvpair "amount"    [m, ow.n'.t'] -- m',?
   ,entry  "an"        [a.n']
-  ,entryS "analyses"  (n.a.l' ^: "sees") -- Irregular noun, analysis/analyses
+  ,entryS "analyses"  (n.a.l' ^: "sees") -- Irregular plural of "analysis"
           [finalApostrophe]
   ,entryS "analysis"  (n.a.l' ^: "sis")  -- Irregular noun, analysis/analyses
           [contractS]
@@ -127,7 +127,7 @@ primaryDictionary =
   ,verb   "announce"  [n, ow.n'.s'] -- n'?
   ,entry  "another"   [n.u.dh'.r']
   ,noun   "antenna"   ntenn             -- Sometimes irregular noun, antenna/antennae
-  ,entryS "antennae"  (ntenn <> [aa])   -- Sometimes irregular noun, antenna/antennae
+  ,entryS "antennae"  (ntenn <> [aa])   -- Irregular plural of "antenna"
           [contractS]
   ,entry  "any"       [any]
   ,entryS "anybody"   ("any" ++ "body")
@@ -139,7 +139,7 @@ primaryDictionary =
   ,noun   "ape"       [aa.p']
   ,pnoun  "April"     [aa, p.r.l']
   ,noun   "apparatus" [a.p', r.a.t'.s'] -- Irregular noun, apparatus/apparatuses (handled appropriately by Plover)
-  ,entryS "appendices" (sstk "pen" <> d.i ^: "sees") -- Irregular noun, appendix/appendices
+  ,entryS "appendices" (sstk "pen" <> d.i ^: "sees") -- Irregular plural form of "appendix"
           [finalApostrophe]
   ,noun   "appendix"   ("pen" ++ "dick{^s}")         -- Irregular noun, appendix/appendices
   ,entryS "apparent"  [p.e.r'.n'.t']
@@ -151,11 +151,11 @@ primaryDictionary =
   ,entry  "ask"       [a.fvs'.k']
   ,entry  "at"        [a.t']
   ,entry  "available" [v.aa.l', b'.l']
---  ,entry  "available" [v.aa.b'.l'] -- Potential brief
+--  ,entry  "available" [v.aa.b'.l']   -- Potential brief
   ,nvpair "average"   [a.fvs'.r'.g']
   ,entry  "awful"     [aw.fvs'.l']
   ,noun   "axe"       [a.x']
-  ,entryS "axes"      ("axe" +: ee.s') -- Irregular noun, axis/axes
+  ,entryS "axes"      ("axe" +: ee.s') -- Irregular plural of "axis"
           [finalApostrophe]
   ,entryS "axis"      ("axe" +: s)     -- Irregular noun, axis/axes
           [contractS]
@@ -164,34 +164,36 @@ primaryDictionary =
   -- b section
   let br = b.r
   in entries
-  [entryS "bacilli"   [b, s.i.l', ii] -- Irregular noun, bacillus/bacilli
+  [entryS "bacilli"   [b, s.i.l', ii] -- Irregular plural of "bacillus"
           [contractS]
   ,entryS "bacillus"  [b, s.i.l', s'] -- Irregular noun, bacillus/bacilli
           [contractS]
   ,entryS "bacteria"  [b.k', t.ee.r']     -- Irregular noun, bacteria/bacterium
           [contractS]
-  ,entryS "bacterium" [b.k', t.ee.r', m'] -- Irregular noun, bacteria/bacterium
+  ,entryS "bacterium" [b.k', t.ee.r', m'] -- Irregular plural of "bacteria"
           [contractS]
   ,entry  "balm"      [b.aw.m']
   ,entry  "balmy"     ("balm" + ee)
   ,noun   "base"      [b.aa, s']
-  ,entryS "bases"     [b.aa, s.ee.s'] -- Irregular noun, basis/bases
+  ,entryS "bases"     [b.aa, s.ee.s'] -- Irregular plural of "basis"
           [finalApostrophe]
   ,entryS "basis"     [b.aa, s.s']    -- Irregular noun, basis/bases
           [contractS]
   ,entry  "be"        [b.ee]
   ,entryS "beau"      [b.ow.star]   -- Irregular noun, beau/beaux
           [contractS]
-  ,entryS "beaux"     ("beau" + s') -- Irregular noun, beau/beaux
+  ,entryS "beaux"     ("beau" + s') -- Irregular plural of "beau"
           [contractS]
   ,entry  "became"    (b ^: "came")
   ,entry  "because"   (b ^: "cause")
   ,entryS "become"    (b ^: "come")
           [plural]
   ,entry  "been"      [b.i.n']
-  ,entry  "before"    [b, f.oe.r']
-  ,entryS "begin"     [b, g.i.n']  -- irregular verb
+  ,entry  "before"    [b, f.oe.r'] 
+  ,entry  "began"     [b, g.a.n']  -- irregular past form of "begin"
+  ,entryS "begin"     [b, g.i.n']  -- irregular verb begin/began/begun
           [ing]
+  ,entry  "begun"     (b ^: "gun") -- irregular past-participle of "begin"
   ,entry  "beige"     [b.aa.zh']
   ,noun   "being"     [b.ee.ng']
   ,gverb  "belong"    [b, l.o.ng']
@@ -229,14 +231,21 @@ primaryDictionary =
   ,entry  "brutal"    [br.ew.t'.l']
   ,entry  "brutality" ("brutal" +: ty')
   ,noun   "budget"    [b.u.j'.t']
-  ,entryS "buffalo"   ("buff" ++ "low") -- Irregular noun, buffalo/bufaloes
+  ,entryS "buffalo"   ("buff" ++ "low") -- Irregular noun, buffalo/buffaloes
           [contractS]
-  ,entryS "buffaloes" ("buffalo" + s')  -- Irregular noun, buffalo/bufaloes
+  ,entryS "buffaloes" ("buffalo" + s')  -- Irregular plural form of "buffalo"
           [finalApostrophe]
   ,entry  "buff"      [b.u.fvs']
   ,noun   "build"     [b.i.l'.d']   -- irregular verb, build/built/built
   ,noun   "building"  ("build" +: g')
   ,entry  "built"     [b.i.l'.t']   -- irregular past form of "build"
+  ,entryS "bureau"    [b, y.oo.r']    -- irregular noun bureau/bureaus
+          [contractS]
+  ,entryS "bureaus"   ("bureau" + s') -- irregulat plural form of "bureau"
+          [finalApostrophe]
+  ,entryS "bus"       [b.u.s']      -- irregular nvpair "bus"/"buses", "bus"/"bussed"/"bussed"
+          [ed, ing]
+  ,entry  "buses"     ("bus" +: s') -- irregular plural/past form of "bus"
   ,nvpair "bush"      [b.oo.sh]
   ,entry  "but"       [b.u.t']
   ,noun   "butter"    [b.u.t', r']
@@ -245,20 +254,24 @@ primaryDictionary =
   ,entry  "by"        [b.i]] <>
 
   -- c section
-  let car   = stks [k, aw, r']
-      cert  = s.er.t'
+  let cert  = s.er.t'
       con   = k.o.n'
       cr    = k.r
   in entries
-  [noun   "cab"       [k.a.b']
+  [entry  "cactii"    (k.a.k' ^: "tie") -- irregular plural form of "cactii"
+  ,entry  "cactus"    [k.a.k', t.u.s']  -- irregular noun cacus/cactii
+  ,noun   "cab"       [k.a.b']
   ,noun   "cad"       [k.a.d']
+  ,pnoun  "caffeine"  ("calf" +: ee.n')
+  ,entry  "calf"      [k.a.fvs']    -- irregular noun calf/calves
   ,nvpair "call"      [k.aw.l']
-  ,verb   "calm"      [k.aw, m']
+  ,verb   "calm"      [k.aw, m'] 
+  ,entry  "calves"    ("calf" + s') -- irregular plural form of "calf"
   ,entry  "came"      [k.aa.m']  -- irregular past form of "come"
   ,nvpair "can"       [k.a.n']
-  ,noun   "car"       [car]
+  ,noun   "car"       [k.aw.r']
   ,noun   "carriage"  [k.a.r'.j']
-  ,pnoun  "Carly"     [car, ly']
+  ,pnoun  "Carly"     ("car" +: ly')
   ,nvpair "castle"    [k.a.fvs'.l']
   ,noun   "cat"       [k.a.t']
   ,entry  "catch"     [k.a.ch']   -- irregular verb, catch/caught/caught
@@ -281,6 +294,9 @@ primaryDictionary =
   ,nvpair "check"     [ch.e.k']
   ,entry  "chess"     [ch.e.s']
   ,noun   "chest"     [ch.e.st']
+  ,entry  "child"     [ch.ii.l'.d']
+  ,entry  "children"  ("chill{^ed}" +: r.n')
+  ,verb   "chill"     (ch ^ "ill")
   ,noun   "chin"      [ch.i.n']
   ,entry  "chive"     [ch.ii.fvs']
   ,entry  "choose"    [ch.oo.s']   -- irregular verb choose/chose/chosen
@@ -288,7 +304,8 @@ primaryDictionary =
   ,entry  "chore"     [ch.oe.r']
   ,entry  "chose"     [ch.oe.s']   -- irregular past form of "choose"
   ,entry  "chosen"    [ch.oe.s', n'] -- irregular past participle of "choose"
-  ,entry  "chrome"    [k.r.oe.m']
+  ,entryS "chrome"    (k ^ "Rome")
+          [ed]
   ,verb   "chuck"     [ch.u.k']
   ,nvpair "churn"     [ch.er.n']
   ,ngv    "coat"      [k.oe.t']
@@ -312,9 +329,12 @@ primaryDictionary =
   ,entryS "copy"      [k.aw.p'.ee]
           [plural]
   ,entry  "core"    [k.oe.r']
-  ,entry  "correct" [k.r', e.k'.t']
-  ,entryS "corrupt" [k.r, u.p'.t']
-          [ed]
+  ,entry  "corps"   [k.oe, r'] -- irregular noun corps/corps
+  ,entry  "corpora" ("core" +: p.r')
+  ,noun   "corporation" (sstk "core" <> [p.r', aa.sh'.n'])
+  ,entry  "corpus"  ("core" ++ "pus") -- irregular noun corpus/corpora
+  ,verb   "correct" [k.r', e.k'.t']
+  ,verb   "corrupt" [k.r, u.p'.t']
   ,entry  "cot"     [c.o.t']
   ,entry  "could"   [k.oo.d']
   ,entry  "course"  [k.o.r', s']
@@ -325,15 +345,15 @@ primaryDictionary =
   ,entry  "cred"    [cr.e.d']
   ,entryS "credit"  [cr.e.d', t']
           [ed]
-  ,entry  "crew"    [cr.ew]
+  ,nvpair "crew"    [cr.ew]
   ,entry  "cringe"  [cr.i.n, j']
   ,entryS "cross"   [cr.aw.s']
           [ed]
-  ,entryS "crow"    [cr.oe]
+  ,entryS "crow"    (k ^ "row")
           [ed, ing]
-  ,entry  "crude"   [cr.ew.d']
+  ,entry  "crude"   [cr.ew, d']
   ,entry  "cruel"   [cr.ew.l']
-  ,entry  "cruise"  [cr.ew.z']
+  ,entry  "cruise"  [cr.ew, z']
   ,entryS "crush"   [cr.u.sh']
           [ed, ing]
   ,entry  "crutch"  [cr.u.ch']
@@ -444,6 +464,7 @@ primaryDictionary =
   ,entry  "ever"      [e.fvs'.r']
   ,entry  "every"     ("ever" +: ee)
   ,entry  "evil"      [ee.fvs'.l']
+  ,entry  "euro"      [y.oo.r']
   ,noun   "exam"      [x.a.m']
   ,verb   "examine"   ("exam" +: n')
   ,noun   "example"   ("exam" +: p'.l')
@@ -526,6 +547,7 @@ primaryDictionary =
   ,nvpair "guarantee" [g.e.r'.n'.ty']
   ,noun   "guest"     [g.e.st']
   ,nvpair "guide"     [g.ii.d']
+  ,noun   "gun"       [g.u.n']
   ,noun   "gym"       [j.i.m']] <>
 
   -- h section
@@ -598,6 +620,7 @@ primaryDictionary =
   ,entryS "idea"      [d.ee]
                       [plural]
   ,entry  "if"        [i.fvs']
+  ,entry  "ill"       [i.l']
   ,entry  "in"        [n']
   ,entryS "include"   [n, k.l.ew.d'] [ed, ing, plural]
   ,entry  "inhibit"   [n, h.i.b'.t']
@@ -913,28 +936,29 @@ primaryDictionary =
   -- r section
   entries
   [entry  "rabble" [r.a.b'.l']
-  ,entry  "race" [r.aa.s']
-  ,entry  "rag" [r.a.g']
-  ,entry  "raid" [r.aa.d']
-  ,entry  "rail" [r.aa.l']
-  ,entry  "raise" [r.aa.z']
+  ,nvpair "race" [r.aa.s']
+  ,nvpair "rag" [r.a.g']
+  ,nvpair "raid" [r.aa.d']
+  ,ngv    "rail" [r.aa.l']
+  ,verb   "raise" [r.aa.z']
+  ,entry  "ran"  [r.a.n']   -- irregular past form of "run"
   ,entry  "rang" [r.aa.ng']
-  ,entry  "range" [r.aa.n', j']
-  ,entry  "rant" [r.a.n'.t']
-  ,entry  "rap" [r.a.p']
+  ,nvpair "range" [r.aa.n', j']
+  ,nvpair "rant" ("ran" + t')
+  ,verb   "rap" [r.a.p']
   ,entry  "rape" [r.aa.p']
   ,entry  "rash" [r.a.sh']
-  ,entry  "rat" [r.a.t']
+  ,noun   "rat" [r.a.t']
   ,entry  "ratchet" [r.a.ch'.t']
   ,entry  "rate" [r.aa.t']
   ,entry  "raw" [r.aw]
   ,entry  "ray" [r.aa]
   ,entry  "read" [r.ee'.d']
   ,entry  "real"    [r.ee'.l']
-  ,entryS "reason"  [r.ee.fvs'.n'] [plural]
+  ,nvpair "reason"  [r.ee.fvs'.n']
   ,entry  "rebel" [r.e.b'.l']
   ,entry  "rebel" [r, b.e.l']
-  ,entryS "receive" [r, s.ee.fvs'] [ed, ing, plural]
+  ,verb "receive" [r, s.ee.fvs']
   ,entry  "red" [r.e.d']
   ,entry  "reed" [r.ee.d']
   ,entry  "reel" [r.ee.l']
@@ -945,38 +969,44 @@ primaryDictionary =
   ,entry  "retch"   [r.e.ch']
   ,entryS "rhyme"   [r.ii.m']
           [plural]
-  ,entry  "rid" [r.i.d']
+  ,entry  "rid"   [r.i.d']
   ,entry  "rifle" [r.ii.fvs'.l']
-  ,entry  "rift" [r.i.fvs'.t']
-  ,entry  "rig" [r.i.g']
-  ,entry  "right"   [r.ii.t']
-  ,entry  "ripe" [r.ii.p']
+  ,entry  "rift"  [r.i.fvs'.t']
+  ,entry  "rig"   [r.i.g']
+  ,entry  "right" [r.ii.t']
+  ,entry  "ripe"  [r.ii.p']
   ,entry  "river" [r.ii.fvs'.r']
-  ,entry  "road" [r.oe.d']
-  ,entry  "roar" [r.oe.r']
-  ,entryS "rob" [r.o.b'] [ed]
-  ,entry  "robe" [r.oe.b']
+  ,entry  "road"   ("row" +: d')
+  ,entry  "roar"   [r.oe.r']
+  ,entryS "rob"    [r.o.b'] [ed]
+  ,entry  "robe"   ("row" + b')
   ,entryS "rocket" [r.o.k'.t'] [plural]
-  ,entry  "rod" [r.o.d']
-  ,entry  "rode" [r.oe, d']
-  ,entry  "rog"     [r.o.j']
-  ,entry  "roll" [r.oe.l']
-  ,entry  "rope" [r.oe.p']
-  ,entry  "rot" [r.o.t']
-  ,entry  "rough" [r.u.fvs']
-  ,entry  "rove" [r.oe.fvs']
-  ,entryS "rub" [r.u.b'] [ed]
+  ,entry  "rod"    [r.o.d']
+  ,entry  "rode"   ("roe" + d')
+  ,entry  "roe"    ("row" + star)
+  ,entry  "rog"    [r.o.j']
+  ,entry  "roll"   ("row" + l')
+  ,pnoun  "Rome"   ("row" + m')
+  ,entry  "rope"   ("row" + p')
+  ,entry  "rot"    [r.o.t']
+  ,entry  "rote"   ("row" + t')
+  ,entry  "rough"  [r.u.fvs']
+  ,entry  "rove"   [r.oe.fvs']
+  ,entry  "row"    [r.oe]
+  ,verb   "rub"    [r.u.b']
   ,entry  "rubble" [r.u.b'.l']
-  ,entry  "rude" [r.ew.d']
-  ,entryS "ruffle" [r.u.fvs'.l'] [ed]
-  ,entry  "rug" [r.u.g']
-  ,entry  "rule" [r.ew.l']
-  ,entry  "rum" [r.u.m']
-  ,entry  "run"     [r.u.n']
-  ,entry  "rung" [r.u.ng']
-  ,entry  "ruse" [r.ew.z']
-  ,entry  "rush" [r.u.sh']
-  ,entry  "rut" [r.u.t']] <>
+  ,entry  "rude"   [r.ew.d']
+  ,verb   "ruffle" [r.u.fvs'.l']
+  ,noun   "rug"    [r.u.g']
+  ,entry  "rugged" ("rug" + d')
+  ,noun   "rule"   [r.ew.l']
+  ,pnoun  "rum"    [r.u.m']
+  ,entryS "run"    [r.u.n']   -- irregular verb run/ran/run
+          [ing]
+  ,entry  "rung"   [r.u.n, g']
+  ,entry  "ruse"   [r.ew.z']
+  ,entry  "rush"   [r.u.sh']
+  ,entry  "rut"    [r.u.t']] <>
 
   -- s section
   let see  = s.ee
@@ -987,20 +1017,21 @@ primaryDictionary =
       sure = s.oo.r'
   in entries
   [entry  "sad"      [s.a.d']
-  ,entry  "sag"      [s.a.g']
+  ,verb   "sag"      [s.a.g']
   ,entry  "said"     [s.e.d']
-  ,entry  "sail"     [s.aa, l']
+  ,nvpair "sail"     [s.aa, l']
   ,entry  "sale"     [s.aa.l']
   ,entry  "sap"      [s.a.p']
   ,pnoun  "Sasha"    [s.aw.sh']
   ,entry  "sass"     [s.a.s']
   ,entry  "sat"      [s.a.t']
   ,entry  "Saul"     [s.aw.l']
-  ,entry  "saw"      [s.aw]
+  ,verb   "saw"      [s.aw]       -- irregular past form  of "see"
   ,entry  "says"     [s.e.z']
   ,entry  "scaffold" [s.k.a.fvs'.l'.d']
   ,entry  "scald"    [s.aw.l'.d']
-  ,entry  "scarlet"  [s.k.a.r'.l'.t']
+  ,entry  "scar"     [s.k.a.r']
+  ,entry  "scarlet"  ("scar" + l'.t')
   ,entry  "school"   [s.k.ew.l']
   ,entry  "scoff"    [s.k.aw.fvs']
   ,entry  "scour"    [s.k.ow.r']
@@ -1008,15 +1039,17 @@ primaryDictionary =
   ,entry  "scribe"   [s.k.r.ii.b']
   ,entryS "scuffle"  [s.k.u.fvs'.l'] [ed]
   ,entry  "sea"      [s.ee']
-  ,entry  "seat"     [s.ee.t']
-  ,entry  "secrete"  [s, k.r.ee.t']
-  ,entry  "see"      [see]
-  ,entry  "seed"     [see.d']
-  ,entry  "sees"     [see.s']
-  ,entry  "seethe"   [see.th']
-  ,entry  "seize"    [see.z']
+  ,entry  "seat"     ("see" + t')
+  ,noun   "secret"   ("see" +: k.r'.t')
+  ,verb   "secrete"  [s, k.r.ee.t']
+  ,entry  "see"      [see]        -- irregular verb see/saw/seen
+  ,entry  "seed"     ("see" + d')   
+  ,entry  "seen"     ("see" + n') -- irregular past participle of "see"
+  ,entry  "sees"     ("see" + s')
+  ,entry  "seethe"   ("see" + th')
+  ,entry  "seize"    ("see" + z')
   ,entry  "sell"     [s.e.l']
-  ,entry  "semester" [s, m.e.st', r']
+  ,noun   "semester" [s, m.e.st', r']
   ,entry  "serum"    [see.r'.m']
   ,entry  "set"      [s.e.t']
   ,entry  "several"  [s.e.fvs'.r'.l']
@@ -1154,7 +1187,6 @@ primaryDictionary =
 
   -- t section
   let thank = stks [th, a, ng', k']
-      tray  = stks [t, r, aa]
   in entries
   [nvpair "tab"     [t.a.b']
   ,noun   "teat"    [t.ee.t]
@@ -1172,13 +1204,14 @@ primaryDictionary =
   ,entry  "think"   [th.i.n'.k']
   ,entry  "this"    [dh.i.s']
   ,entry  "till"    [t.i.l']
-  ,nvpair "time"    [t.ii.m']
+  ,nvpair "time"    ("tie" + m')
+  ,nvpair "tie"     [t.ii]
   ,noun   "tit"     [t.i.t']
   ,entry  "titular" [t.i.ch', l.r']
   ,entry  "to"      [t.ew]
-  ,nvpair "trace"   [tray.s']
-  ,pnoun  "Tracy"   (tray ^: "see")
-  ,entry  "tray"    [tray]
+  ,nvpair "trace"   ("tray" + s')
+  ,pnoun  "Tracy"   ("tray" ++ "see")
+  ,entry  "tray"    [t.r.aa]
   ,entry  "true"    [t.r.ew]
   ,nvpair "twitch"  [t.w.i.ch']] <>
 
@@ -1232,7 +1265,7 @@ primaryDictionary =
   ,entryS "write"   [wr.ii.t']    -- Irregular verb write/wrote/written
           [ing]
   ,entry  "written" [w.r.i.t'.n'] -- Irregular verb write/wrote/written
-  ,entry  "wrote"   [r.oe.t']     -- Irregular verb write/wrote/written
+  ,entry  "wrote"   [w.r.oe.t']     -- Irregular verb write/wrote/written
   ] <>
 
   -- x section
