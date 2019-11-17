@@ -1,0 +1,9 @@
+{
+"TPH-T": "Int",
+"PWOUL": "Bool",
+"-PBD": "&&",
+"AUR": "||",
+"TKPWHR": "/=",
+"HRAPLD": "->",
+"PEPBD": "<>"
+}

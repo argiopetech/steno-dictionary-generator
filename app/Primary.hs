@@ -350,16 +350,19 @@ primaryDictionary =
           [ed]
   ,nvpair "crew"    [cr.ew]
   ,entry  "cringe"  [cr.i.n, j']
-  ,entryS "cross"   [cr.aw.s']
-          [ed]
-  ,entryS "crow"    (k ^ "row")
-          [ed, ing]
+  ,entry  "crises"  ("cry" ++ "sees") -- irregular plural form of "crisis"
+  ,entry  "crisis"  ("cry" ++ "sis")  -- irregular noun crisis/crises
+  ,entry  "criteria"  [k.r, t.i.r']    -- irregular plural form of "criterion"
+  ,entry  "criterion" [k.r, t.i.r'.n'] -- irregular noun criteria/criterium
+  ,noun'  "cross"   [cr.aw.s']
+  ,nvpair "crow"    (k ^ "row")
   ,entry  "crude"   [cr.ew, d']
   ,entry  "cruel"   [cr.ew.l']
   ,entry  "cruise"  [cr.ew, z']
   ,entryS "crush"   [cr.u.sh']
           [ed, ing]
   ,entry  "crutch"  [cr.u.ch']
+  ,entry  "cry"     [cr.ii]
   ,noun   "crystal" [k.r.i.fvs'.t'.l']
   ,noun   "cub"     [k.u.b']
   ,noun   "cube"    [k, y.ew.b']
@@ -368,6 +371,8 @@ primaryDictionary =
   ,noun   "cunt"    [k.u.n'.t']
   ,noun   "cup"     [k.u.p']
   ,verb   "cure"    [k, y.oo.r']
+  ,entry  "curricula"  [k.r.i.k', y.l.aw] -- irregular plural form of "curriculum"
+  ,entry  "curriculum" [k.r.i.k', y.l.m'] -- irregular noun curriculum/curricula
   ,verb   "curse"   [k.er.s']
   ,entryS "cuss"    [k.u.s']
           [ed, ing]
@@ -381,13 +386,19 @@ primaryDictionary =
   [entry  "dabble" [d.a.b'.l']
   ,entry  "dance" [d.a.n'.s']
   ,entry  "dash" [d.a.sh']
+  ,entry  "data" [day, t]
+  ,entry  "datum" [day, t.m']
   ,entryS "date"   [day.t']
           [plural]
   ,entryS "day"    [day]
           [plural]
   ,entry  "deaf"  [d.e.fvs']
+  ,noun   "dear"  [d.ee'.r']
   ,entry  "death" [d.e.th']
   ,entry  "debt" [d.e.t']
+  ,entryS "deer" [d.ee.r'] -- Irregular noun deer/deer
+          [contractS]
+  ,entry  "deers'" ("deer" +: z')
   ,entry  "deference" [d.e.fvs'.r'.n'.s']
   ,entry  "defer" [d.f.er]
   ,entry  "deferral" [d.f.er.l]
@@ -403,11 +414,16 @@ primaryDictionary =
           [ed]
   ,entry  "design" [d, z.ii.n']
   ,entry  "desire" [d, z.ii.r']
-  ,entry  "dessert" [d, z.er.t']
-  ,entryS "destroy" [d, s.t.r.oi]
-          [ed, ing, plural]
+  ,nvpair "desert"  [d.e.z, r'.t']
+  ,noun   "dessert" [d, z.er.t']
+  ,verb   "destroy" [d, s.t.r.oi]
   ,entry  "devil" [d.e.fvs'.l']
   ,noun   "dick"  [d.i.k']
+  ,verb   "diagnose"  [d.ii.g', n.oe.s']
+  ,entry  "diagnoses" [d.ii.g', n.oe, s.ee.s'] -- irregular verb diagnosis/diagnoses
+  ,entry  "diagnosis" [d.ii.g', n.oe, s.s']   -- irregular plural form of "diagnosis"
+  ,verb   "die"   [d.ii]     -- irregular noun die/dice
+  ,entry  "dice"  [d.ii, s'] -- irregular plural form of "die"
   ,entry  "diff"   [d.i.fvs']
   ,entry  "different" [d.i.fvs'.r'.n'.t']
 
@@ -432,7 +448,11 @@ primaryDictionary =
   ,entry  "duck" [d.u.k']
   ,entry  "due" [d, ew]
   ,entry  "duffer" [d.u.fvs'.r']
-  ,entry  "dung" [d.u.ng']] <>
+  ,entry  "dung" [d.u.ng']
+  ,entryS "dwarf" [d.w.a.r'.fvs']
+          [contractS]
+  ,entryS "dwarves" ("dwarf" + s')
+          [finalApostrophe]] <>
 
   -- e section
   entries
@@ -445,24 +465,37 @@ primaryDictionary =
   ,entry  "easy"   [ee.z', ee]
   ,entryS "eat"    [ee.t'] -- irregular verb, eat/ate/eaten
           [ing]
-  ,nvpair "echo"      [e.k']
+  ,entryS "echo"      [e.k']
+          [ed, ing]
+  ,entry  "echoes"    ("echo" + s')
   ,nvpair "edge"      [e.j']
   ,nvpair "edit"      [e.d',t']
   ,noun   "eel"       [ee.l']
   ,noun   "effort"    [f.r'.t']
+  ,entryS "elf"       [e.l', fvs']   -- irregular noun elf/elves
+          [contractS]
+  ,entryS "elves"     ("elf" + s') -- irregular plural form of "elf"
+          [finalApostrophe]
   ,pnoun  "Elliot"    [e.l'.t']
   ,verb   "eke"       [ee.k']
-  ,entry  "elf"       [l.fvs']    -- Has irregular plural
+  ,entry  "ellipses"  ("lip" ++ "sees")
+  ,entry  "ellipsis"  ("lip" ++ "sis")
   ,entry  "else"      [e.l'.s']
   ,entry  "elves"     [l.fvs'.z'] -- Irregular plural of "elf"
   ,entryS "email"     (ee ^: "mail")
           [ing]
   ,entry  "emacs"     [ee, m.a.x']
+  ,entry  "embargo"   [m, b.aw.r', g]
+  ,entry  "embargoes" ("embargo" + s')
   ,noun   "emergency" ("merge" +: n.s'.ee)
   ,pnoun  "Emily"     [e.m, ly']
+  ,entry  "emphases"  [m, f, s.ee.s'] -- irregular plural form of "emphasis"
+  ,entry  "emphasis"  [m, f, s.s']    -- irregular noun emphasis/emphases
   ,verb   "enact"     [n.a.k'.t']
   ,nvpair "end"       [n, d']
   ,noun   "entry"     [n, t.r.ee]
+  ,entry  "errata"    [er, r.a.t']     -- irregular noun errata/erratum
+  ,entry  "erratum"   [er, r.a.t', m'] -- irregular plural form of "erratum"
   ,gverb  "etch"      [e.ch']
   ,entry  "even"      [ee.fvs'.n']
   ,entry  "ever"      [e.fvs'.r']
@@ -484,6 +517,7 @@ primaryDictionary =
   ,noun   "fang"    [f.aa.ng']
   ,noun   "fee"     [fee]
   ,entry  "feeble"  [fee.bl']
+  ,entry  "feet"    ("fee" + t')
   ,entry  "feral"   [f.e.r'.l']
   ,verb   "fetch"   [f.e.ch']
   ,verb   "fidget"  [f.i.j'.t']
@@ -492,17 +526,28 @@ primaryDictionary =
   ,entry  "find"    [f.ii.nd']      -- irregular verb, find/found/found
   ,entry  "finger"  [f.g', r']
   ,entry  "fire"    [f.ii.r']
-  ,entry  "fish"    [f.i.sh']
+  ,entryS "fireman" ("fire" ++ "man") -- irregular plural of "fireman"
+          [contractS]
+  ,entryS "firemen" ("fire" ++ "men") -- irregular noun fireman/firemen
+          [contractS]
+  ,pnoun  "fish"    [f.i.sh']   -- irregular noun fish/fish
   ,entry  "flash"   [f.l.a.sh']
   ,entry  "flaunt" [f.l.aw.n'.t']
   ,entry  "flesh" [f.l.e.sh']
   ,entry  "float"   [f.l.oe.t']
   ,entry  "flung" [f.l.u.ng']
   ,entry  "flush" [f.l.u.sh']
+  ,entryS "focus"   [f.oe.k'.s']
+          [contractS]
+  ,entryS "focuses" [f.oe.k'.s', s']
+          [finalApostrophe]
+  ,entry  "foot"    [f.oo.t']
   ,entry  "for"     [f.o.r']
   ,entry  "ford" [f.o.r'.d']
   ,entry  "forge" [f.o.r'.j']
   ,entryS "form" [f.o.r'.m'] [plural]
+  ,entry  "formula"  ("form" +: y.l')
+  ,entry  "formulas" ("formula" + s')
   ,entry  "found"    [f.ow.n'.d']  -- irregular plural form of "find"
   ,entry  "free"    [f.r.ee]
   ,entry  "fresh"   [f.r.e.sh']
@@ -513,7 +558,10 @@ primaryDictionary =
   ,entry  "fringe" [f.r.i.n, j']
   ,entry  "from"    [f.r.o.m']
   ,entry  "frost"   [f.r.o.st']
-  ,entry  "fuck"    [f.u.k']] <>
+  ,entry  "fuck"    [f.u.k']
+  ,entry  "fun"     [f.u.n']
+  ,entry  "fungii"  ("fun" +: j.ee) -- irregular plural form of "fungus"
+  ,entry  "fungus"  ("fun" +: g.s')] <> -- irregular noun fungus/fungii
 
   -- g section
   entries
@@ -522,6 +570,8 @@ primaryDictionary =
   ,noun   "garage"    [g.r.aw.zh']
   ,nvpair "gash"      [g.a.sh']
   ,entry  "gave"      [g.aa.fvs']       -- irregular past form of "give"
+  ,entry  "genera"    [j.e.n', r']      -- irregular plural form of "genus"
+  ,entry  "genus"     [j.ee, n.s']      -- irregular noun genus/genera
   ,noun   "germ"      [j.e.r'.m']
   ,noun   "gerund"    [j.e.r', n'.d']
   ,entry  "get"       [g.e.t']          -- Irregular verb, get/got/gotten
@@ -709,6 +759,7 @@ primaryDictionary =
   ,entry  "link"     [l.i.n'.k']
   ,entryS "Lincoln"  ("link" +: n')
           [contractS]
+  ,noun   "lip"      [l.i.p']
   ,entryS "log"      [l.aw.g']
           [plural]
   ,entry  "loin"     [l.oi.n']
@@ -735,6 +786,7 @@ primaryDictionary =
   ,entry  "male"      [may, l']
   ,entry  "mallet"    [ma.l'.t']
   ,entry  "malt"      [m.aw.l'.t']
+  ,entry  "man"       [m.a.n']     -- irregular noun man/men
   ,entry  "many"      [m.e, n'.ee]
   ,entry  "mash"      [ma.sh']
   ,entry  "mat"       [ma.t']
@@ -743,6 +795,7 @@ primaryDictionary =
   ,entry  "matter"    [ma.t', r']
   ,entry  "may"       [may]
   ,entry  "me"        [mee]
+  ,entry  "men"       [m.e.n']     -- irregular plural form of "man"
   ,entry  "meal"      [mee.l']
   ,entry  "meant"     [m.e.n'.t']
   ,entryS "meet"      [mee.t'] [ing]
@@ -850,6 +903,7 @@ primaryDictionary =
   ,entry  "pat"      [pa.t']
   ,entry  "patch"    [pa.ch']
   ,entry  "path"     [pa.th']
+  ,verb   "pause"    [p.aw.z']
   ,entry  "pay"      [pay]
   ,entryS "pea"      [p.ee']
           [plural]
@@ -886,6 +940,8 @@ primaryDictionary =
   ,entry  "pool"     [p.ew.l']
   ,entryS "poot"     [p.ew.t']
           [ed]
+  ,verb   "posit"    ("pause" +: t')
+  ,nvpair "position" [p, z.i.sh'.n']
   ,entry  "porridge" [pour, j']
   ,entry  "port"     [pour.t']
   ,entry  "portal"   [pour.t', l']
