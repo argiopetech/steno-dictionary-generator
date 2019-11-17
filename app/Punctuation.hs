@@ -13,7 +13,6 @@ dot = Entry "." [d <> o <> t']
 
 coding =
   [dot
-  ,Entry "{^.^}" [p <> p']
   ,Entry "{^,^}" [w <> b']
   ,Entry "{^\\\\^}" [s <> l <> a]
   --,Entry "/" [d <> i <> fvs'] -- div; I don't like this
@@ -29,6 +28,7 @@ punctuation =
   let equal = k <> w <> l
   in [Entry "{,}" [stk L.K <> stk L.W <> stk R.B <> stk R.G]
      ,Entry "{.}" [stk L.T <> stk L.P <> stk R.P <> stk R.L]
+     ,Entry "{^.^}" [p <> p']
      ,Entry "{!}" [stk L.K <> stk L.W <> stk R.P <> stk R.L]
      ,Entry "{?}" [stk L.T <> stk L.P <> stk R.B <> stk R.G]
      ,Entry "{~|\\\"^}" [stk L.K <> stk L.W <> stk R.G <> stk R.S]

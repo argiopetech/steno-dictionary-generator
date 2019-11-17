@@ -53,14 +53,17 @@ infixl 7 ^:
 
 nounSuffixes = [plural, contractS, pluralPosessive]
 verbSuffixes = [ed, plural, ing]
-pnoun  w s = entryS w s [contractS] -- Proper nouns
-pnoun' w s = entryS w s [contractS, ed] -- Proper nouns
-noun   w s = entryS w s nounSuffixes
-noun'  w s = entryS w s $ ed : nounSuffixes
-verb   w s = entryS w s verbSuffixes
-gverb  w s = entryS w s $ verbSuffixes <> P.map (combine ing) nounSuffixes
-nvpair w s = entryS w s $ verbSuffixes <> P.tail nounSuffixes
-ngv    w s = entryS w s $ verbSuffixes <> P.tail nounSuffixes <> P.map (combine ing) nounSuffixes
+pnoun  = grammar [contractS] -- Proper nouns
+pnoun' = grammar [contractS, ed] -- Proper nouns
+noun   = grammar nounSuffixes
+noun'  = grammar (ed : nounSuffixes)
+noun_  = \w s e -> grammar (nounSuffixes <> e) w s
+verb   = grammar verbSuffixes
+gverb  = grammar $ verbSuffixes <> P.map (combine ing) nounSuffixes
+nvpair = grammar $ verbSuffixes <> P.tail nounSuffixes
+ngv    = grammar $ verbSuffixes <> P.tail nounSuffixes <> P.map (combine ing) nounSuffixes
+
+grammar ss w s = entryS w s ss
 
 
 primaryDictionary =
@@ -502,8 +505,10 @@ primaryDictionary =
   ,entryS "form" [f.o.r'.m'] [plural]
   ,entry  "found"    [f.ow.n'.d']  -- irregular plural form of "find"
   ,entry  "free"    [f.r.ee]
-  ,entry  "fresh" [f.r.e.sh']
-  ,entry  "fries" [f.r.ii.z']
+  ,entry  "fresh"   [f.r.e.sh']
+  ,noun_  "friend"  [f.r.e.n'.d']
+          [ly]
+  ,entry  "fries"  [f.r.ii.z']
   ,entry  "frigid" [f.r.i.j'.d']
   ,entry  "fringe" [f.r.i.n, j']
   ,entry  "from"    [f.r.o.m']
@@ -622,7 +627,7 @@ primaryDictionary =
                       [plural]
   ,entry  "if"        [i.fvs']
   ,entry  "ill"       [i.l']
-  ,entry  "in"        [n']
+  ,entry  "in"        [n]
   ,entryS "include"   [n, k.l.ew.d'] [ed, ing, plural]
   ,entry  "inhibit"   [n, h.i.b'.t']
   ,entry  "input"     [n, p.oo.t']
@@ -739,6 +744,7 @@ primaryDictionary =
   ,entry  "may"       [may]
   ,entry  "me"        [mee]
   ,entry  "meal"      [mee.l']
+  ,entry  "meant"     [m.e.n'.t']
   ,entryS "meet"      [mee.t'] [ing]
   ,entry  "merge"     [m.er.j']
   ,entry  "mesh"      [m.e.sh']
@@ -747,6 +753,7 @@ primaryDictionary =
   ,entry  "mic"       [m.ii, k']
   ,pnoun  "Microsoft" [m.s']
   ,pnoun  "Mike"      [m.ii.k']
+  ,entry  "mint"      [m.i.n'.t']
   ,entry  "mod"       [m.o.d']
   ,entry  "modify"    ("mod" +: f.ii)
   ,entry  "modifier"  ("mod" +: f.ii.r')
@@ -1185,6 +1192,7 @@ primaryDictionary =
   [nvpair "tab"     [t.a.b']
   ,noun   "teat"    [t.ee.t]
   ,nvpair "test"    [t.e.fvs'.t']
+  ,nvpair "text"    [t.e.x'.t']
   ,verb   "thank"   [thank]
   ,entry  "that"    [dh.a.t']
   ,entry  "the"     [dh']
@@ -1233,7 +1241,8 @@ primaryDictionary =
   in entries
   [verb   "want"    [w.aw.n'.t']
   ,entry  "was"     [w.u.z']
-  ,entry  "we"      [w.ee]
+  ,entryS "we"      [w.ee]
+          [contractLL, contractD]
   ,entry  "we've"   [w.ee.fvs']
   ,entry  "well"    [well]
   ,nvpair "welcome" ("well" ++ "come")

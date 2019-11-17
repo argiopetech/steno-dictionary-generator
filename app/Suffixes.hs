@@ -36,8 +36,9 @@ combine (nMod1, sMod1) (nMod2, sMod2) = (nMod2 . nMod1, sMod2 . sMod1)
 
 ly =
   let ender = \ss ->
-        if ((\(Stroke _ v r _) -> S.member R.L r
-                               || and [S.member A v, S.member E v]) $ last ss)
-          then ss ++ [stks [stk R.L, stk A, stk E]]
-          else init ss ++ ([last ss <> stks [stk R.L, stk A, stk E]])
+        if ((\(Stroke _ v r _) -> length ss > 1
+                               && S.notMember R.L r
+                               && S.null v) $ last ss)
+          then init ss ++ ([last ss <> stks [stk R.L, stk A, stk E]])
+          else ss ++ [stks [stk R.L, stk A, stk E]]
   in (\n -> n ++ "{^ly}", ender)
