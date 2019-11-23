@@ -61,6 +61,7 @@ noun_  = \w s e -> grammar (nounSuffixes <> e) w s
 verb   = grammar verbSuffixes
 gverb  = grammar $ verbSuffixes <> P.map (combine ing) nounSuffixes
 nvpair = grammar $ verbSuffixes <> P.tail nounSuffixes
+nvpair_ = \w s e -> grammar (e <> verbSuffixes <> P.tail nounSuffixes) w s
 ngv    = grammar $ verbSuffixes <> P.tail nounSuffixes <> P.map (combine ing) nounSuffixes
 
 grammar ss w s = entryS w s ss
@@ -271,7 +272,8 @@ primaryDictionary =
   ,verb   "calm"      [k.aw, m'] 
   ,entry  "calves"    ("calf" + s') -- irregular plural form of "calf"
   ,entry  "came"      [k.aa.m']  -- irregular past form of "come"
-  ,nvpair "can"       [k.a.n']
+  ,nvpair_ "can"       [k.a.n']
+           [contractT]
   ,noun   "car"       [k.aw.r']
   ,noun   "carriage"  [k.a.r'.j']
   ,pnoun  "Carly"     ("car" +: ly')
@@ -618,6 +620,7 @@ primaryDictionary =
   ,pnoun  "handwriting" (hand ^: "write{^ing}")
   ,verb   "harm"        [h.aw.r'.m']
   ,entry  "has"         [h.a.z']
+  ,pnoun  "haskell"     ("has" +: k.l')
   ,verb   "hash"        [h.a.sh']
   ,noun'  "hat"         [h.a.t']
   ,nvpair "hatch"       [h.a.ch']
@@ -748,6 +751,7 @@ primaryDictionary =
   ,entry  "less"     [l.e.s']
   ,entry  "let"      [l.e.t']
   ,entry  "letter"   [l.e.t', r']
+  ,noun   "lever"    [l.e.fvs'.r']
   ,entry  "leverage" [l.e.fvs', r'.j']
   ,entryS "look"     [l.oo.k']
           [ing]
@@ -1179,6 +1183,7 @@ primaryDictionary =
   ,pnoun  "soot"      [s.oo.t']
   ,verb   "sop"       [s.o.p']
   ,entry  "sore"      [s.oe.r']
+  ,nvpair "sort"      [s.oe.r'.t']
   ,noun   "sound"     [s.ow.nd']
   ,entry  "soy"       [s.oi]
   ,verb   "spew"      (s.p ^: "you")
@@ -1246,7 +1251,7 @@ primaryDictionary =
   let thank = stks [th, a, ng', k']
   in entries
   [nvpair "tab"     [t.a.b']
-  ,noun   "teat"    [t.ee.t]
+  ,noun   "teat"    [t.ee.t']
   ,nvpair "test"    [t.e.fvs'.t']
   ,nvpair "text"    [t.e.x'.t']
   ,verb   "thank"   [thank]
@@ -1289,6 +1294,7 @@ primaryDictionary =
   [entry  "val"      [val]
   ,entry  "value"    (val ^: "you")
   ,noun   "version"  [ver.shn']
+  ,noun   "video"    [v.i.d']
   ,noun   "virgin"   [ver, j.n']
   ,pnoun  "Virginia" [v.r', j.n', y]] <>
 
@@ -1297,6 +1303,7 @@ primaryDictionary =
   in entries
   [verb   "want"    [w.aw.n'.t']
   ,entry  "was"     [w.u.z']
+  ,nvpair "watch"   [w.o.ch']
   ,entryS "we"      [w.ee]
           [contractLL, contractD]
   ,entry  "we've"   [w.ee.fvs']
@@ -1320,7 +1327,7 @@ primaryDictionary =
   ,entry  "worth"   [w.er.th']
   ,noun   "wren"    [w.r.e.n']
   ,nvpair "wrench"  [w.r.e.n', ch']
-  ,noun   "wretch"  [w.r.e.ch']
+  ,noun'  "wretch"  [w.r.e.ch']
   ,entryS "write"   [wr.ii.t']    -- Irregular verb write/wrote/written
           [ing]
   ,entry  "written" [w.r.i.t'.n'] -- Irregular verb write/wrote/written

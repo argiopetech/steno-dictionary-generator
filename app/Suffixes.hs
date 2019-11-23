@@ -26,6 +26,7 @@ contractLL = suffixSC (enumFrom R.L) [R.L]      "'ll"
 contractM  = suffixSC (enumFrom R.P) [R.P, R.L] "'m"
 contractS  = suffixSC [R.T, R.Z] [R.Z] "'s"
 contractD  = suffixSC [R.S, R.D] [R.D] "'d"
+contractT  = suffixSC (enumFrom R.T) [R.T] "'t"
 
 finalApostrophe = suffixSC [R.T, R.Z] [R.Z] "'"
 
