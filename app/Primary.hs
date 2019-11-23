@@ -73,6 +73,7 @@ primaryDictionary =
       bl'  = b'.l'
       ly'  = l'.ee
       nd'  = n'.d'
+      nt'  = n'.t'
       ry'  = r'.ee
       st'  = fvs'.t'
       ty'  = t'.ee
@@ -89,10 +90,11 @@ primaryDictionary =
   in entries
   [entry  "a"         [aa]
   ,pnoun  "Aaron"     [e.r'.n']
-  ,entry  "able"      [aa.b'.l']
+  ,entry  "able"      [aa.bl']
   ,entry  "about"     [b.ow.t']
   ,entry  "ace"       [aa.s']
   ,entry  "actually"  [a.k', ch.ew.ly']
+  ,entry  "accreditation" ("credit" +: aa.sh'.n')
   ,entry  "add"       [a.d']
   ,noun   "addend"    ("add" ++ "end")
   ,entryS "addenda"   [d.e.n.d']       -- Irregular noun, addendum/addenda
@@ -153,8 +155,9 @@ primaryDictionary =
   ,entry  "as"        [a.z']
   ,noun   "ash"       [a.sh']
   ,entry  "ask"       [a.fvs'.k']
+  ,entry  "assignment" ("sign" +: m.nt')
   ,entry  "at"        [a.t']
-  ,entry  "available" [v.aa.l', b'.l']
+  ,entry  "available" [v.aa.l', bl']
 --  ,entry  "available" [v.aa.b'.l']   -- Potential brief
   ,nvpair "average"   [a.fvs'.r'.g']
   ,entry  "awful"     [aw.fvs'.l']
@@ -178,11 +181,13 @@ primaryDictionary =
           [contractS]
   ,entry  "balm"      [b.aw.m']
   ,entry  "balmy"     ("balm" + ee)
-  ,noun   "base"      [b.aa, s']
-  ,entryS "bases"     [b.aa, s.ee.s'] -- Irregular plural of "basis"
+  ,noun   "base"      ("bay" +: s')
+  ,entryS "bases"     ("bay" +: s.ee.s') -- Irregular plural of "basis"
           [finalApostrophe]
-  ,entryS "basis"     [b.aa, s.s']    -- Irregular noun, basis/bases
+  ,entry  "basic"     ("bay" +: s.k')
+  ,entryS "basis"     ("bay" +: s.s')    -- Irregular noun, basis/bases
           [contractS]
+  ,nvpair "bay"       [b.aa]
   ,entry  "be"        [b.ee]
   ,entryS "beau"      [b.ow.star]   -- Irregular noun, beau/beaux
           [contractS]
@@ -215,10 +220,11 @@ primaryDictionary =
   ,nvpair "blite"     [b.l.ii, t']
   ,entry  "blithe"    [b.l.ii.dh']
   ,entry  "blush"     [b.l.u.sh']
-  ,nvpair "board"     [b.o.r', d']
+  ,nvpair "board"     [b.o.r'.d'.star]
+  ,nvpair "book"      [b.oo.k']
   ,nvpair "body"      [b.o.d', ee]
   ,nvpair "bomb"      [b.aw.m', b']
-  ,entry  "bored"     [b.o.r'.d']
+  ,nvpair "bore"      [b.o.r']
   ,entry  "botch"     [b.o.ch']
   ,entry  "bottom"    [b.o.t'.m']
   ,nvpair "bow"       [b.ow]
@@ -229,7 +235,10 @@ primaryDictionary =
   ,verb   "breathe"   [br.ee.th']
   ,entry  "breath"    [br.e.th']
   ,entry  "bring"     [br.g']
-  ,entry  "broadcast" [br.o.d', k.a.st']
+  ,entry  "broad"     [br.o.d']
+  ,entry  "broaden"   ("broad" +: n')
+  ,entry  "broader"   ("broad" +: r')
+  ,entry  "broadcast" ("broad" ++ "cast")
   ,entry  "bruise"    [br.ew.s']
   ,entry  "brush"     [br.u.sh']
   ,entry  "brutal"    [br.ew.t'.l']
@@ -277,6 +286,7 @@ primaryDictionary =
   ,noun   "car"       [k.aw.r']
   ,noun   "carriage"  [k.a.r'.j']
   ,pnoun  "Carly"     ("car" +: ly')
+  ,entry  "cast"      [k.a.st']
   ,nvpair "castle"    [k.a.fvs'.l']
   ,noun   "cat"       [k.a.t']
   ,entry  "catch"     [k.a.ch']   -- irregular verb, catch/caught/caught
@@ -285,6 +295,7 @@ primaryDictionary =
   ,entry  "cd"        [k.r.d']    -- as in, fingerspelling 'c'
   ,verb   "cease"     ("see" +: s')
   ,nvpair "cement"    [s.m.e.n'.t']
+  ,entry  "census"    [s.e.n', s.s']
   ,noun   "cert"      [cert]
   ,noun   "certification" [cert, f.k', aa.sh'.n']
   ,entry  "chaff"     [ch.a.fvs']
@@ -313,6 +324,12 @@ primaryDictionary =
           [ed]
   ,verb   "chuck"     [ch.u.k']
   ,nvpair "churn"     [ch.er.n']
+  ,noun   "class"     [k.l.a.s']
+  ,noun   "classy"    [k.l.a.s', ee]
+  ,pnoun  "Cleese"    [k.l.ee.s']
+  ,entry  "close"     [k.l.oe.s']
+  ,verb   "close"     [k.l.oe.z']
+  ,nvpair "clothe"    [k.l.oe.dh']
   ,ngv    "coat"      [k.oe.t']
   ,noun   "cod"       [k.o.d']
   ,nvpair "code"      [k.oe.d']
@@ -324,6 +341,7 @@ primaryDictionary =
   ,nvpair "commit"    [k.m.i.t']
   ,noun   "con"       [con]
   ,nvpair "conflict"  [con, f.l.i.k'.t']
+  ,entry  "consensus" ("con" ++ "census")
   ,nvpair "continue"  [k.n', t.i.n', y]
   ,noun   "contract"  [con, t.r.a.k'.t']
   ,verb   "contract"  [k.n', t.r.a.k'.t']
@@ -385,7 +403,7 @@ primaryDictionary =
   let day = d.aa
       drain = d.r.aa.n
   in entries
-  [entry  "dabble" [d.a.b'.l']
+  [entry  "dabble" [d.a.bl']
   ,entry  "dance" [d.a.n'.s']
   ,entry  "dash" [d.a.sh']
   ,entry  "data" [day, t]
@@ -394,7 +412,7 @@ primaryDictionary =
           [plural]
   ,entryS "day"    [day]
           [plural]
-  ,entry  "deaf"  [d.e.fvs']
+  ,entry  "deaf"  [d.e.fvs'.star]
   ,noun   "dear"  [d.ee'.r']
   ,entry  "death" [d.e.th']
   ,entry  "debt" [d.e.t']
@@ -419,6 +437,9 @@ primaryDictionary =
   ,nvpair "desert"  [d.e.z, r'.t']
   ,noun   "dessert" [d, z.er.t']
   ,verb   "destroy" [d, s.t.r.oi]
+  ,entry  "dev"     [d.e.fvs']
+  ,entry  "devel"   ("dev" +: e.l')
+  ,verb   "develop" [d, v.e.l', p']
   ,entry  "devil" [d.e.fvs'.l']
   ,noun   "dick"  [d.i.k']
   ,verb   "diagnose"  [d.ii.g', n.oe.s']
@@ -442,7 +463,7 @@ primaryDictionary =
   ,entry  "doesn't" [d.u.z', n'.t']
   ,entry  "done"   [d.u.n']
   ,noun   "donor" [d.oe.n', r']
-  ,verb   "double" [d.u.b'.l']
+  ,verb   "double" [d.u.bl']
   ,verb   "drag"  [d.r.a.g']
   ,entry  "drain"  [drain]
   ,nvpair "dream" [d.r.ee.m']
@@ -539,10 +560,12 @@ primaryDictionary =
   ,entry  "float"   [f.l.oe.t']
   ,entry  "flung" [f.l.u.ng']
   ,entry  "flush" [f.l.u.sh']
-  ,entryS "focus"   [f.oe.k'.s']
-          [contractS]
-  ,entryS "focuses" [f.oe.k'.s', s']
+  ,entryS "focus"   ("folk" +: s')     -- irregular noun focus/focuses
+          [contractS, ing, ed]
+  ,entryS "focuses" ("focus" +: s') -- irregular past participle of "focus"
           [finalApostrophe]
+  ,entry  "folk"    [f.oe.k']
+  ,verb   "fool"    [f.ew.l']
   ,entry  "foot"    [f.oo.t']
   ,entry  "for"     [f.o.r']
   ,entry  "ford" [f.o.r'.d']
@@ -561,6 +584,7 @@ primaryDictionary =
   ,entry  "from"    [f.r.o.m']
   ,entry  "frost"   [f.r.o.st']
   ,entry  "fuck"    [f.u.k']
+  ,entry  "full"    [f.oo.l']
   ,entry  "fun"     [f.u.n']
   ,entry  "fungii"  ("fun" +: j.ee) -- irregular plural form of "fungus"
   ,entry  "fungus"  ("fun" +: g.s')] <> -- irregular noun fungus/fungii
@@ -568,11 +592,16 @@ primaryDictionary =
   -- g section
   entries
   [noun   "gadget"    [g.a.j'.t']
+  ,nvpair "gain"      ("gay" + n')
   ,noun'  "gang"      [g.a.ng']
   ,noun   "garage"    [g.r.aw.zh']
   ,nvpair "gash"      [g.a.sh']
   ,entry  "gave"      [g.aa.fvs']       -- irregular past form of "give"
-  ,entry  "genera"    [j.e.n', r']      -- irregular plural form of "genus"
+  ,noun   "gay"       [g.aa]
+  ,entry  "gen"       [j.e.n']
+  ,entry  "genera"    ("gen" +: r)      -- irregular plural form of "genus"
+  ,entry  "general"   ("gen" +: r.l')
+  ,entry  "generous"  ("gen" +: r.s')
   ,entry  "genus"     [j.ee, n.s']      -- irregular noun genus/genera
   ,noun   "germ"      [j.e.r'.m']
   ,noun   "gerund"    [j.e.r', n'.d']
@@ -587,16 +616,20 @@ primaryDictionary =
   ,verb   "glide"     [g.l.ii.d']
   ,nvpair "glitch"    [g.l.i.ch']
   ,noun   "gnome"     [n.oe.m']
-  ,noun   "goblet"    [g.o.b'.l'.t']
+  ,noun   "goblet"    [g.o.bl'.t']
   ,entry  "good"      [g.oo.d']
   ,entry  "gosh"      [g.o.sh']
   ,entry  "got"       [g.o.t']
   ,entry  "gotten"    ("got" +: n')
+  ,nvpair "grade"     ("grey" + d')
+  ,noun   "grail"     ("grey" + l')
   ,noun   "gram"      [g.r.a.m']
   ,noun   "grammar"   ("gram" +: r')
   ,nvpair "grant"     [g.r.a.n'.t']
   ,noun   "gravel"    [g.r.a.fvs'.l']
-  ,entry  "great"     [g.r.aa.t']
+  ,pnoun  "great"     ("grey" + t')
+  ,pnoun  "grate"     ("great" + star)
+  ,entry  "grey"      [g.r.aa]
   ,nvpair "group"     [g.r.ew.p']
   ,noun   "growth"    [g.r.oe.th']
   ,noun   "grudge"    [g.r.u.j']
@@ -674,7 +707,7 @@ primaryDictionary =
   let inter = stks [n, t', r']
   in entries
   [entryS "I"         [ii]
-                      [contractM, contractD]
+                      [contractM, contractD, contractLL]
   ,entry  "ice"       [ii.s']
   ,entryS "idea"      [d.ee]
                       [plural]
@@ -684,14 +717,17 @@ primaryDictionary =
   ,entryS "include"   [n, k.l.ew.d'] [ed, ing, plural]
   ,entry  "inhibit"   [n, h.i.b'.t']
   ,entry  "input"     [n, p.oo.t']
+  ,noun   "insight"   (n ^: "site")
+  ,entry  "ingightful" ("insight" +: f.l')
   ,entry  "instant"   [n, s.t.a.n'.t']
-  ,entry  "interest"  [n, t.r.e.st']
-  ,entryS "interview" [inter, v.ew]
+  ,nvpair "interest"  [n, t.r.e.st']
+  ,entryS "interview" (inter ^: "view")
                       [plural]
   ,entry  "into"      [n.t']
   ,entry  "ire"       [ii.r']
   ,entry  "Irish"     [ii, r.sh']
   ,entry  "is"        [i.z']
+  ,nvpair "issue"     [i.sh']
   ,entryS "it"        [i.t']
                       [plural, contractS]] <>
 
@@ -731,7 +767,8 @@ primaryDictionary =
   -- l section
   let lee = l.ee
   in entries
-  [entry  "lace"     [l.aa.s']
+  [entry  "lab"      [l.a.b']
+  ,entry  "lace"     [l.aa.s']
   ,entry  "lash"     [l.a.sh']
   ,entry  "latch"    [l.a.ch']
   ,entryS "lead"     [lee.d']
@@ -795,6 +832,7 @@ primaryDictionary =
   ,entry  "mash"      [ma.sh']
   ,entry  "mat"       [ma.t']
   ,entry  "match"     [ma.ch']
+  ,noun   "material"  [m, t.ee.r', l']
   ,entry  "math"      [ma.th']
   ,entry  "matter"    [ma.t', r']
   ,entry  "may"       [may]
@@ -810,7 +848,9 @@ primaryDictionary =
   ,entry  "mic"       [m.ii, k']
   ,pnoun  "Microsoft" [m.s']
   ,pnoun  "Mike"      [m.ii.k']
-  ,entry  "mint"      [m.i.n'.t']
+  ,noun   "min"       [m.i.n']
+  ,entry  "mint"      ("min" + t')
+  ,noun   "minute"    ("min" +: t')
   ,entry  "mod"       [m.o.d']
   ,entry  "modify"    ("mod" +: f.ii)
   ,entry  "modifier"  ("mod" +: f.ii.r')
@@ -899,7 +939,8 @@ primaryDictionary =
   ,entry  "pal"      [pa.l']
   ,entry  "palm"     [p.aw.l', m']
   ,entry  "pan"      [pa.n']
-  ,entry  "panel"    [pa.n'.l']
+  ,verb   "panel"    [pa.n'.l']
+  ,noun   "paper"    ("pay" +: per)
   ,entry  "parent"   [p.e.r', n'.t']
   ,entryS "pass"     [pa.s']
           [ed, ing]
@@ -968,7 +1009,10 @@ primaryDictionary =
   ,entryS "prime"    [pr.ii.m']
           [ed]
   ,entry  "prize"    [pr.ii.z']
-  ,entry  "probably" [pr.o.b'.l'.ee]
+  ,entry  "prob"     [pr.o.b']
+  ,entry  "probable" ("prob" +: bl')
+  ,entry  "probably" ("prob" +: bl'.ee)
+  ,entry  "problem"  ("prob" +: l.m')
   ,entry  "prong"    [pr.o.ng']
   ,entry  "prose"    [pr.oe.z']
   ,entry  "prowl"    [pr.ow.l']
@@ -1000,11 +1044,12 @@ primaryDictionary =
   ,entry  "quest"    [q.e.st']
   ,entry  "question" [q.e.st', n']
   ,entry  "quid"     [q.i.d']
+  ,entry  "quiz"     [q.i.z']
   ,entry  "quo"      [q.oe]] <>
 
   -- r section
   entries
-  [entry  "rabble" [r.a.b'.l']
+  [entry  "rabble" [r.a.bl']
   ,nvpair "race" [r.aa.s']
   ,nvpair "rag" [r.a.g']
   ,nvpair "raid" [r.aa.d']
@@ -1022,20 +1067,23 @@ primaryDictionary =
   ,entry  "rate" [r.aa.t']
   ,entry  "raw" [r.aw]
   ,entry  "ray" [r.aa]
-  ,entry  "read" [r.ee'.d']
+  ,entryS "read" [r.ee.d']
+          [ing]
   ,entry  "real"    [r.ee'.l']
   ,nvpair "reason"  [r.ee.fvs'.n']
   ,entry  "rebel" [r.e.b'.l']
   ,entry  "rebel" [r, b.e.l']
   ,verb "receive" [r, s.ee.fvs']
   ,entry  "red" [r.e.d']
-  ,entry  "reed" [r.ee.d']
+  ,entry  "reed" [r.ee'.d']
   ,entry  "reel" [r.ee.l']
   ,entry  "refer" [r, f.er]
   ,entry  "renew"   [r, n.ew]
   ,entry  "renewal" [r, n.ew.l']
-  ,entry  "require" [r.ee, k.w.ii.r']
-  ,entry  "retch"   [r.e.ch']
+  ,verb   "require" [r.ee, k.w.ii.r']
+  ,noun   "requirement" ("require" +: m.nt')
+  ,verb   "retch"   [r.e.ch']
+  ,nvpair "review"  (r ^: "view")
   ,entryS "rhyme"   [r.ii.m']
           [plural]
   ,entry  "rid"   [r.i.d']
@@ -1063,7 +1111,7 @@ primaryDictionary =
   ,entry  "rove"   [r.oe.fvs']
   ,entry  "row"    [r.oe]
   ,verb   "rub"    [r.u.b']
-  ,entry  "rubble" [r.u.b'.l']
+  ,entry  "rubble" [r.u.bl']
   ,entry  "rude"   [r.ew.d']
   ,verb   "ruffle" [r.u.fvs'.l']
   ,noun   "rug"    [r.u.g']
@@ -1104,7 +1152,7 @@ primaryDictionary =
   ,entry  "school"   [s.k.ew.l']
   ,entry  "scoff"    [s.k.aw.fvs']
   ,entry  "scour"    [s.k.ow.r']
-  ,entry  "scribble" [s.k.r.i.b'.l']
+  ,entry  "scribble" [s.k.r.i.bl']
   ,entry  "scribe"   [s.k.r.ii.b']
   ,entryS "scuffle"  [s.k.u.fvs'.l'] [ed]
   ,entry  "sea"      [s.ee']
@@ -1125,6 +1173,7 @@ primaryDictionary =
   ,entry  "severance" [s.e.fvs'.r'.n'.s']
   ,entry  "sew"      [s.oe.stk Star]
   ,entry  "shall"    [sh.a.l']
+  ,nvpair "share"    [sh.aa.r']
   ,entry  "shark"    [sh.a.r'.k']
   ,entry  "sheesh"   [sh.ee.sh']
   ,entry  "shell"    [sh.e.l']
@@ -1132,6 +1181,7 @@ primaryDictionary =
   ,entry  "shit"     [sh.i.t']
   ,entry  "shock"    [sh.aw.k']
   ,entry  "shore"    [sh.oe.r']
+  ,entry  "short"    ("shore" + t')
   ,entryS "shovel"   [sh.u.fvs', l']
           [plural]
   ,entry  "shrewd"   [sh.r.ew.d']
@@ -1140,11 +1190,13 @@ primaryDictionary =
   ,entry  "shuck"    [sh.u.k']
   ,entryS "shuffle"  [sh.u.fvs'.l'] [ed]
   ,entry  "shush"    [sh.u.sh']
+  ,nvpair "sight"    ("site" + star)
   ,entry  "sign"     [s.ii.n']
   ,entry  "sin"      [s.i.n']
   ,entry  "sip"      [s.i.p']
   ,entry  "sir"      [s.i.r']
   ,entry  "sis"      [s.i.s']
+  ,noun   "site"     [s.ii.t']
   ,entry  "sketch"   [s.k.e.ch']
   ,entry  "skew"     [s.k.ew]
   ,entry  "skirt"    [s.k.r'.t']
@@ -1161,6 +1213,9 @@ primaryDictionary =
   ,entry  "smuggle"  [s.m.u.g', l']
   ,entry  "smush"    [s.m.oo.sh']
   ,entry  "snide"    [s.n.ii.d']
+  ,noun   "specific" [s.p, s.i.fvs'.k']
+  ,noun_  "split"    [s.p.l.i.t']
+          [ing]
   ,entry  "so"       [s.oe]
   ,verb   "soar"     [s.oe, r']
   ,nvpair "sob"      [s.aw.b']
@@ -1230,6 +1285,7 @@ primaryDictionary =
   ,entry  "stronger"   [s.t.r.aw.ng', r']
   ,pnoun  "Stuart"     ("stew" + r'.t')
   ,noun   "student"    ("stew" +: dnt)
+  ,verb   "stumble"    [s.t.u.m', bl']
   ,verb   "stun"       [s.t.u.n']
   ,entry  "stung"      ("stun" + g')  -- irregular past form of "sting"
   ,entry  "success"    [s.k', s.e.s']
@@ -1259,16 +1315,20 @@ primaryDictionary =
   ,entry  "the"     [dh']
   ,entryS "their"   [dh.e.r']
                     [plural]
+  ,entry  "them"    [dh.e.m']
   ,entryS "there"   [dh.r']
                     [contractS]
+  ,entry  "these"   [dh.ee.z']
   ,entry  "they"    [dh.aa]
   ,entry  "they're" [dh.aa.r']
   ,entry  "thing"   [th.g']
   ,entry  "think"   [th.i.n'.k']
   ,entry  "this"    [dh.i.s']
+  ,noun   "thought" [th.aw.t']
   ,entry  "till"    [t.i.l']
   ,nvpair "time"    ("tie" + m')
   ,nvpair "tie"     [t.ii]
+  ,nvpair "tip"     [t.i.p']
   ,noun   "tit"     [t.i.t']
   ,entry  "titular" [t.i.ch', l.r']
   ,entry  "to"      [t.ew]
@@ -1276,7 +1336,8 @@ primaryDictionary =
   ,pnoun  "Tracy"   ("tray" ++ "see")
   ,entry  "tray"    [t.r.aa]
   ,entry  "true"    [t.r.ew]
-  ,nvpair "twitch"  [t.w.i.ch']] <>
+  ,nvpair "twitch"  [t.w.i.ch']
+  ,verb   "typify"  ("tip" + f.ii)] <>
 
   -- u section
   let up = u.p'
@@ -1295,27 +1356,34 @@ primaryDictionary =
   ,entry  "value"    (val ^: "you")
   ,noun   "version"  [ver.shn']
   ,noun   "video"    [v.i.d']
+  ,nvpair "view"     [v.ew]
   ,noun   "virgin"   [ver, j.n']
   ,pnoun  "Virginia" [v.r', j.n', y]] <>
 
   -- w section
-  let well  = stks [w, e, l']
-  in entries
+  entries
   [verb   "want"    [w.aw.n'.t']
   ,entry  "was"     [w.u.z']
   ,nvpair "watch"   [w.o.ch']
+  ,noun   "way"     [w.aa]
   ,entryS "we"      [w.ee]
           [contractLL, contractD]
-  ,entry  "we've"   [w.ee.fvs']
-  ,entry  "well"    [well]
+  ,entry  "we're"   ("we" + r')
+  ,entry  "we've"   ("we" + fvs')
+  ,verb   "weigh"   [w, aa]
+  ,entry  "well"    [w.e.l']
   ,nvpair "welcome" ("well" ++ "come")
   ,entry  "were"    [w.er]
   ,entry  "what"    [w.u.t']
   ,entry  "where"   [w.e.r']
   ,entry  "which"   [w.i.ch']
   ,entry  "while"   [w.ii.l']
+  ,entry  "white"   [wh.ii.t']
+  ,nvpair "whiteboard" ("white" ++ "board")
   ,entry  "who"     [h.ew]
   ,noun   "whore"   [h.o.r']
+  ,entry  "whose"   ("who" + z')
+  ,entry  "wight"   [w.ii.t']
   ,entry  "will"    [w.i.l']
   ,noun   "witch"   [w.i, ch']
   ,entry  "with"    [w.i.dh']
