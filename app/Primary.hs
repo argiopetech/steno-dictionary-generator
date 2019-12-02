@@ -202,7 +202,7 @@ primaryDictionary =
   ,entryS "become"    (b ^: "come")
           [plural]
   ,entry  "been"      [b.i.n']
-  ,entry  "before"    [b, f.oe.r'] 
+  ,entry  "before"    [b, f.oe.r']
   ,entry  "began"     [b, g.a.n']  -- irregular past form of "begin"
   ,entryS "begin"     [b, g.i.n']  -- irregular verb begin/began/begun
           [ing]
@@ -281,9 +281,10 @@ primaryDictionary =
   ,noun   "cab"       [k.a.b']
   ,noun   "cad"       [k.a.d']
   ,pnoun  "caffeine"  ("calf" +: ee.n')
+  ,noun   "calendar"  [k.a.l', n, d.r']
   ,entry  "calf"      [k.a.fvs']    -- irregular noun calf/calves
   ,nvpair "call"      [k.aw.l']
-  ,verb   "calm"      [k.aw, m'] 
+  ,verb   "calm"      [k.aw, m']
   ,entry  "calves"    ("calf" + s') -- irregular plural form of "calf"
   ,entry  "came"      [k.aa.m']  -- irregular past form of "come"
   ,nvpair_ "can"       [k.a.n']
@@ -294,6 +295,7 @@ primaryDictionary =
   ,entry  "cast"      [k.a.st']
   ,nvpair "castle"    [k.a.fvs'.l']
   ,noun   "cat"       [k.a.t']
+  ,noun   "category"  ("cat" +: g.r.ee)
   ,entry  "catch"     [k.a.ch']   -- irregular verb, catch/caught/caught
   ,entry  "caught"    [k.aw.t']   -- irregular past form of "catch"
   ,nvpair "cause"     [k.aw.z']
@@ -1192,7 +1194,7 @@ primaryDictionary =
   ,noun   "secret"   ("see" +: k.r'.t')
   ,verb   "secrete"  [s, k.r.ee.t']
   ,entry  "see"      [see]        -- irregular verb see/saw/seen
-  ,entry  "seed"     ("see" + d')   
+  ,entry  "seed"     ("see" + d')
   ,entry  "seen"     ("see" + n') -- irregular past participle of "see"
   ,entry  "sees"     ("see" + s')
   ,entry  "seethe"   ("see" + th')
