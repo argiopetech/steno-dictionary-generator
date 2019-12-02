@@ -1044,6 +1044,7 @@ primaryDictionary =
   ,entry  "probable" ("prob" +: bl')
   ,entry  "probably" ("prob" +: bl'.ee)
   ,entry  "problem"  ("prob" +: l.m')
+  ,entry  "project"  [p.r.o.j', k'.t']
   ,entry  "prong"    [pr.o.ng']
   ,entry  "prose"    [pr.oe.z']
   ,entry  "prowl"    [pr.ow.l']
@@ -1193,6 +1194,7 @@ primaryDictionary =
   ,entry  "seat"     ("see" + t')
   ,noun   "secret"   ("see" +: k.r'.t')
   ,verb   "secrete"  [s, k.r.ee.t']
+  ,noun   "section"  [s.e.k', sh'.n']
   ,entry  "see"      [see]        -- irregular verb see/saw/seen
   ,entry  "seed"     ("see" + d')
   ,entry  "seen"     ("see" + n') -- irregular past participle of "see"
