@@ -101,11 +101,15 @@ primaryDictionary =
           [contractS]
   ,entryS "addendum"  [d.e.n.d', m']   -- Irregular plural of "addendum"
           [contractS]
+  ,entry  "aero"      ("air" +: oe)
+  ,entry  "aeronautical" ("air" ++ "nautical")
+  ,entry  "aerospace" ("air" ++ "space")
   ,entry  "after"     [after]
   ,noun   "afternoon" (after ^: "noon")
   ,entry  "against"   [g.e.n'.s'.t']
   ,verb   "agree"     [agree]
   ,noun   "agreement" [agree, m.n'.t']
+  ,pnoun  "air"       [aa.r']
   ,entryS "alga"      [a.l', j]        -- Irregular noun, alga/algae
           [contractS]
   ,entryS "algae"     [a.l', j.ee]     -- Irregular plural of "alga"
@@ -522,6 +526,11 @@ primaryDictionary =
   ,entry  "emacs"     [ee, m.a.x']
   ,entry  "embargo"   [m, b.aw.r', g]
   ,entry  "embargoes" ("embargo" + s')
+  ,entry  "Embry"     [m, b.r.ee]
+  ,entry  "Embry-Riddle" ("Embry" ++ "riddle")
+  ,entry  "Embry-Riddle Aeronautical University" ("Embry-Riddle" ++ "aero")
+  ,entry  "Embry-Riddle Aeronautical University" ("ERAU" + star)
+  ,entry  "embryo"    ("Embry" +: oe)
   ,noun   "emergency" ("merge" +: n.s'.ee)
   ,pnoun  "Emily"     [e.m, ly']
   ,entry  "emphases"  [m, f, s.ee.s'] -- irregular plural form of "emphasis"
@@ -530,6 +539,7 @@ primaryDictionary =
   ,verb   "enact"     [n.a.k'.t']
   ,nvpair "end"       [n.d']
   ,noun   "entry"     [n, t.r.ee]
+  ,pnoun  "ERAU"      [ee, r.ow]
   ,entry  "errata"    [er, r.a.t']     -- irregular noun errata/erratum
   ,entry  "erratum"   [er, r.a.t', m'] -- irregular plural form of "erratum"
   ,gverb  "etch"      [e.ch']
@@ -905,7 +915,10 @@ primaryDictionary =
   [entry  "nab"    [n.a.b']
   ,entry  "nag"    [n.a.g']
   ,entryS "name"   [n.aa.m'] [ed]
+  ,entry  "naked"  [n.aa.k'.d']
   ,entry  "nap"    [n.a.p']
+  ,entry  "naught" ("not" + star)
+  ,entry  "nautical" ("not" +: k.l')
   ,entry  "neck"   [n.e.k']
   ,entry  "nerd"   [n.er.d']
   ,entry  "nest"   [nest]
@@ -1046,6 +1059,7 @@ primaryDictionary =
   ,entry  "probable" ("prob" +: bl')
   ,entry  "probably" ("prob" +: bl'.ee)
   ,entry  "problem"  ("prob" +: l.m')
+  ,entry  "project"  [p.r.o.j', k'.t']
   ,entry  "prong"    [pr.o.ng']
   ,entry  "prose"    [pr.oe.z']
   ,entry  "prowl"    [pr.ow.l']
@@ -1121,6 +1135,7 @@ primaryDictionary =
   ,entryS "rhyme"   [r.ii.m']
           [plural]
   ,entry  "rid"   [r.i.d']
+  ,entry  "riddle" ("rid" +: l')
   ,entry  "rifle" [r.ii.fvs'.l']
   ,entry  "rift"  [r.i.fvs'.t']
   ,entry  "rig"   [r.i.g']
@@ -1195,6 +1210,7 @@ primaryDictionary =
   ,entry  "seat"     ("see" + t')
   ,noun   "secret"   ("see" +: k.r'.t')
   ,verb   "secrete"  [s, k.r.ee.t']
+  ,noun   "section"  [s.e.k', sh'.n']
   ,entry  "see"      [see]        -- irregular verb see/saw/seen
   ,entry  "seed"     ("see" + d')
   ,entry  "seen"     ("see" + n') -- irregular past participle of "see"
@@ -1279,6 +1295,7 @@ primaryDictionary =
   ,nvpair "sort"      [s.oe.r'.t']
   ,noun   "sound"     [s.ow.nd']
   ,entry  "soy"       [s.oi]
+  ,nvpair "space"     [s.p.aa.s']
   ,verb   "spew"      (s.p ^: "you")
   ,noun   "sphere"    [s.f.ee.r']
   ,nvpair "spill"     [s.p.i.l']
@@ -1385,9 +1402,13 @@ primaryDictionary =
   let up = u.p'
   in entries
   [entry  "under"    [u.n', d.r']
+  ,entry  "universal"  ("universe" +: l')
+  ,noun   "universe"   [y.ew.n', v.er.s']
+  ,noun   "university" ("universe" +: ty')
   ,entry  "until"    (n ^: "till")
   ,entry  "up"       [up]
   ,entry  "upcoming" (up ^: "come{^ing}")
+  ,entry  "update"   ("up" ++ "date")
   ,verb   "use"      [y.ew.z']
   ,noun   "use"      [y.ew.s']] <>
 
