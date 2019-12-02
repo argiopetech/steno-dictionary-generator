@@ -113,6 +113,7 @@ primaryDictionary =
   ,entry  "all"       [aw.l']
   ,noun   "allowance" [l.ow.n'.s']
   ,entry  "almost"    [aw.l', m.oe.st']
+  ,entry  "also"      [a.l'.s']
   ,entryS "alumna"    [l.u.m', n]      -- Irregular noun, alumna/alumnae
           [contractS]
   ,entryS "alumnae"   [l.u.m', n.aa]   -- Irregular plural of "alumna"
@@ -121,6 +122,7 @@ primaryDictionary =
           [contractS]
   ,entryS "alumnus"   [l.u.m', n.s']   -- Irregular noun, alumnus/alumni
           [finalApostrophe]
+  ,entry  "always"    ("all" ++ "way{^s}")
   ,entry  "among"     [m.u.ng']
   ,nvpair "amount"    [m, ow.n'.t'] -- m',?
   ,entry  "an"        [a.n']
@@ -152,6 +154,7 @@ primaryDictionary =
           [ly]
   ,entry  "are"       [a.r']
   ,nvpair "arm"       [a.r'.m']
+  ,entry  "around"    [r, ow.nd']
   ,entry  "as"        [a.z']
   ,noun   "ash"       [a.sh']
   ,entry  "ask"       [a.fvs'.k']
@@ -161,6 +164,7 @@ primaryDictionary =
 --  ,entry  "available" [v.aa.b'.l']   -- Potential brief
   ,nvpair "average"   [a.fvs'.r'.g']
   ,entry  "awful"     [aw.fvs'.l']
+  ,entry  "awkward"   [aw.k', w.r'.d']
   ,noun   "axe"       [a.x']
   ,entryS "axes"      ("axe" +: ee.s') -- Irregular plural of "axis"
           [finalApostrophe]
@@ -226,6 +230,7 @@ primaryDictionary =
   ,nvpair "bomb"      [b.aw.m', b']
   ,nvpair "bore"      [b.o.r']
   ,entry  "botch"     [b.o.ch']
+  ,entry  "both"      [b.oe.th']
   ,entry  "bottom"    [b.o.t'.m']
   ,nvpair "bow"       [b.ow]
   ,noun   "bow"       [b.oe]
@@ -294,6 +299,7 @@ primaryDictionary =
   ,nvpair "cause"     [k.aw.z']
   ,entry  "cd"        [k.r.d']    -- as in, fingerspelling 'c'
   ,verb   "cease"     ("see" +: s')
+  ,noun   "cell"      [c.e.l']
   ,nvpair "cement"    [s.m.e.n'.t']
   ,entry  "census"    [s.e.n', s.s']
   ,noun   "cert"      [cert]
@@ -406,7 +412,7 @@ primaryDictionary =
   [entry  "dabble" [d.a.bl']
   ,entry  "dance" [d.a.n'.s']
   ,entry  "dash" [d.a.sh']
-  ,entry  "data" [day, t]
+  ,entry  "data" [day, t']
   ,entry  "datum" [day, t.m']
   ,entryS "date"   [day.t']
           [plural]
@@ -453,9 +459,11 @@ primaryDictionary =
   ,entry  "digit" [d.i.j'.t']
   ,entry  "din"   [d.i.n']
   ,entry  "dine"  [d.ii.n']
-  ,entry  "diner" [d.ii.n', r']
-  ,entry  "dinner" [d.i.n', r']
+  ,noun   "diner" [d.ii.n', r']
+  ,noun   "dinner" [d.i.n', r']
+  ,verb   "disable" (d ^: "sable")
   ,verb   "distill" (d ^: "still")
+  ,entry  "did"   [d.i.d']
   ,entry  "ditch" [d.i.ch']
   ,entry  "do"     [d.ew]
   ,entry  "don't"  [d.oe.n'.t']
@@ -514,8 +522,9 @@ primaryDictionary =
   ,pnoun  "Emily"     [e.m, ly']
   ,entry  "emphases"  [m, f, s.ee.s'] -- irregular plural form of "emphasis"
   ,entry  "emphasis"  [m, f, s.s']    -- irregular noun emphasis/emphases
+  ,verb   "enable"    (n ^: "able")
   ,verb   "enact"     [n.a.k'.t']
-  ,nvpair "end"       [n, d']
+  ,nvpair "end"       [n.d']
   ,noun   "entry"     [n, t.r.ee]
   ,entry  "errata"    [er, r.a.t']     -- irregular noun errata/erratum
   ,entry  "erratum"   [er, r.a.t', m'] -- irregular plural form of "erratum"
@@ -538,6 +547,7 @@ primaryDictionary =
                     [contractS]
   ,entry  "false"   [f.aw.l'.s']
   ,noun   "fang"    [f.aa.ng']
+  ,entry  "fat"     [f.a.t']
   ,noun   "fee"     [fee]
   ,entry  "feeble"  [fee.bl']
   ,entry  "feet"    ("fee" + t')
@@ -546,6 +556,8 @@ primaryDictionary =
   ,verb   "fidget"  [f.i.j'.t']
   ,entry  "fierce"  [f.ee.r'.s']
   ,entry  "fifth"   [f.i.fvs'.th']
+  ,noun   "fig"     [f.i.g']
+  ,noun   "figure"  ("fig" +: r')
   ,entry  "find"    [f.ii.nd']      -- irregular verb, find/found/found
   ,entry  "finger"  [f.g', r']
   ,entry  "fire"    [f.ii.r']
@@ -553,6 +565,7 @@ primaryDictionary =
           [contractS]
   ,entryS "firemen" ("fire" ++ "men") -- irregular noun fireman/firemen
           [contractS]
+  ,entry  "first"   [f.r.fvs'.t']
   ,pnoun  "fish"    [f.i.sh']   -- irregular noun fish/fish
   ,entry  "flash"   [f.l.a.sh']
   ,entry  "flaunt" [f.l.aw.n'.t']
@@ -581,7 +594,7 @@ primaryDictionary =
   ,entry  "fries"  [f.r.ii.z']
   ,entry  "frigid" [f.r.i.j'.d']
   ,entry  "fringe" [f.r.i.n, j']
-  ,entry  "from"    [f.r.o.m']
+  ,entry  "from"    [f.r.u.m']
   ,entry  "frost"   [f.r.o.st']
   ,entry  "fuck"    [f.u.k']
   ,entry  "full"    [f.oo.l']
@@ -616,6 +629,8 @@ primaryDictionary =
   ,verb   "glide"     [g.l.ii.d']
   ,nvpair "glitch"    [g.l.i.ch']
   ,noun   "gnome"     [n.oe.m']
+  ,entryS "go"        [g.oe]
+          [ing]
   ,noun   "goblet"    [g.o.bl'.t']
   ,entry  "good"      [g.oo.d']
   ,entry  "gosh"      [g.o.sh']
@@ -629,6 +644,7 @@ primaryDictionary =
   ,noun   "gravel"    [g.r.a.fvs'.l']
   ,pnoun  "great"     ("grey" + t')
   ,pnoun  "grate"     ("great" + star)
+  ,entry  "grep"      [g.r.e.p']
   ,entry  "grey"      [g.r.aa]
   ,nvpair "group"     [g.r.ew.p']
   ,noun   "growth"    [g.r.oe.th']
@@ -638,7 +654,7 @@ primaryDictionary =
   ,nvpair "guarantee" [g.e.r'.n'.ty']
   ,noun   "guest"     [g.e.st']
   ,nvpair "guide"     [g.ii.d']
-  ,noun   "gun"       [g.u.n']
+  ,nvpair "gun"       [g.u.n']
   ,noun   "gym"       [j.i.m']] <>
 
   -- h section
@@ -665,18 +681,20 @@ primaryDictionary =
   ,verb   "heal"        [h.ee.l']
   ,noun   "health"      [h.e.l'.th']
   ,nvpair "heap"        [h.ee.p']
-  ,entry  "hear"        [h.ee.r']    -- irregular verb, hear/heard/heard
+  ,entry  "hear"        [h.ee'.r']    -- irregular verb, hear/heard/heard
   ,nvpair "heat"        [h.ee.t']
   ,nvpair "heel"        [h.ee'.l']
   ,noun   "height"      [h.ii.t']
   ,noun   "hell"        [h.e.l']
   ,entry  "her"         [h.er]
-  ,entry  "here"        [h.ee'.r']
+  ,entry  "here"        [h.ee.r']
   ,nvpair "hermit"      [h.er.m'.t']
   ,entry  "hid"         [h.i.d']      -- irregular plural of "hide"
   ,entry  "hidden"      ("hid" +: n') -- irregular past participle of "hide"
   ,entry  "hide"        [h.ii.d']     -- irregular verb, hide/hid/hidden
+  ,entry  "him"         [h.i.m']
   ,nvpair "hinge"       [h.i.n, j']
+  ,entry  "his"         [h.i.z']
   ,entry  "hit"         [h.i.t']      -- irregular verb hit/hit/hit
   ,entry  "hoary"       ("whore" + ry')
   ,pnoun  "hoarfrost"   ("whore" ++ "frost")
@@ -693,6 +711,7 @@ primaryDictionary =
   ,entry  "house"       [h.ow.s']
   ,entry  "hover"       [h.o.fvs'.r']
   ,entry  "how"         [h.ow]
+  ,entry  "however"     ("how" ++ "ever")
   ,entry  "howl"        ("how" + l')
   ,entry  "hub" [h.u.b']
   ,entry  "huff" [h.u.fvs']
@@ -715,6 +734,8 @@ primaryDictionary =
   ,entry  "ill"       [i.l']
   ,entry  "in"        [n]
   ,entryS "include"   [n, k.l.ew.d'] [ed, ing, plural]
+  ,entry  "info"        [n, f.oe]
+  ,entry  "information" [n.fvs'.r', m.aa.sh'.n']
   ,entry  "inhibit"   [n, h.i.b'.t']
   ,entry  "input"     [n, p.oo.t']
   ,noun   "insight"   (n ^: "site")
@@ -743,19 +764,20 @@ primaryDictionary =
   ,entry  "jostle"  [j.o.fvs'.l']
   ,entry  "journal" [j.er.n'.l']
   ,entry  "joy"     [j.oi]
-  ,entry  "joyful"  [j.oi.fvs'.l']
+  ,entry  "joyful"  ("joy" + fvs'.l')
   ,entry  "judge"   [j.u.j']
   ,entry  "jug"     [j.u.g']
   ,entry  "just"    [j.u.st']
-  ,entry  "jut"     [j.u.t']] <>
+  ,verb   "jut"     [j.u.t']] <>
 
   -- k section
   entries
   [entry  "keg"   [k.e.g']
-  ,entryS "kid"   [k.i.d'] [ing]
+  ,nvpair "kid"   [k.i.d']
   ,entry  "kite"  [k.ii.t']
   ,entry  "knack" [n.a.k']
   ,entry  "knock" [k.n.aw.k']
+  ,entry  "kind"  [k.ii.nd']
   ,entry  "kitty" [k.i.ty']
   ,entry  "knew"   [k.n.ew]
   ,entry  "knight" [k.n.ii.t']
@@ -796,6 +818,7 @@ primaryDictionary =
   ,entryS "lover"    [l.u.fvs'.r']
           [plural]
   ,entry  "low"      [l.oe]
+  ,verb   "lick"     [l.i.k']
   ,entry  "like"     [l.ii.k']
   ,entry  "link"     [l.i.n'.k']
   ,entryS "Lincoln"  ("link" +: n')
@@ -847,6 +870,7 @@ primaryDictionary =
   ,entry  "method"    [m.e.th'.d']
   ,entry  "mic"       [m.ii, k']
   ,pnoun  "Microsoft" [m.s']
+  ,entry  "might"     [m.ii.t']
   ,pnoun  "Mike"      [m.ii.k']
   ,noun   "min"       [m.i.n']
   ,entry  "mint"      ("min" + t')
@@ -860,9 +884,10 @@ primaryDictionary =
   ,entry  "more"      [m.o.r']
   ,entryS "morning"   ("more" + ng')
           [plural, contractS]
-  ,entry  "mound"     [m.ow.n'.d']
+  ,entry  "mound"     [m.ow.nd']
   ,entryS "mount"     [m.ow.n'.t']
           [plural]
+  ,entry  "most"      [m.oe.st']
   ,entry  "move"      [m.ew.fvs']
   ,entry  "MS"        [m, s]
   ,entry  "much"      [m.u.ch']
@@ -884,6 +909,7 @@ primaryDictionary =
   ,entry  "neural" [n.oo.r'.l']
   ,entry  "never"  [n.e.fvs'.r']
   ,entry  "new"    [n.ew]
+  ,entry  "next"   [n.e.x'.t']
   ,entry  "no"     [n.oe]
   ,entry  "nock"   [n.o.k']
   ,entry  "nod"    [n.o.d']
@@ -910,6 +936,7 @@ primaryDictionary =
   ,entry  "of"        [u.fvs']
   ,entryS "oil"       [oi.l']
                       [ing, ed]
+  ,entry  "okay"      [oe.k']
   ,entry  "on"        [o.n']
   ,entry  "only"      [oe.n'.ly']
   ,entry  "opinion"   [p.i.n', y.n']
@@ -917,8 +944,8 @@ primaryDictionary =
   ,entry  "orange"    [aw.r', n.j']
   ,entryS "ordinary"  [o.r'.d', n.e.ry']
                       [ly]
-  ,entryS "other"     [u.dh', r] [plural]
-  ,entry  "otherwise" [u.dh', r, w.ii.z']
+  ,entryS "other"     [u.r'] [plural]
+  ,entry  "otherwise" ("other" ++ "wise")
   ,entry  "our"       [ow.r']
   ,entry  "out"       [ow.t']
   ,entry  "own"       [oe.n']
@@ -942,6 +969,7 @@ primaryDictionary =
   ,verb   "panel"    [pa.n'.l']
   ,noun   "paper"    ("pay" +: per)
   ,entry  "parent"   [p.e.r', n'.t']
+  ,entry  "part"     [p.a.r'.t']
   ,entryS "pass"     [pa.s']
           [ed, ing]
   ,entry  "past"     [pa.st']
@@ -961,6 +989,7 @@ primaryDictionary =
   ,entry  "peg"      [p.e.g']
   ,entry  "pen"      [p.e.n']
   ,entry  "pent"     ("pen" + t')
+  ,pnoun  "people"   [p.ee.p'.l']
   ,entry  "pep"      [p.e.p']
   ,entry  "per"      [per]
   ,entry  "percent"  [per, s.e.n'.t']
@@ -1069,14 +1098,15 @@ primaryDictionary =
   ,entry  "ray" [r.aa]
   ,entryS "read" [r.ee.d']
           [ing]
-  ,entry  "real"    [r.ee'.l']
+  ,entryS "real"    [r.ee.l']
+          [ly]
   ,nvpair "reason"  [r.ee.fvs'.n']
   ,entry  "rebel" [r.e.b'.l']
   ,entry  "rebel" [r, b.e.l']
   ,verb "receive" [r, s.ee.fvs']
   ,entry  "red" [r.e.d']
   ,entry  "reed" [r.ee'.d']
-  ,entry  "reel" [r.ee.l']
+  ,entry  "reel" [r.ee'.l']
   ,entry  "refer" [r, f.er]
   ,entry  "renew"   [r, n.ew]
   ,entry  "renewal" [r, n.ew.l']
@@ -1108,6 +1138,7 @@ primaryDictionary =
   ,entry  "rot"    [r.o.t']
   ,entry  "rote"   ("row" + t')
   ,entry  "rough"  [r.u.fvs']
+  ,entry  "round"  [r.ow.nd']
   ,entry  "rove"   [r.oe.fvs']
   ,entry  "row"    [r.oe]
   ,verb   "rub"    [r.u.b']
@@ -1133,7 +1164,8 @@ primaryDictionary =
       stew = s.t.ew
       sure = s.oo.r'
   in entries
-  [entry  "sad"      [s.a.d']
+  [entry  "sable"    (s ^ "able")
+  ,entry  "sad"      [s.a.d']
   ,verb   "sag"      [s.a.g']
   ,entry  "said"     [s.e.d']
   ,nvpair "sail"     [s.aa, l']
@@ -1175,7 +1207,8 @@ primaryDictionary =
   ,entry  "shall"    [sh.a.l']
   ,nvpair "share"    [sh.aa.r']
   ,entry  "shark"    [sh.a.r'.k']
-  ,entry  "sheesh"   [sh.ee.sh']
+  ,entry  "she"      [sh.ee]
+  ,entry  "sheesh"   ("she" + sh')
   ,entry  "shell"    [sh.e.l']
   ,entry  "shim"     [sh.i.m']
   ,entry  "shit"     [sh.i.t']
@@ -1184,6 +1217,7 @@ primaryDictionary =
   ,entry  "short"    ("shore" + t')
   ,entryS "shovel"   [sh.u.fvs', l']
           [plural]
+  ,entry  "should"   [sh.oo.d']
   ,entry  "shrewd"   [sh.r.ew.d']
   ,entry  "shrine"   [sh.r.ii.n']
   ,entry  "shrivel"  [sh.r.i.fvs'.l']
@@ -1310,21 +1344,25 @@ primaryDictionary =
   ,noun   "teat"    [t.ee.t']
   ,nvpair "test"    [t.e.fvs'.t']
   ,nvpair "text"    [t.e.x'.t']
+  ,entry  "than"    [th.a.n']
   ,verb   "thank"   [thank]
   ,entry  "that"    [dh.a.t']
   ,entry  "the"     [dh']
   ,entryS "their"   [dh.e.r']
                     [plural]
   ,entry  "them"    [dh.e.m']
+  ,entry  "then"    [dh.e.n']
   ,entryS "there"   [dh.r']
                     [contractS]
   ,entry  "these"   [dh.ee.z']
   ,entry  "they"    [dh.aa]
   ,entry  "they're" [dh.aa.r']
-  ,entry  "thing"   [th.g']
-  ,entry  "think"   [th.i.n'.k']
+  ,noun   "thing"   [th.g']
+  ,entryS "think"   [th.i.n'.k']
+          [plural, ing]
   ,entry  "this"    [dh.i.s']
   ,noun   "thought" [th.aw.t']
+  ,entry  "those"   [th.oe.z']
   ,entry  "till"    [t.i.l']
   ,nvpair "time"    ("tie" + m')
   ,nvpair "tie"     [t.ii]
@@ -1346,7 +1384,8 @@ primaryDictionary =
   ,entry  "until"    (n ^: "till")
   ,entry  "up"       [up]
   ,entry  "upcoming" (up ^: "come{^ing}")
-  ,verb   "use"      [y.ew.s']] <>
+  ,verb   "use"      [y.ew.z']
+  ,noun   "use"      [y.ew.s']] <>
 
   -- v section
   let val = v.a.l'
@@ -1354,7 +1393,11 @@ primaryDictionary =
   in entries
   [entry  "val"      [val]
   ,entry  "value"    (val ^: "you")
+  ,entry  "vary"     ("very" + star)
+  ,entryS "verb"     [v.r'.b']
+          [plural]
   ,noun   "version"  [ver.shn']
+  ,entry  "very"     [v.r'.ee]
   ,noun   "video"    [v.i.d']
   ,nvpair "view"     [v.ew]
   ,noun   "virgin"   [ver, j.n']
@@ -1364,6 +1407,7 @@ primaryDictionary =
   entries
   [verb   "want"    [w.aw.n'.t']
   ,entry  "was"     [w.u.z']
+  ,entry  "war"     [w.o.r']
   ,nvpair "watch"   [w.o.ch']
   ,noun   "way"     [w.aa]
   ,entryS "we"      [w.ee]
@@ -1371,11 +1415,13 @@ primaryDictionary =
   ,entry  "we're"   ("we" + r')
   ,entry  "we've"   ("we" + fvs')
   ,verb   "weigh"   [w, aa]
+  ,entry  "weird"   [w.ee.r'.d']
   ,entry  "well"    [w.e.l']
   ,nvpair "welcome" ("well" ++ "come")
   ,entry  "were"    [w.er]
   ,entry  "what"    [w.u.t']
   ,entry  "where"   [w.e.r']
+  ,entry  "when"    [w.e.n']
   ,entry  "which"   [w.i.ch']
   ,entry  "while"   [w.ii.l']
   ,entry  "white"   [wh.ii.t']
@@ -1385,8 +1431,10 @@ primaryDictionary =
   ,entry  "whose"   ("who" + z')
   ,entry  "wight"   [w.ii.t']
   ,entry  "will"    [w.i.l']
+  ,entry  "wise"    [w.ii.z']
   ,noun   "witch"   [w.i, ch']
   ,entry  "with"    [w.i.dh']
+  ,entry  "without" ("with" ++ "out")
   ,noun   "wood"    [w.oo, d']
   ,entry  "won"     [w.u.n']
   ,verb   "wonder"  ("won" +: d.r')
@@ -1408,7 +1456,10 @@ primaryDictionary =
 
   -- y section
   entries
-  [entry  "you"  [y.ew]
+  [entry  "yeah" [y.a]
+  ,noun   "year" [y.ee.r']
+  ,entry  "yes"  [y.e.s']
+  ,entry  "you"  [y.ew]
   ,entry  "your" [y.o.r']] <>
 
   -- z section
