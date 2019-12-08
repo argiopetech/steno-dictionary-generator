@@ -13,45 +13,79 @@ dot = Entry "." [d <> o <> t']
 
 coding =
   [dot
-  ,Entry "{^,^}" [w <> b']
-  ,Entry "{^\\\\^}" [s <> l <> a]
-  --,Entry "/" [d <> i <> fvs'] -- div; I don't like this
-  ,Entry "{^/^}" [stk O <> stk E <> stk U]
-  ,Entry "{&*}" [t <> ii <> m' <> z']
-  ,Entry "{^*^}" [s <> t <> r <> fvs' <> b' <> g']
-  ,Entry "{^}^{^}" [x <> p']
-  ,Entry "{^}#{^}" [h <> a <> sh' <> star]
-  ,Entry "|"      [p <> ii <> p' <> star]
   ]
+
 
 punctuation =
   let equal = k <> w <> l
+      shun = g' <> s'
+      ren = r <> e <> n'
+
+     -- Basic punctuation
   in [Entry "{,}" [stk L.K <> stk L.W <> stk R.B <> stk R.G]
      ,Entry "{.}" [stk L.T <> stk L.P <> stk R.P <> stk R.L]
-     ,Entry "{^.^}" [p <> p']
+
      ,Entry "{!}" [stk L.K <> stk L.W <> stk R.P <> stk R.L]
      ,Entry "{?}" [stk L.T <> stk L.P <> stk R.B <> stk R.G]
-     ,Entry "{~|\\\"^}" [stk L.K <> stk L.W <> stk R.G <> stk R.S]
-     ,Entry "{^~|\\\"}" [stk L.K <> stk L.R <> stk R.G <> stk R.S]
-     ,Entry "{~|\'^}"   [stk L.S <> stk L.W <> stk R.G <> stk R.S]
-     ,Entry "{^~|\'}"   [stk L.S <> stk L.R <> stk R.G <> stk R.S]
-     ,Entry "{~|(^}"    [stk L.P <> stk L.R <> stk E <> stk R.P <> stk R.B]
-     ,Entry "{^~|)}"    [stk L.P <> stk L.R <> stk E <> stk R.P <> stk R.B <> stk R.T]
-     ,Entry "{~|\\\\{^}" [stk L.K <> stk L.R <> stk E <> stk R.P <> stk R.B]
-     ,Entry "{^~|\\\\}}" [stk L.K <> stk L.R <> stk E <> stk R.P <> stk R.B <> stk R.T]
-     ,Entry "{~|[^}" [stk L.S <> stk L.R <> stk E <> stk R.P <> stk R.B]
-     ,Entry "{^~|]}" [stk L.S <> stk L.R <> stk E <> stk R.P <> stk R.B <> stk R.T]
-     ,Entry "{^-^}"  [stk L.H <> stk R.R]
-     ,Entry "{^--^}" [stk L.H <> stk R.R <> stk R.B]
+
+     -- Attached punctuation, for code and .com & etc.
+     ,Entry "{^,^}" [w <> b']
+     ,Entry "{^.^}" [p <> p']
+     
+
+     -- Surrounding characters
+     -- Quotes
+     -- "kwotashun" - w opens, r closes. Comes from plover
+     ,Entry "{~|\\\"^}" [k <> w <> shun] -- Kwotes
+     ,Entry "{^~|\\\"}" [k <> r <> shun]
+     ,Entry "{~|\'^}"   [s <> w <> shun] -- Single quotes
+     ,Entry "{^~|\'}"   [s <> r <> shun]
+     ,Entry "{~|`^}"    [b <> shun]      -- Backticks
+     ,Entry "{^~|`}"    [b <> r <> shun]
+
+     -- Brackets
+     ,Entry "{~|(^}"     [p <> ren]            -- Parens
+     ,Entry "{^~|)}"     [p <> ren <> stk R.T]
+     ,Entry "{~|\\\\{^}" [k <> ren]            -- Kurly brackets
+     ,Entry "{^~|\\\\}}" [k <> ren <> stk R.T]
+     ,Entry "{~|[^}"     [s <> ren]            -- Square brackets
+     ,Entry "{^~|]}"     [s <> ren <> stk R.T]
+     ,Entry "<{^}"       [w <> a <> k']        -- [[http://www.tnellen.com/cybereng/asciipoemcodes][waka waka]]
+     ,Entry "{^}>"       [w <> a <> k' <> t']
+
+     -- Horizontal lines
+     ,Entry "{^-^}"  [h <> r']       -- Horizontal rule
+     ,Entry "{^--^}" [h <> r' <> b'] -- HR + a right hand finger to widen it
      ,Entry "{^_^}"  [s <> k <> r']
+     
      ,Entry "="      [equal]
-     ,Entry "{^=^}"  [equal <> stk R.S]
      ,Entry "=="     [equal, equal]
-     ,Entry "<{^}"   [w <> a <> k']
-     ,Entry "{^}>"   [w <> a <> k' <> t']
-     ,Entry "{^~^}"  [t <> l <> d']
+     
+     ,Entry "~"      [t <> l <> d']
+     ,Entry "{^}#"   [h <> a <> sh' <> star]
+
+     -- The whole top row
      ,Entry ":"      [s <> t <> p <> h <> fvs' <> p' <> l' <> t']
-     ,Entry ";"      [s <> t <> p <> h <> fvs' <> p' <> l']
-     ,Entry "$"      [d' <> hash]
-     ,Entry "&"      [m <> p' <> star]
+     ,Entry "::"     [s <> t <> p <> h <> fvs' <> p' <> l' <> t', s <> t <> p <> h <> fvs' <> p' <> l' <> t']
+     ,Entry ";"      [s <> t <> p <> h <> fvs' <> p' <> l'] -- Minus t'
+     ,Entry ";;"      [s <> t <> p <> h <> fvs' <> p' <> l', s <> t <> p <> h <> fvs' <> p' <> l'] 
+     
+     ,Entry "$"       [d' <> hash]
+     ,Entry "%"       [p <> fvs' <> t']
+     ,Entry "{^}@{^}" [a <> t' <> star]
+
+     ,Entry "&"      [m <> p']
+     ,Entry "&&"     [m <> p', m <> p']
+     
+     ,Entry "*"      [s <> t <> r]
+     ,Entry "**"     [s <> t <> r, s <> t <> r]
+     
+     ,Entry "|"      [p <> ii <> p' <> star]
+     ,Entry "||"     [p <> ii <> p' <> star, p <> ii <> p' <> star]
+
+     ,Entry "^"      [u <> p' <> star]
+     ,Entry "^^"     [u <> p' <> star, u <> p' <> star]
+
+     ,Entry "{^/^}"    [stk O <> e <> u]
+     ,Entry "{^\\\\^}" [s <> l <> a]
      ]
