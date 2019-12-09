@@ -572,6 +572,7 @@ primaryDictionary =
                     [contractS]
   ,entry  "false"   [f.aw.l'.s']
   ,noun   "fang"    [f.aa.ng']
+  ,verb   "fap"     [f.a.p']
   ,entry  "fat"     [f.a.t']
   ,noun   "fee"     [fee]
   ,entry  "feeble"  [fee.bl']
