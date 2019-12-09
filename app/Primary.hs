@@ -164,6 +164,7 @@ primaryDictionary =
   ,entry  "ask"       [a.fvs'.k']
   ,entry  "assignment" ("sign" +: m.nt')
   ,entry  "at"        [a.t']
+  ,verb   "attach"    [t.a.ch']
   ,entry  "available" [v.aa.l', bl']
 --  ,entry  "available" [v.aa.b'.l']   -- Potential brief
   ,nvpair "average"   [a.fvs'.r'.g']
@@ -214,6 +215,7 @@ primaryDictionary =
   ,entry  "begun"     (b ^: "gun") -- irregular past-participle of "begin"
   ,entry  "beige"     [b.aa.zh']
   ,noun   "being"     [b.ee.ng']
+  ,verb   "believe"   (b ^: "leave")
   ,gverb  "belong"    [b, l.o.ng']
   ,entry  "bento"     [b.i.n', t.oe]
   ,entry  "best"      [b.e.st']
@@ -231,6 +233,7 @@ primaryDictionary =
   ,entry  "blithe"    [b.l.ii.dh']
   ,entry  "blush"     [b.l.u.sh']
   ,nvpair "board"     [b.o.r'.d'.star]
+  ,nvpair "boat"      [b.oe.t']
   ,nvpair "book"      [b.oo.k']
   ,nvpair "body"      [b.o.d', ee]
   ,nvpair "bomb"      [b.aw.m', b']
@@ -311,12 +314,13 @@ primaryDictionary =
   ,nvpair "cement"    [s.m.e.n'.t']
   ,entry  "census"    [s.e.n', s.s']
   ,noun   "cert"      [cert]
-  ,noun   "certification" [cert, f.k', aa.sh'.n']
+  ,noun   "certification" [cert, f, k.aa.sh'.n']
   ,entry  "chaff"     [ch.a.fvs']
   ,entry  "chance"    [ch.a.n'.s']
   ,entry  "change"    [ch.aa.n'.g']
   ,noun   "channel"   [ch.a.n'.l']
   ,nvpair "chant"     [ch.a.n'.t']
+  ,pnoun  "Charles"   [ch.aw.r'.l'.s']
   ,nvpair "charm"     [ch.a.r'.m']
   ,nvpair "chart"     [ch.a.r'.t']
   ,noun   "chasm"     [k.a.fvs'.m']
@@ -400,6 +404,7 @@ primaryDictionary =
   ,entry  "crutch"  [cr.u.ch']
   ,entry  "cry"     [cr.ii]
   ,noun   "crystal" [k.r.i.fvs'.t'.l']
+  ,entry  "CS"      [c.s']
   ,noun   "cub"     [k.u.b']
   ,noun   "cube"    [k, y.ew.b']
   ,entry  "cuff"    [k.u.fvs']
@@ -788,6 +793,7 @@ primaryDictionary =
   ,entry  "jest"    [j.e.st']
   ,entry  "jets"    [j.e.t'.s']
   ,entry  "job"     [j.o.b']
+  ,pnoun  "John"    [j.aw.n']
   ,entry  "join"    [j.oi.n']
   ,entry  "jostle"  [j.o.fvs'.l']
   ,entry  "journal" [j.er.n'.l']
@@ -829,14 +835,15 @@ primaryDictionary =
           [ed]
   ,entryS "leader"   [lee.d', r']
           [plural]
-  ,entryS "learn"    [l.er.n']
-          [ed]
-  ,entryS "lease"    [lee.s']
-          [ed]
+  ,noun   "leaf"     [l.ee'.fvs']
+  ,verb   "learn"    [l.er.n']
+  ,nvpair "lease"    [lee.s']
   ,entry  "least"    [lee.st']
+  ,entry  "leave"    [lee.fvs']
   ,entry  "lee"      [lee]
   ,entry  "leech"    [lee.ch']
   ,entry  "lend"     [l.e.nd']
+  ,pnoun  "Lenore"   [l, n.oe.r']
   ,entry  "less"     [l.e.s']
   ,entry  "let"      [l.e.t']
   ,entry  "letter"   [l.e.t', r']
@@ -894,6 +901,8 @@ primaryDictionary =
   ,entry  "math"      [ma.th']
   ,entry  "matter"    [ma.t', r']
   ,entry  "may"       [may]
+  ,entry  "MCSA"      (m : "CS" +: a)
+  ,entry  "MCSD"      (m : "CS" +: d)
   ,entry  "me"        [mee]
   ,entry  "men"       [m.e.n']     -- irregular plural form of "man"
   ,entry  "meal"      [mee.l']
@@ -1060,6 +1069,7 @@ primaryDictionary =
   ,entry  "plunge"   [p.l.u.n', j']
   ,entry  "plural"   [p.l.oo.r'.l']
   ,entry  "plush"    [p.l.u.sh']
+  ,entry  "ply"      [p.l.ii]
   ,entry  "pod"      [p.aw.d']
   ,entry  "Poe"      [p.oe]
   ,entry  "pole"     [p.oe, l']
@@ -1121,7 +1131,8 @@ primaryDictionary =
   [entry  "quack"    [q.a.k']
   ,entry  "quake"    [q.aa.k']
   ,entry  "qual"     [qual]
-  ,entry  "quality"  [qual.ty']
+  ,verb   "qualify"  ("qual" +: f.ii)
+  ,pnoun  "quality"  [qual.ty']
   ,entryS "qualm"    [qual, m']
           [plural]
   ,entry  "queen"    [q.ee.n']
@@ -1166,6 +1177,7 @@ primaryDictionary =
   ,verb   "remember" (r ^: "member")
   ,entry  "renew"   [r, n.ew]
   ,entry  "renewal" [r, n.ew.l']
+  ,verb   "reply"   (r ^: "ply")
   ,verb   "require" [r.ee, k.w.ii.r']
   ,noun   "requirement" ("require" +: m.nt')
   ,verb   "retch"   [r.e.ch']
@@ -1313,6 +1325,7 @@ primaryDictionary =
   ,entry  "smuggle"  [s.m.u.g', l']
   ,entry  "smush"    [s.m.oo.sh']
   ,entry  "snide"    [s.n.ii.d']
+  ,entry  "special"  [s.p.e.sh'.l']
   ,noun   "specific" [s.p, s.i.fvs'.k']
   ,noun_  "split"    [s.p.l.i.t']
           [ing]

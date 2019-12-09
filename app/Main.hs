@@ -29,6 +29,8 @@ numberEntries = hundreds hundredsModifier
 
 tinyModifications = reverses (addVowel E)
 
+
+-- THis needs massive improvement
 specialKeyEntries =
   let specialLeft = (Entry "Left" [leftArrow <> stk Hash] :)
                   $ home : end : tail arrows
@@ -37,7 +39,7 @@ specialKeyEntries =
   in controlKeys controlModifier control cKeys
   ++ controlKeys (shiftModifier . controlModifier)
                  (shift . control)
-                 cKeys
+                 (cKeys ++ specialLeft)
   ++ controlKeys altModifier alt (fSlash : tab : alphabet)
   ++ controlKeys (shiftModifier . altModifier) (shift . alt) [tab]
   ++ controlKeys superModifier super (tab : space : alphabet)
@@ -45,11 +47,8 @@ specialKeyEntries =
   ++ controlKeys (shiftModifier . superModifier)
                  (shift . super)
                  (space : tab : enter : alphabet)
-  ++ controlKeys shiftModifier shift specialLeft
+  ++ controlKeys shiftModifier shift (tab : specialLeft)
   ++ controlKeys controlModifier control arrows
-  ++ controlKeys (shiftModifier . controlModifier)
-                 (shift . control)
-                 specialLeft
   ++ controlKeys fingerspellingModifier id arrows
   ++ controlKeys fingerspellingModifier id specialKeys
 
