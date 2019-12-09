@@ -487,6 +487,8 @@ primaryDictionary =
   ,entry  "ditch"   [d.i.ch']
   ,entry  "do"      [d.ew]
   ,entry  "doable" ("do" +: bl')
+  ,noun   "dog"     [d.aw.g']
+  ,entry  "dogged"  ("dog" + d')
   ,entry  "don't"   [d.oe.n'.t']
   ,entry  "does"    [d.u.z']
   ,entry  "doesn't" [d.u.z', n'.t']

@@ -19,9 +19,22 @@ plover =
 --  ,entry "" [stk R.Z <> stk Hash]
   ,entry "{^}{-|}" [k <> p <> a]
   ,entry "{}{-|}"  [k <> p <> a <> star]
-  ,entry "{^ ^}"   [stk L.S <> stk R.P]
+  ,entry "{^ ^}"   [stk L.S <> stk R.P] -- This is also in control keys
   ,entry "{}{^}"   [stk L.S <> stk R.D]
   ,entry "{^}"     [t <> k <> l' <> s']
+
+  -- Modes
+  ,entry "{MODE:CAPS}" [k <> a <> fvs' <> star]
+  ,entry "{MODE:TITLE}" [t <> ii <> fvs' <> star]
+  ,entry "{MODE:LOWER}" [l <> oe <> fvs' <> star]
+
+  -- These three need special space handling, I think
+  ,entry "{^ ^}{MODE:CAMEL}" [k <> m <> fvs' <> star]
+  ,entry "{^ ^}{MODE:SNAKE}" [s <> n <> fvs' <> star]
+  ,entry "{^ ^}{MODE:SNAKE}{MODE:CAPS}" [s <> n <> a <> fvs' <> star]
+
+  ,entry "{MODE:RESET}" [r <> ee <> fvs' <> star]
+
 
   -- Enable/disable
   ,entry "{}"      [nable]
