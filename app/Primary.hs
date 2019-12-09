@@ -83,8 +83,7 @@ primaryDictionary =
   ,entry "{^}\\n\\n{^}{-|}" [w.r.r'.b']] <>
 
   -- a section
-  let after = stks [a, fvs', t', r']
-      agree = g.r.ee
+  let agree = g.r.ee
       any   = n.ee
       ntenn = [n, t.e.n']
   in entries
@@ -104,8 +103,9 @@ primaryDictionary =
   ,entry  "aero"      ("air" +: oe)
   ,entry  "aeronautical" ("air" ++ "nautical")
   ,entry  "aerospace" ("air" ++ "space")
-  ,entry  "after"     [after]
-  ,noun   "afternoon" (after ^: "noon")
+  ,entry  "aft"       [a.fvs'.t']
+  ,entry  "after"     ("aft" +: r')
+  ,noun   "afternoon" ("after" ++ "noon")
   ,entry  "against"   [g.e.n'.s'.t']
   ,verb   "agree"     [agree]
   ,noun   "agreement" [agree, m.n'.t']
@@ -127,6 +127,7 @@ primaryDictionary =
   ,entryS "alumnus"   [l.u.m', n.s']   -- Irregular noun, alumnus/alumni
           [finalApostrophe]
   ,entry  "always"    ("all" ++ "way{^s}")
+  ,entry  "am"        [a.m']
   ,entry  "among"     [m.u.ng']
   ,nvpair "amount"    [m, ow.n'.t'] -- m',?
   ,entry  "an"        [a.n']
@@ -353,7 +354,7 @@ primaryDictionary =
   ,nvpair "code"      [k.oe.d']
   ,nvpair "cog"       [k.o.g']
   ,nvpair "coil"      [k.oi.l']
-  ,entryS "come"      [k.o.m']    -- irregular verb come/came/come
+  ,entryS "come"      [k.u.m']    -- irregular verb come/came/come
           [ing]
   ,verb   "commend"   [k.m.e.n'.d']
   ,nvpair "commit"    [k.m.i.t']
@@ -434,10 +435,10 @@ primaryDictionary =
   ,entryS "day"       [day]
           [plural]
   ,entry  "deaf"      [d.e.fvs'.star]
-  ,noun   "dear"      [d.ee'.r']
+  ,noun   "dear"      [d.ee.r']
   ,entry  "death"     [d.e.th']
   ,entry  "debt"      [d.e.t']
-  ,entryS "deer"      [d.ee.r'] -- Irregular noun deer/deer
+  ,entryS "deer"      [d.ee'.r'] -- Irregular noun deer/deer
           [contractS]
   ,entry  "deers'"    ("deer" +: z')
   ,entry  "deference" [d.e.fvs'.r'.n'.s']
@@ -750,6 +751,8 @@ primaryDictionary =
   ,entry  "hug" [h.u.g']
   ,entry  "hull" [h.u.l']
   ,entry  "hunt" [h.u.n'.t']
+  ,entryS "hurt" [h.er.t']
+          [plural, ing]
   ,entry  "hush" [h.u.sh']
   ,entry  "hut" [h.u.t']
   ,entry  "hutch" [h.u.ch']] <>
@@ -1002,6 +1005,8 @@ primaryDictionary =
   ,entry  "opinion"   [p.i.n', y.n']
   ,entry  "or"        [o.r']
   ,entry  "orange"    [aw.r', n.j']
+  ,entry  "Ord"       [o.r'.d']
+  ,entry  "order"     [o.r', d.r']
   ,entryS "ordinary"  [o.r'.d', n.e.ry']
                       [ly]
   ,entryS "other"     [u.r'] [plural]
@@ -1066,6 +1071,7 @@ primaryDictionary =
   ,entry  "Pinyin"   [p.i.n', y.i.n']
   ,entry  "pipe"     [p.ii.p']
   ,entry  "place"    [p.l.aa.s']
+  ,entry  "please"   [p.l.ee.z']
   ,entry  "plumb"    [p.l.u.m']
   ,entry  "plunge"   [p.l.u.n', j']
   ,entry  "plural"   [p.l.oo.r'.l']
@@ -1246,6 +1252,7 @@ primaryDictionary =
   ,entry  "sat"      [s.a.t']
   ,entry  "Saul"     [s.aw.l']
   ,verb   "saw"      [s.aw]       -- irregular past form  of "see"
+  ,entry  "say"      [s.aa]
   ,entry  "says"     [s.e.z']
   ,entry  "scaffold" [s.k.a.fvs'.l'.d']
   ,entry  "scald"    [s.aw.l'.d']
@@ -1273,7 +1280,10 @@ primaryDictionary =
   ,entry  "seize"    ("see" + z')
   ,entry  "sell"     [s.e.l']
   ,noun   "semester" [s, m.e.st', r']
+  ,entryS "send"     [s.e.n'.d']
+          [plural, ing]
   ,nvpair "sense"    [s.e.n'.s']
+  ,entry  "sent"     [s.e.n'.t']
   ,entry  "serum"    [see.r'.m']
   ,entry  "set"      [s.e.t']
   ,entry  "several"  [s.e.fvs'.r'.l']
@@ -1476,6 +1486,7 @@ primaryDictionary =
   ,entry  "up"       [up]
   ,entry  "upcoming" (up ^: "come{^ing}")
   ,entry  "update"   ("up" ++ "date")
+  ,entry  "us"       [u.s']
   ,verb   "use"      [y.ew.z']
   ,noun   "use"      [y.ew.s']] <>
 
@@ -1511,11 +1522,11 @@ primaryDictionary =
   ,entry  "well"    [w.e.l']
   ,nvpair "welcome" ("well" ++ "come")
   ,entry  "were"    [w.er]
-  ,entry  "what"    [w.u.t']
-  ,entry  "where"   [w.e.r']
-  ,entry  "when"    [w.e.n']
-  ,entry  "which"   [w.i.ch']
-  ,entry  "while"   [w.ii.l']
+  ,entry  "what"    [wh.u.t']
+  ,entry  "where"   [wh.e.r']
+  ,entry  "when"    [wh.e.n']
+  ,entry  "which"   [wh.i.ch']
+  ,entry  "while"   [wh.ii.l']
   ,entry  "white"   [wh.ii.t']
   ,nvpair "whiteboard" ("white" ++ "board")
   ,entry  "who"     [h.ew]
@@ -1524,7 +1535,7 @@ primaryDictionary =
   ,entry  "wight"   [w.ii.t']
   ,entry  "will"    [w.i.l']
   ,entry  "wise"    [w.ii.z']
-  ,noun   "witch"   [w.i, ch']
+  ,noun   "witch"   [w.i.ch']
   ,entry  "with"    [w.i.dh']
   ,entry  "without" ("with" ++ "out")
   ,noun   "wood"    [w.oo, d']
@@ -1553,7 +1564,7 @@ primaryDictionary =
   ,noun   "year" [y.ee.r']
   ,entry  "yes"  [y.e.s']
   ,entry  "you"  [y.ew]
-  ,entry  "your" [y.o.r']] <>
+  ,pnoun  "your" [y.o.r']] <>
 
   -- z section
   entries
