@@ -183,6 +183,7 @@ primaryDictionary =
           [contractS]
   ,entryS "bacillus"  [b, s.i.l', s'] -- Irregular noun, bacillus/bacilli
           [contractS]
+  ,verb   "back"      [b.a.k']
   ,entryS "bacteria"  [b.k', t.ee.r']     -- Irregular noun, bacteria/bacterium
           [contractS]
   ,entryS "bacterium" [b.k', t.ee.r', m'] -- Irregular plural of "bacteria"
@@ -222,6 +223,7 @@ primaryDictionary =
   ,nvpair "birth"     [b.er.th']
   ,entryS "bison"     ("buy" ++ "son") -- Irregular noun, bison/bison
           [contractS]
+  ,noun   "bit"       [b.i.t']
   ,noun   "bitch"     [b.i.ch']
   ,verb   "blame"     [b.l.aa.m']
   ,verb   "bleach"    [b.l.ee.ch']
@@ -358,6 +360,7 @@ primaryDictionary =
   ,noun   "contract"  [con, t.r.a.k'.t']
   ,verb   "contract"  [k.n', t.r.a.k'.t']
   ,nvpair "cock"      [k.aw.k']
+  ,noun   "coffee"    ("cough" +: ee)
   ,entry  "coke"      [k.oe.k']
   ,entry  "cop"       [k.o.p']
   ,entry  "cope"      [k.oe.p']
@@ -371,6 +374,7 @@ primaryDictionary =
   ,verb   "correct" [k.r', e.k'.t']
   ,verb   "corrupt" [k.r, u.p'.t']
   ,entry  "cot"     [c.o.t']
+  ,verb   "cough"   [k.o.fvs']
   ,entry  "could"   [k.oo.d']
   ,noun   "course"  [k.o.r', s']
   ,entry  "cover"   [k.o.fvs'.r']
@@ -474,6 +478,7 @@ primaryDictionary =
   ,entry  "did"     [d.i.d']
   ,entry  "ditch"   [d.i.ch']
   ,entry  "do"      [d.ew]
+  ,entry  "doable" ("do" +: bl')
   ,entry  "don't"   [d.oe.n'.t']
   ,entry  "does"    [d.u.z']
   ,entry  "doesn't" [d.u.z', n'.t']
@@ -511,6 +516,7 @@ primaryDictionary =
   ,nvpair "edit"      [e.d',t']
   ,noun   "eel"       [ee.l']
   ,noun   "effort"    [f.r'.t']
+  ,entry  "eh"        [e]
   ,entryS "elf"       [e.l', fvs']   -- irregular noun elf/elves
           [contractS]
   ,entryS "elves"     ("elf" + s') -- irregular plural form of "elf"
@@ -584,7 +590,10 @@ primaryDictionary =
   ,entry  "flash"   [f.l.a.sh']
   ,entry  "flaunt" [f.l.aw.n'.t']
   ,entry  "flesh" [f.l.e.sh']
+  ,entry  "flip"    [f.l.i.p']
+  ,entry  "flip-flop" ("flip" ++ "flop")
   ,entry  "float"   [f.l.oe.t']
+  ,verb   "flop"    [f.l.o.p']
   ,entry  "flung" [f.l.u.ng']
   ,entry  "flush" [f.l.u.sh']
   ,entryS "focus"   ("folk" +: s')     -- irregular noun focus/focuses
@@ -601,6 +610,7 @@ primaryDictionary =
   ,entry  "formula"  ("form" +: y.l')
   ,entry  "formulas" ("formula" + s')
   ,entry  "found"    [f.ow.n'.d']  -- irregular plural form of "find"
+  ,entry  "FPGA"    [f.p', g.a]
   ,entry  "free"    [f.r.ee]
   ,entry  "fresh"   [f.r.e.sh']
   ,noun_  "friend"  [f.r.e.n'.d']
@@ -650,6 +660,7 @@ primaryDictionary =
   ,entry  "gosh"      [g.o.sh']
   ,entry  "got"       [g.o.t']
   ,entry  "gotten"    ("got" +: n')
+  ,entry  "grad"      [g.r.a.d']
   ,nvpair "grade"     ("grey" + d')
   ,noun   "grail"     ("grey" + l')
   ,noun   "gram"      [g.r.a.m']
@@ -698,6 +709,7 @@ primaryDictionary =
   ,entry  "hear"        [h.ee'.r']    -- irregular verb, hear/heard/heard
   ,nvpair "heat"        [h.ee.t']
   ,nvpair "heel"        [h.ee'.l']
+  ,entry  "heh"         [h.e]
   ,noun   "height"      [h.ii.t']
   ,noun   "hell"        [h.e.l']
   ,entry  "her"         [h.er]
@@ -747,7 +759,9 @@ primaryDictionary =
   ,entry  "if"        [i.fvs']
   ,entry  "ill"       [i.l']
   ,entry  "in"        [n]
-  ,entryS "include"   [n, k.l.ew.d'] [ed, ing, plural]
+  ,verb   "include"   [n, k.l.ew.d']
+  ,entry  "index"     [n, d.e.x']
+  ,entry  "indices"   ("index" +: s')
   ,entry  "info"        [n, f.oe]
   ,entry  "information" [n.fvs'.r', m.aa.sh'.n']
   ,entry  "inhibit"   [n, h.i.b'.t']
@@ -805,6 +819,8 @@ primaryDictionary =
   in entries
   [entry  "lab"      [l.a.b']
   ,entry  "lace"     [l.aa.s']
+  ,entry  "lap"      [l.a.p']
+  ,entry  "laptop"   ("lap" ++ "top")
   ,entry  "lash"     [l.a.sh']
   ,entry  "latch"    [l.a.ch']
   ,entryS "lead"     [lee.d']
@@ -841,9 +857,12 @@ primaryDictionary =
   ,entryS "log"      [l.aw.g']
           [plural]
   ,entry  "loin"     [l.oi.n']
+  ,entry  "lot"      [l.o.t']
   ,entry  "ls"       [l.s']
   ,entry  "luck"     [l.u.k']
   ,entry  "lucky"    ("luck" + ee)
+  ,nvpair "lug"      [l.u.g']
+  ,noun   "luggable" ("lug" +: bl')
   ,entry  "lung"     [l.u.ng']
   ,entry  "lust"     [l.u.st']] <>
 
@@ -861,10 +880,12 @@ primaryDictionary =
   ,entry  "main"      [may.n']
   ,entry  "Maine"     [may, n']
   ,entry  "maintain"  [may.n', t.aa.n']
+  ,entry  "make"      [m.aa.k']
   ,entry  "male"      [may, l']
   ,entry  "mallet"    [ma.l'.t']
   ,entry  "malt"      [m.aw.l'.t']
   ,entry  "man"       [m.a.n']     -- irregular noun man/men
+  ,entry  "managed"   ("man" +: j.d')
   ,entry  "many"      [m.e, n'.ee]
   ,entry  "mash"      [ma.sh']
   ,entry  "mat"       [ma.t']
@@ -876,8 +897,13 @@ primaryDictionary =
   ,entry  "me"        [mee]
   ,entry  "men"       [m.e.n']     -- irregular plural form of "man"
   ,entry  "meal"      [mee.l']
+  ,noun_  "mean"      [m.ee.n']
+          [ing]
   ,entry  "meant"     [m.e.n'.t']
   ,entryS "meet"      [mee.t'] [ing]
+  ,entry  "mem"       [m.e.m']
+  ,noun   "member"    ("mem" +: b.r')
+  ,noun   "memory"    ("mem" +: ry')
   ,entry  "merge"     [m.er.j']
   ,entry  "mesh"      [m.e.sh']
   ,entry  "meth"      [m.e.th']
@@ -889,7 +915,9 @@ primaryDictionary =
   ,noun   "min"       [m.i.n']
   ,entry  "mint"      ("min" + t')
   ,noun   "minute"    ("min" +: t')
+  ,noun   "moat"      [m.oe.t']
   ,entry  "mod"       [m.o.d']
+  ,entry  "modern"    ("mod" +: r.n')
   ,entry  "modify"    ("mod" +: f.ii)
   ,entry  "modifier"  ("mod" +: f.ii.r')
   ,entry  "mom"       [m.o.m']
@@ -902,10 +930,13 @@ primaryDictionary =
   ,entryS "mount"     [m.ow.n'.t']
           [plural]
   ,entry  "most"      [m.oe.st']
+  ,noun   "mote"      ("moat" + star)
+  ,nvpair "motor"     ("moat" +: r')
   ,entry  "move"      [m.ew.fvs']
   ,entry  "MS"        [m, s]
   ,entry  "much"      [m.u.ch']
   ,entry  "muffle"    [m.u.fvs'.l']
+  ,noun   "music"     [m.ew.fvs'.k']
   ,entry  "must"      [m.u.st']
   ,entry  "my"        [m.ii]] <>
 
@@ -920,6 +951,7 @@ primaryDictionary =
   ,entry  "naught" ("not" + star)
   ,entry  "nautical" ("not" +: k.l')
   ,entry  "neck"   [n.e.k']
+  ,entry  "need"   [n.ee.d']
   ,entry  "nerd"   [n.er.d']
   ,entry  "nest"   [nest]
   ,entry  "nestle" [nest, l']
@@ -951,6 +983,7 @@ primaryDictionary =
   ,entry  "occur"     [k.er]
   ,entry  "ode"       [oe.d']
   ,entry  "of"        [u.fvs']
+  ,entry  "oh"        [oe]
   ,entryS "oil"       [oi.l']
                       [ing, ed]
   ,entry  "okay"      [oe.k']
@@ -985,7 +1018,10 @@ primaryDictionary =
   ,entry  "pan"      [pa.n']
   ,verb   "panel"    [pa.n'.l']
   ,noun   "paper"    ("pay" +: per)
+  ,entry  "par"      [p.a.r']
+  ,nvpair "parallel" ("pair" +: l.e.l')
   ,entry  "parent"   [p.e.r', n'.t']
+  ,entry  "parlance" ("par" +: l.n'.s')
   ,entry  "part"     [p.a.r'.t']
   ,entryS "pass"     [pa.s']
           [ed, ing]
@@ -1011,6 +1047,7 @@ primaryDictionary =
   ,entry  "per"      [per]
   ,entry  "percent"  [per, s.e.n'.t']
   ,entry  "perfect"  [per, f.e.k'.t']
+  ,entry  "perhaps"  [per, h.a.p'.s']
   ,entry  "pet"      [p.e.t']
   ,entry  "phrase"   [f.r.aa.z']
   ,entry  "piece"    [pee.s']
@@ -1126,6 +1163,7 @@ primaryDictionary =
   ,entry  "reed" [r.ee'.d']
   ,entry  "reel" [r.ee'.l']
   ,entry  "refer" [r, f.er]
+  ,verb   "remember" (r ^: "member")
   ,entry  "renew"   [r, n.ew]
   ,entry  "renewal" [r, n.ew.l']
   ,verb   "require" [r.ee, k.w.ii.r']
@@ -1198,6 +1236,7 @@ primaryDictionary =
   ,entry  "says"     [s.e.z']
   ,entry  "scaffold" [s.k.a.fvs'.l'.d']
   ,entry  "scald"    [s.aw.l'.d']
+  ,nvpair "scale"    [s.k.aa.l']
   ,entry  "scar"     [s.k.a.r']
   ,entry  "scarlet"  ("scar" + l'.t')
   ,entry  "school"   [s.k.ew.l']
@@ -1208,6 +1247,8 @@ primaryDictionary =
   ,entryS "scuffle"  [s.k.u.fvs'.l'] [ed]
   ,entry  "sea"      [s.ee']
   ,entry  "seat"     ("see" + t')
+  ,entry  "sec"      [s.e.k']
+  ,nvpair "second"   ("sec" +: nd')
   ,noun   "secret"   ("see" +: k.r'.t')
   ,verb   "secrete"  [s, k.r.ee.t']
   ,noun   "section"  [s.e.k', sh'.n']
@@ -1219,6 +1260,7 @@ primaryDictionary =
   ,entry  "seize"    ("see" + z')
   ,entry  "sell"     [s.e.l']
   ,noun   "semester" [s, m.e.st', r']
+  ,nvpair "sense"    [s.e.n'.s']
   ,entry  "serum"    [see.r'.m']
   ,entry  "set"      [s.e.t']
   ,entry  "several"  [s.e.fvs'.r'.l']
@@ -1246,7 +1288,11 @@ primaryDictionary =
   ,entry  "shush"    [sh.u.sh']
   ,nvpair "sight"    ("site" + star)
   ,entry  "sign"     [s.ii.n']
+  ,entry  "sill"     [s.i.l']
+  ,entry  "silly"    ("sill" +: ee)
   ,entry  "sin"      [s.i.n']
+  ,entry  "since"    ("sin" + s')
+  ,entry  "sins"     ("sin" +: s')
   ,entry  "sip"      [s.i.p']
   ,entry  "sir"      [s.i.r']
   ,entry  "sis"      [s.i.s']
@@ -1324,6 +1370,8 @@ primaryDictionary =
           [plural]
   ,noun   "statistics" [s.t.a, t.i.s', t.i.x']
   ,entry  "status"     [s.t.a, t.s']
+  ,nvpair "step"       [s.t.e.p']
+  ,entry  "stepper"    ("step" +: r')
   ,nvpair "stew"       [stew]
   ,noun   "steward"    ("stew" + r'.d')
   ,pnoun  "Stewart"    ("stew" +: r'.t')
@@ -1348,6 +1396,7 @@ primaryDictionary =
   ,noun   "sugar"      [s.h.oo.g',r']
   ,noun   "sun"        [s.u.n']
   ,entry  "superb"     [s.p.er.b']
+  ,nvpair "supply"     [s.p.l.ii]
   ,entry  "suppress"   [s.p.r.e.s']
   ,entryS "sure"       [sure]
           [ly]
@@ -1367,7 +1416,8 @@ primaryDictionary =
   ,nvpair "text"    [t.e.x'.t']
   ,entry  "than"    [th.a.n']
   ,verb   "thank"   [thank]
-  ,entry  "that"    [dh.a.t']
+  ,entryS "that"    [dh.a.t']
+          [contractS]
   ,entry  "the"     [dh']
   ,entryS "their"   [dh.e.r']
                     [plural]
@@ -1382,6 +1432,7 @@ primaryDictionary =
   ,entryS "think"   [th.i.n'.k']
           [plural, ing]
   ,entry  "this"    [dh.i.s']
+  ,entry  "though"  [dh.oe]
   ,noun   "thought" [th.aw.t']
   ,entry  "those"   [th.oe.z']
   ,entry  "till"    [t.i.l']
@@ -1391,6 +1442,7 @@ primaryDictionary =
   ,noun   "tit"     [t.i.t']
   ,entry  "titular" [t.i.ch', l.r']
   ,entry  "to"      [t.ew]
+  ,entry  "top"     [t.o.p']
   ,nvpair "trace"   ("tray" + s')
   ,pnoun  "Tracy"   ("tray" ++ "see")
   ,entry  "tray"    [t.r.aa]
@@ -1402,6 +1454,7 @@ primaryDictionary =
   let up = u.p'
   in entries
   [entry  "under"    [u.n', d.r']
+  ,noun   "undergrad" ("under" ++ "grad")
   ,entry  "universal"  ("universe" +: l')
   ,noun   "universe"   [y.ew.n', v.er.s']
   ,noun   "university" ("universe" +: ty')
@@ -1465,6 +1518,7 @@ primaryDictionary =
   ,verb   "wonder"  ("won" +: d.r')
   ,entry  "would"   [w.oo.d']
   ,noun   "world"   [w.er.l'.d']
+  ,verb   "work"    [w.er.k']
   ,entry  "worth"   [w.er.th']
   ,noun   "wren"    [w.r.e.n']
   ,nvpair "wrench"  [w.r.e.n', ch']
