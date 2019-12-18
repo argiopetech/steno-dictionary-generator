@@ -254,6 +254,7 @@ primaryDictionary =
   ,entry  "broaden"   ("broad" +: n')
   ,entry  "broader"   ("broad" +: r')
   ,entry  "broadcast" ("broad" ++ "cast")
+  ,entry  "brown"     [b.r.ow.n']
   ,entry  "bruise"    [br.ew.s']
   ,entry  "brush"     [br.u.sh']
   ,entry  "brutal"    [br.ew.t'.l']
@@ -367,6 +368,7 @@ primaryDictionary =
   ,nvpair "cock"      [k.aw.k']
   ,noun   "coffee"    ("cough" +: ee)
   ,entry  "coke"      [k.oe.k']
+  ,entry  "cool"      [k.ew.l']
   ,entry  "cop"       [k.o.p']
   ,entry  "cope"      [k.oe.p']
   ,entryS "copy"      [k.aw.p'.ee]
