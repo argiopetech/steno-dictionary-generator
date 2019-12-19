@@ -554,6 +554,7 @@ primaryDictionary =
   ,verb   "enable"    (n ^: "able")
   ,verb   "enact"     [n.a.k'.t']
   ,nvpair "end"       [n.d']
+  ,verb   "enjoy"     [n, j.oi]
   ,noun   "entry"     [n, t.r.ee]
   ,pnoun  "ERAU"      [ee, r.ow]
   ,entry  "errata"    [er, r.a.t']     -- irregular noun errata/erratum
@@ -816,6 +817,7 @@ primaryDictionary =
   -- k section
   entries
   [entry  "keg"   [k.e.g']
+  ,nvpair "key"   [k.ee]
   ,nvpair "kid"   [k.i.d']
   ,entry  "kite"  [k.ii.t']
   ,entry  "knack" [n.a.k']
@@ -1032,10 +1034,12 @@ primaryDictionary =
   [entry  "pace"     [pay.s']
   ,entry  "pad"      [pa.d']
   ,entry  "paid"     [pay.d']
+  ,entry  "pain"     [p.aa.n']
   ,entry  "pair"     [pay.r']
   ,entry  "pal"      [pa.l']
   ,entry  "palm"     [p.aw.l', m']
   ,entry  "pan"      [pa.n']
+  ,entry  "pane"     ("pain" + star)
   ,verb   "panel"    [pa.n'.l']
   ,noun   "paper"    ("pay" +: per)
   ,entry  "par"      [p.a.r']
@@ -1112,6 +1116,7 @@ primaryDictionary =
   ,entry  "pretty"   [pr.e.ty']
   ,entry  "pride"    [pr.ii.d']
   ,entry  "priest"   [pr.ee.st']
+  ,noun   "primary"  ("prime" +: ry')
   ,entryS "prime"    [pr.ii.m']
           [ed]
   ,entry  "prize"    [pr.ii.z']
@@ -1540,6 +1545,8 @@ primaryDictionary =
   ,entry  "whose"   ("who" + z')
   ,entry  "wight"   [w.ii.t']
   ,entry  "will"    [w.i.l']
+  ,entry  "win"     [w.i.n']
+  ,entry  "window"  ("win" +: d.oe)
   ,entry  "wise"    [w.ii.z']
   ,noun   "witch"   [w.i.ch']
   ,entry  "with"    [w.i.dh']
@@ -1562,7 +1569,8 @@ primaryDictionary =
 
   -- x section
   entries
-  [entry "x-ray" (x ^: "ray")] <>
+  [entry "XMonad" [x, m.oe, n.a.d']
+  ,entry "x-ray" (x ^: "ray")] <>
 
   -- y section
   entries

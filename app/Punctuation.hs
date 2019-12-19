@@ -11,8 +11,12 @@ import qualified Keys.Right as R
 
 dot = Entry "." [d <> o <> t']
 
-coding =
-  [dot
+coding = entries
+  [[dot]
+  ,entry "wc" [w, c]
+  ,entry "mv" [m <> fvs']
+  ,entry "rm" [r <> m']
+  ,entry "cp" [c <> p']
   ]
 
 
@@ -31,7 +35,7 @@ punctuation =
      -- Attached punctuation, for code and .com & etc.
      ,Entry "{^,^}" [w <> b']
      ,Entry "{^.^}" [p <> p']
-     
+
 
      -- Surrounding characters
      -- Quotes
@@ -57,10 +61,10 @@ punctuation =
      ,Entry "{^-^}"  [h <> r']       -- Horizontal rule
      ,Entry "{^--^}" [h <> r' <> b'] -- HR + a right hand finger to widen it
      ,Entry "{^_^}"  [s <> k <> r']
-     
+
      ,Entry "="      [equal]
      ,Entry "=="     [equal, equal]
-     
+
      ,Entry "~"      [t <> l <> d']
      ,Entry "{^}#"   [h <> a <> sh' <> star]
 
@@ -68,18 +72,18 @@ punctuation =
      ,Entry ":"      [s <> t <> p <> h <> fvs' <> p' <> l' <> t']
      ,Entry "::"     [s <> t <> p <> h <> fvs' <> p' <> l' <> t', s <> t <> p <> h <> fvs' <> p' <> l' <> t']
      ,Entry ";"      [s <> t <> p <> h <> fvs' <> p' <> l'] -- Minus t'
-     ,Entry ";;"      [s <> t <> p <> h <> fvs' <> p' <> l', s <> t <> p <> h <> fvs' <> p' <> l'] 
-     
+     ,Entry ";;"      [s <> t <> p <> h <> fvs' <> p' <> l', s <> t <> p <> h <> fvs' <> p' <> l']
+
      ,Entry "$"       [d' <> hash]
      ,Entry "%"       [p <> fvs' <> t']
      ,Entry "{^}@{^}" [a <> t' <> star]
 
      ,Entry "&"      [m <> p']
      ,Entry "&&"     [m <> p', m <> p']
-     
+
      ,Entry "*"      [s <> t <> r]
      ,Entry "**"     [s <> t <> r, s <> t <> r]
-     
+
      ,Entry "|"      [p <> ii <> p' <> star]
      ,Entry "||"     [p <> ii <> p' <> star, p <> ii <> p' <> star]
 
