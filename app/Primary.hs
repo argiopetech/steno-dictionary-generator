@@ -1090,6 +1090,7 @@ primaryDictionary =
   ,entry  "pool"     [p.ew.l']
   ,entryS "poot"     [p.ew.t']
           [ed]
+  ,verb   "pop"      [p.o.p']
   ,verb   "posit"    ("pause" +: t')
   ,nvpair "position" [p, z.i.sh'.n']
   ,entry  "porridge" [pour, j']
