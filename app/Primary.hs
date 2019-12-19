@@ -723,6 +723,7 @@ primaryDictionary =
   ,entry  "heh"         [h.e]
   ,noun   "height"      [h.ii.t']
   ,noun   "hell"        [h.e.l']
+  ,entry  "hello"       [h, l.oe]
   ,entry  "her"         [h.er]
   ,entry  "here"        [h.ee.r']
   ,nvpair "hermit"      [h.er.m'.t']
