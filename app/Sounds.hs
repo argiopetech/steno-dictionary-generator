@@ -82,7 +82,7 @@ oi = stks [O, E, U]    -- 'oi': oil, toy
 oo = stks [A, O]       -- 'oo': hood, book
 ew = stks [O, U]       -- 'oo' for non-'oo' words: two, originally OU
 
-er = stk U <> stk R.R
+er = stk E <> stk R.R
 
 
 -- Others

@@ -19,7 +19,7 @@ arrows =
 home = Entry "Home" [stk R.P <> stk R.B]
 end = Entry "End" [stk R.L <> stk R.G]
 space = Entry "Space" [stk L.S <> stk L.P]
-enter = Entry "Return" [stk L.R <> stk L.T]
+enter = Entry "Return" [stk L.T <> stk L.R]
 backspace = Entry "Backspace" [stk R.D]
 tab = Entry "Tab" [stk L.T <> stk A]
 

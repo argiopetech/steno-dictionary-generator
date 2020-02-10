@@ -12,6 +12,7 @@ import Punctuation
 import Dictionary
 import Emacs
 import Keys
+import Sounds
 import Steno.Alphabet
 import Steno.Numbers
 import Stroke
@@ -30,19 +31,21 @@ numberEntries = hundreds hundredsModifier
 tinyModifications = reverses (addVowel E)
 
 
--- THis needs massive improvement
+-- This needs massive improvement
 specialKeyEntries =
   let specialLeft = (Entry "Left" [leftArrow <> stk Hash] :)
                   $ home : end : tail arrows
-      fSlash      = Entry "/" [stk O, stk E, stk U]
-      cKeys       = dot : space : tab : fSlash : backspace : alphabet
+      fSlash      = Entry "slash" [stk O, stk E, stk U]
+      bSlash      = Entry "backslash" [s <> l <> a]
+      dawt        = Entry "period"    [d <> o <> t']
+      cKeys       = bSlash : enter : dawt : space : tab : fSlash : backspace : alphabet
   in controlKeys controlModifier control cKeys
   ++ controlKeys (shiftModifier . controlModifier)
                  (shift . control)
                  (cKeys ++ specialLeft)
-  ++ controlKeys altModifier alt (fSlash : tab : alphabet)
-  ++ controlKeys (shiftModifier . altModifier) (shift . alt) [tab]
-  ++ controlKeys superModifier super (tab : space : alphabet)
+  ++ controlKeys altModifier alt (enter : bSlash : fSlash : tab : dawt : alphabet)
+  ++ controlKeys (shiftModifier . altModifier) (shift . alt) (enter : [tab])
+  ++ controlKeys superModifier super (enter : tab : space : alphabet)
   ++ controlKeys controlRModifier controlR (home : alphabet)
   ++ controlKeys (shiftModifier . superModifier)
                  (shift . super)

@@ -88,7 +88,7 @@ primaryDictionary =
       ntenn = [n, t.e.n']
   in entries
   [entry  "a"         [aa]
-  ,pnoun  "Aaron"     [e.r'.n']
+  ,pnoun  "Aaron"     ("air" +: n')
   ,entry  "able"      [aa.bl']
   ,entry  "about"     [b.ow.t']
   ,entry  "ace"       [aa.s']
@@ -359,6 +359,7 @@ primaryDictionary =
           [ing]
   ,verb   "commend"   [k.m.e.n'.d']
   ,nvpair "commit"    [k.m.i.t']
+  ,noun   "computer"  (k.o.m ^: "pewter")
   ,noun   "con"       [con]
   ,nvpair "conflict"  [con, f.l.i.k'.t']
   ,entry  "consensus" ("con" ++ "census")
@@ -512,8 +513,7 @@ primaryDictionary =
   entries
   [entry  "ear"    [ee.r']
   ,entry  "early"  [er.l']
-  ,entry  "earn"   [er.n']
-  ,entry  "earns"  [er.n'.z']
+  ,gverb  "earn"   [er.n']
   ,entry  "earth"  [er.th']
   ,entry  "ease"   [ee.z']
   ,entry  "easy"   [ee.z', ee]
@@ -636,7 +636,8 @@ primaryDictionary =
   ,entry  "full"    [f.oo.l']
   ,entry  "fun"     [f.u.n']
   ,entry  "fungii"  ("fun" +: j.ee) -- irregular plural form of "fungus"
-  ,entry  "fungus"  ("fun" +: g.s')] <> -- irregular noun fungus/fungii
+  ,entry  "fungus"  ("fun" +: g.s') -- irregular noun fungus/fungii
+  ,noun   "fur"     [f.er]] <>
 
   -- g section
   entries
@@ -1073,6 +1074,7 @@ primaryDictionary =
   ,entry  "perfect"  [per, f.e.k'.t']
   ,entry  "perhaps"  [per, h.a.p'.s']
   ,entry  "pet"      [p.e.t']
+  ,entry  "pewter"   [p.ew, t.r']
   ,entry  "phrase"   [f.r.aa.z']
   ,entry  "piece"    [pee.s']
   ,entry  "pig"      [p.i.g']
@@ -1480,6 +1482,7 @@ primaryDictionary =
   ,entry  "top"     [t.o.p']
   ,nvpair "trace"   ("tray" + s')
   ,pnoun  "Tracy"   ("tray" ++ "see")
+  ,verb   "track"   [t.r.a.k']
   ,entry  "tray"    [t.r.aa]
   ,entry  "true"    [t.r.ew]
   ,nvpair "twitch"  [t.w.i.ch']
@@ -1497,6 +1500,7 @@ primaryDictionary =
   ,entry  "up"       [up]
   ,entry  "upcoming" (up ^: "come{^ing}")
   ,entry  "update"   ("up" ++ "date")
+  ,entry  "urn"      [u.r'.n']
   ,entry  "us"       [u.s']
   ,verb   "use"      [y.ew.z']
   ,noun   "use"      [y.ew.s']] <>
